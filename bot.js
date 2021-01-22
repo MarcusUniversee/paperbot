@@ -43,20 +43,9 @@ client.on('message', async message => {
     console.error(error)
   }
 
-  if(command.toLowerCase() === 'takeblanks') {
-    console.log(message.author.tag + ' takeblanks');
-    if(message.member.hasPermission('ADMINISTRATOR')) {
-      var profile = await eco.SubtractFromBalance(message.mentions.users.first().id, args[2])
-      message.reply(`${message.mentions.users.first().tag} now own ${profile.newbalance} blanks.`);
-      return;
-    } else {
-      message.reply("no")
-    }
-  }
-
   if(command.toLowerCase() === 'give') {
     console.log(message.author.tag + ' give');
-    if (!message.mentions.users.first()) return message.reply('Reply the user you want to send blanks to!')
+    if (!message.mentions.users.first()) return message.reply('Error: No user mentioned')
     if (!args[2]) return message.reply('Specify the amount of blanks you want to send!')
     var output = await eco.FetchBalance(message.author.id)
     if (output.balance < args[2]) return message.reply('You do not have enough blanks!')
