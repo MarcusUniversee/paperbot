@@ -4,6 +4,7 @@ const randomPuppy = require('random-puppy');
 module.exports = {
   name: 'meme',
   description: 'Replies with a random meme from reddit',
+  usage: 'p!meme',
 
   async run (client, message, params) {
     console.log(message.author.tag + ' meme');

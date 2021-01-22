@@ -17,6 +17,7 @@ var kanyeQuotes = ['I know I got angels watching me from the other side',
 module.exports = {
   name: 'kanye',
   description: 'Replies with a kanye quote',
+  usage: 'p!kanye',
 
   async run (client, message, params) {
     console.log(message.author.tag + ' kanye');

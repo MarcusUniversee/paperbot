@@ -4,6 +4,7 @@ const eco = require('discord-economy');
 module.exports = {
   name: 'balance',
   description: 'Replies with you or a mentioned user\'s balance',
+  usage: 'p!balance [user(optional)]',
 
   async run (client, message, params) {
     console.log(message.author.tag + ' balance');
