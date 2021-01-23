@@ -4,7 +4,7 @@ const eco = require('discord-economy');
 module.exports = {
   name: 'addblanks',
   description: 'Adds blanks to a mentioned user\'s balance',
-  usage: 'p!addblanks [user] [amount]',
+  usage: 'addblanks [user] [amount]',
 
   async run (client, message, params) {
     console.log(message.author.tag + ' addblanks');

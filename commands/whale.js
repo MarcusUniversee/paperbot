@@ -59,7 +59,7 @@ var whaleFacts = ['The blue whale is the largest animal that ever lived and can 
 module.exports = {
   name: 'whale',
   description: 'Replies with a whale fact',
-  usage: 'p!whale',
+  usage: 'whale',
 
   async run (client, message, params) {
     console.log(message.author.tag + ' whale');
