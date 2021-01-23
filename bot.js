@@ -31,7 +31,7 @@ client.on('message', async message => {
   if(!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
   let params = message.content.split(' ').slice(1); //array containing each param
-  let args = message.content.split(' '); //same as params but also contains command at first index
+  let args = message.content.split(' '); //same as params but also contains command at first index  args[2] == params[1]
   let params1 = message.content.split(' ').slice(1).join(" "); //same as params but as a string with a space in between
 
   if (!client.commands.has(command)) return;
@@ -44,15 +44,7 @@ client.on('message', async message => {
   }
 
   if(command.toLowerCase() === 'give') {
-    console.log(message.author.tag + ' give');
-    if (!message.mentions.users.first()) return message.reply('Error: No user mentioned')
-    if (!args[2]) return message.reply('Specify the amount of blanks you want to send!')
-    var output = await eco.FetchBalance(message.author.id)
-    if (output.balance < args[2]) return message.reply('You do not have enough blanks!')
 
-    var transfer = await eco.Transfer(message.author.id, message.mentions.users.first().id, args[2])
-    message.reply(`Sent successfully!\n${message.author.tag} now has ${transfer.FromUser} blanks\n${message.mentions.users.first().tag} now has ${transfer.ToUser} blanks`);
-    return;
   }
 
   if (command.toLowerCase() === 'leaderboard') {
