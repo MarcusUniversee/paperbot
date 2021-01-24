@@ -38,7 +38,7 @@ client.on('message', async message => {
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
       var profileBal = await eco.AddToBalance(message.author.id, 5)
-      message.reply(`You just leveled up!! You are now level: ${profile.level + 1} and you have earned 5 blanks`)
+      message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned 5 blanks`)
     }
   }
 
