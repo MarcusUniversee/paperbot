@@ -10,7 +10,7 @@ module.exports = {
     console.log(message.author.tag + ' bal');
     if(!params[0]) {
       var output = await eco.FetchBalance(message.author.id)
-      message.reply(`Hey ${message.author.tag}! You own ${output.balance} blanks.`);
+      message.reply(`You own ${output.balance} blanks.`);
       return;
     };
     var output = await eco.FetchBalance(message.mentions.users.first().id)
