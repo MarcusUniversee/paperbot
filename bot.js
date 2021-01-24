@@ -114,9 +114,8 @@ client.on('message', async message => {
 
 client.on('ready', () => {
   client.user.setPresence({
-        game: {
-            name: 'p.help',
-            type: 'WATCHING'
+        activity: {
+            name: 'p.help'
         },
         status: 'online'
     })
