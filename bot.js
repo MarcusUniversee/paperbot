@@ -3,7 +3,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const eco = require('discord-economy');
-
+const leveling = require('discord-leveling');
 const { readdirSync } = require('fs');
 
 const { join } = require('path');
@@ -26,6 +26,19 @@ client.on('message', async message => {
 
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
+
+  var profile = await leveling.Fetch(message.author.id)
+  if (message.channel.id === '704489252125409314') {
+    leveling.AddXp(message.author.id, 1)
+    //If user xp higher than 100 add level
+    var maxXp = profile.level*10 + 1;
+    if (profile.xp + 1 > maxXp) {
+      await leveling.AddLevel(message.author.id, 1)
+      await leveling.SetXp(message.author.id, 0)
+      var profileBal = await eco.AddToBalance(message.author.id, 5)
+      message.reply(`You just leveled up!! You are now level: ${profile.level + 1} and you have earned 5 blanks`)
+    }
+  }
 
 
   if(!message.content.startsWith(prefix)) return;
