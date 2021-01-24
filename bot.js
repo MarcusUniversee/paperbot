@@ -33,15 +33,31 @@ client.on('message', async message => {
     if (message.content === "hi") return;
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level
+    if (message.author.id === '381910494493278208') {
+      var maxXp = ((profile.level*50)) + 1;
+      if (profile.xp + 1 > maxXp) {
+        await leveling.AddLevel(message.author.id, 1)
+        await leveling.SetXp(message.author.id, 0)
+        var profileBal = await eco.AddToBalance(message.author.id, 5)
+        message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned 5 blanks`)
+
+      }
+      return;
+    }
     var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
     if (profile.xp + 1 > maxXp) {
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
       var profileBal = await eco.AddToBalance(message.author.id, 5)
       message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned 5 blanks`)
+
     }
+    return;
   }
 
+  if (message.channel.id === '789215234376073236') {
+    return;
+  }
 
   if(!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
