@@ -10,6 +10,7 @@ module.exports = {
     var user = message.mentions.users.first() || message.author
 
     var output = await leveling.Fetch(user.id)
+    if (message.mentions.users.first()) return message.reply(`${message.mentions.users.first().tag} is level ${output.level}!`);
     message.reply(`You are level ${output.level}!`);
   }
 }

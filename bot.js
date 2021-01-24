@@ -29,9 +29,11 @@ client.on('message', async message => {
 
   var profile = await leveling.Fetch(message.author.id)
   if (message.channel.id === '704489252125409314') {
+
+    if (message.content === "hi") return;
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level
-    var maxXp = profile.level*10 + 1;
+    var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
     if (profile.xp + 1 > maxXp) {
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
