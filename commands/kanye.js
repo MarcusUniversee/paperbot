@@ -19,7 +19,7 @@ module.exports = {
   description: 'Replies with a kanye quote',
   usage: 'kanye',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' kanye');
     var kanyeNum = await Math.floor((Math.random() * kanyeQuotes.length));
     message.reply('"' + kanyeQuotes[kanyeNum] + '"' + ' - Kanye West');

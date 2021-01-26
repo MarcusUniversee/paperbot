@@ -6,7 +6,7 @@ module.exports = {
   description: 'Replies with a random meme from reddit',
   usage: 'meme',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' meme');
     const subReddits = ['dankmeme', 'meme', 'me_irl', 'memes', 'dankmemes'];
     const random = subReddits[Math.floor(Math.random() * subReddits.length)];

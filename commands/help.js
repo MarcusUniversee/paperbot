@@ -5,7 +5,7 @@ module.exports = {
   description: 'Shows command list',
   usage: 'help',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' help');
     switch (params[0]) {
       case 'h':
@@ -66,11 +66,11 @@ module.exports = {
         description: '**description:** Command for subtracting blanks from balances\n**Actions:** Subtracts specified amount from the mentioned user\'s balance and returns with the new balance\n**Usage:** p.takeblanks [user] [amount]',
         }})
       break;
-      case 'give':
+      case 'giveblanks':
         message.channel.send({embed: {
         color: 0x7a19a8,
         title: 'p.giveblanks',
-        description: '**description:** Command for giving blanks to someone else\n**Actions:** Sends a specified amount from the user\'s balance to the mentioned user\'s balance\n**Usage:** p.give [user] [amount]',
+        description: '**description:** Command for giving blanks to someone else\n**Actions:** Sends a specified amount from the user\'s balance to the mentioned user\'s balance\n**Usage:** p.giveblanks [user] [amount]',
         }})
       break;
       case 'leaderboard':
@@ -96,7 +96,7 @@ module.exports = {
           value: "**p.ping** - Replies 'Pong' to check if the bot is working properly\n**p.whale** - Whale facts\n**p.kanye** - Kanye quotes or lyrics\n**p.meme** - Meme generator"},
           {name: "Economy Commands",
           value: "**p.bal** - Replies with your balance\n**p.setblanks** - Sets your balance\n**p.addblanks** - Adds to your your balance\n" +
-          "**p.takeblanks** - Subtracts from your balance\n**p.give** - Sends blanks to another user\n**p.leaderboard** - Check the top 5 players by blank balance"}
+          "**p.takeblanks** - Subtracts from your balance\n**p.giveblanks** - Sends blanks to another user\n**p.leaderboard** - Check the top 5 players by blank balance"}
         ]
       }
       })

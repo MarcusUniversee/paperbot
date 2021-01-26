@@ -6,7 +6,7 @@ module.exports = {
   description: 'Shows the top 5 most rich users and your own rank',
   usage: 'leaderboard',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' leaderboard');
     var output = await eco.Leaderboard({
         filter: x => x.balance > 20,

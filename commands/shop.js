@@ -6,7 +6,7 @@ module.exports = {
   description: 'test',
   usage: 'shop',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' shop')
     switch (params[0]) {
       case '1':

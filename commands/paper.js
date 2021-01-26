@@ -31,7 +31,7 @@ module.exports = {
   name: 'paper',
   description: 'Replies with a paper fact',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' paper');
     var paperNum = await Math.floor((Math.random() * paperFacts.length));
     message.reply(paperFacts[paperNum]);

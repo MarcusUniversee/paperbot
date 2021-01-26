@@ -61,7 +61,7 @@ module.exports = {
   description: 'Replies with a whale fact',
   usage: 'whale',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' whale');
     var whaleNum = await Math.floor((Math.random() * whaleFacts.length));
     message.reply(whaleFacts[whaleNum]);
