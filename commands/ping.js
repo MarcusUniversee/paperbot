@@ -5,7 +5,7 @@ module.exports = {
   description: 'Replies with ping',
   usage: 'ping',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' pong')
     message.reply('pong!!')
   }

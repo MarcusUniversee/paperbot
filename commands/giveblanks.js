@@ -6,10 +6,13 @@ module.exports = {
   description: 'Sends blanks from you to a mentioned user',
   usage: 'giveblanks [user] amount',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' give');
     if (!message.mentions.users.first()) return message.reply('Error: No user mentioned')
     if (!params[1]) return message.reply('Error: No blank amount specified')
+    if (!parseInt(params[1])) return message.reply('Amount is not a number')
+    if (parseInt(params[1]) < '1') return message.reply('Amount specified is too low')
+    if (message.mentions.users.first().id === message.author.id) return message.reply('You cannot give blanks to yourself')
     var output = await eco.FetchBalance(message.author.id)
     if (output.balance < params[1]) return message.reply('You do not have enough blanks!')
 

@@ -6,7 +6,7 @@ module.exports = {
   description: 'Replies with you or a mentioned user\'s balance',
   usage: 'bal [user(optional)]',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' bal');
     if(!params[0]) {
       var output = await eco.FetchBalance(message.author.id)

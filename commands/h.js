@@ -5,7 +5,7 @@ module.exports = {
   description: 'Shows command list',
   usage: 'h',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' help');
     switch (params[0]) {
       case 'h':

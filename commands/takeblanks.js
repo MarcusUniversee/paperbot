@@ -6,11 +6,12 @@ module.exports = {
   description: 'Subtracts from a mentioned user\'s balance',
   usage: 'takeblanks [user] [amount]',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' takeblanks');
     if(message.member.hasPermission('ADMINISTRATOR')) {
       if (!message.mentions.users.first()) return message.reply('Error: No user mentioned')
       if (!params[1]) return message.reply('Error: No blank amount specified')
+      if (params[1] < '1') return message.reply('Amount specified is too low')
       var profile = await eco.SubtractFromBalance(message.mentions.users.first().id, params[1])
       message.reply(`${message.mentions.users.first().tag} now owns ${profile.newbalance} blanks.`);
       return;

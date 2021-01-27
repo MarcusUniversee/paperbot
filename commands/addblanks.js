@@ -6,7 +6,7 @@ module.exports = {
   description: 'Adds blanks to a mentioned user\'s balance',
   usage: 'addblanks [user] [amount]',
 
-  async run (client, message, params) {
+  async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' addblanks');
     if(message.member.hasPermission('ADMINISTRATOR')) {
       if (!message.mentions.users.first()) return message.reply('Error: No user mentioned')
