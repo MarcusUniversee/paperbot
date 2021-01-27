@@ -31,6 +31,11 @@ client.on('message', async message => {
 
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
+  if (message.content === "hi") {
+    if (message.author.id === '381910494493278208') {
+      message.reply("Shut up Al")
+    }
+  }
 
   var profile = await leveling.Fetch(message.author.id)
   if (message.channel.id === '704489252125409314') {

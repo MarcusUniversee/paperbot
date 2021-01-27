@@ -12,6 +12,13 @@ module.exports = {
     if (!paramsCom[1]) return message.reply('Error: No side on bet chosen')
     if (!paramsCom[1] === '1' || !paramsCom[1] === '2') return message.reply('Error: Bet side must be 1 or 2')
     if (!paramsCom[2]) return message.reply('Error: No bet amount specified')
+    if (!parseInt(paramsCom[2])) return message.reply('Bet amount needs to be a number!')
+    var betted = await bet.fetchBet(paramsCom[0])
+
+    if (parseInt(paramsCom[2]) < betted.sBal) {
+      return message.reply('Error: Bet must be at or greater than minumum bet')
+    }
+
     var output = await bet.addPlayerBet(paramsCom[0], message.author.id, paramsCom[1], paramsCom[2])
     if (!output.bID) {
       message.reply("Error: No betID exists or user has already bet")

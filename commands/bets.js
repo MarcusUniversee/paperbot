@@ -21,7 +21,7 @@ module.exports = {
       betList.push('| Pool:')
       betList.push(output[i].dataValues.balance)
       betList.push('| Minimum Bet:')
-      betList.push(output[i].dataValues.sBal)
+      betList.push(output[i].dataValues.startBal)
       betList.push('\n\n')
     }
 
