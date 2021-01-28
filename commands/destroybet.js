@@ -3,9 +3,9 @@ const bet = require('betting')
 const eco = require('discord-economy');
 
 module.exports = {
-  name: 'stopbet',
-  description: 'Stops a bet',
-  usage: 'stopbet [betID]',
+  name: 'destroybet',
+  description: 'destroybet a bet',
+  usage: 'destroybet [betID]',
 
   async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' stopbet');
