@@ -31,7 +31,7 @@ client.on('message', async message => {
 
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
-  if (message.content === "hi") {
+  if (message.content.toLowerCase().includes('hi')) {
     if (message.author.id === '381910494493278208') {
       message.reply("Shut up Al")
     }
@@ -40,7 +40,7 @@ client.on('message', async message => {
   var profile = await leveling.Fetch(message.author.id)
   if (message.channel.id === '704489252125409314') {
 
-    if (message.content === "hi") return;
+    if (message.content.includes('hi')) return;
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level
     if (message.author.id === '381910494493278208') {

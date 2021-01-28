@@ -9,9 +9,11 @@ module.exports = {
   async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' bets');
     var output = await bet.fetchBetList();
-    console.log(output)
     var betList = [];
     for (var i=0; i<output.length; i++) {
+      if (output[i].dataValues.closed === 1) {
+        betList.push('[CLOSED]')
+      }
       betList.push('id:')
       betList.push(output[i].dataValues.id)
       betList.push('| 1:')
