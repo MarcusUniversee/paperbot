@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const bet = require('betting')
+const inv = require('inventory')
 
 const eco = require('discord-economy');
 const leveling = require('discord-leveling');
@@ -31,6 +32,20 @@ client.on('message', async message => {
 
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
+
+  /*if (message.author.id === '381910494493278208') {
+    if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236') {
+      message.reply("Shut up Al")
+    }
+
+  }*/
+  if (message.content.toLowerCase().includes(' ')) {
+    if (message.content.toLowerCase().replace(/\s+/g, '').includes('hi')) {
+      if (message.author.id === '381910494493278208') {
+        message.reply("Shut up Al")
+      }
+    }
+  }
   if (message.content.toLowerCase().includes('hi')) {
     if (message.author.id === '381910494493278208') {
       message.reply("Shut up Al")
@@ -79,7 +94,9 @@ client.on('message', async message => {
   if (message.channel.id === '789215234376073236') {
     return;
   }
-
+  if (message.channel.id === '704489252125409314') {
+    return;
+  }
   if(!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
   let params = message.content.split(' ').slice(1); //array containing each param
