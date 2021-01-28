@@ -11,6 +11,7 @@ module.exports = {
     if (!paramsCom[1]) return message.reply('Error: Side 1 has no description')
     if (!paramsCom[2]) return message.reply('Error: Side 2 has no description')
     if (!paramsCom[0]) return message.reply('Error: No minimum balance given')
+    if (!parseInt(paramsCom[0])) return message.reply('Minimum balance needs to be a number!')
     var output = await bet.createBet(paramsCom[1], paramsCom[2], paramsCom[0])
     message.channel.send({embed: {
     color: 0x7a19a8,

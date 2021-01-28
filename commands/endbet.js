@@ -8,14 +8,18 @@ module.exports = {
 
   async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' endbet');
+    if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply('no')
     if (!paramsCom[0]) return message.reply('Error: No betID specfied')
     if (!paramsCom[1]) return message.reply('Error: No side on bet chosen')
     if (!paramsCom[1] === '1' || !paramsCom[1] === '2') return message.reply('Error: Winning bet side must be 1 or 2')
+    if (!parseInt(paramsCom[0])) return message.reply('Error: BetID has to be a number')
     var parseBetSide = parseInt(paramsCom[1])
     var output = await bet.fetchBetPlayers(paramsCom[0])
     var betPool = await bet.fetchBet(paramsCom[0])
+    if (!betPool.bID) {
+      return message.reply('BetID does not exist')
+    }
     var betBal = betPool.balance
-
     var winners = []
 
     for (var i=0;i<output.length;i++) {//iterates through all players who have bet on the betID

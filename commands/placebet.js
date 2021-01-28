@@ -12,6 +12,7 @@ module.exports = {
     if (!paramsCom[1]) return message.reply('Error: No side on bet chosen')
     if (!paramsCom[1] === '1' || !paramsCom[1] === '2') return message.reply('Error: Bet side must be 1 or 2')
     if (!paramsCom[2]) return message.reply('Error: No bet amount specified')
+    if (!parseInt(paramsCom[0])) return message.reply('BetID needs to be a number!')
     if (!parseInt(paramsCom[2])) return message.reply('Bet amount needs to be a number!')
     var betted = await bet.fetchBet(paramsCom[0])
 

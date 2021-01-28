@@ -10,6 +10,12 @@ module.exports = {
     console.log(message.author.tag + ' addtobet');
     if (!paramsCom[0]) return message.reply('Error: No betID amount specified')
     if (!paramsCom[1]) return message.reply('Error: No bet amount specified')
+    if (!parseInt(paramsCom[0])) return message.reply('Error: BetID has to be a number')
+    if (!parseInt(paramsCom[1])) return message.reply('Error: Blank amount has to be a number')
+    var playerBal = await eco.FetchBalance(message.author.id)
+    if (output.balance < parseInt(paramsCom[1])) {
+      message.reply('Error: You do not have enough blanks')
+    }
 
     var betted = await bet.fetchPlayerBet(message.author.id, paramsCom[0])
     if (!betted.bID) {

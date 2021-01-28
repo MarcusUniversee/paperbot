@@ -8,7 +8,7 @@ module.exports = {
 
   async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' shop')
-    switch (params[0]) {
+    switch (paramsCom[0]) {
       case '1':
         var profile = await eco.SubtractFromBalance(message.author.id, 10)
         message.reply(`Successfully purchased Item 1! You now own ${profile.newbalance} blanks.`);
