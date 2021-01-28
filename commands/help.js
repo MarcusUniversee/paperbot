@@ -129,11 +129,18 @@ module.exports = {
         description: '**description:** Ends a bet\n**Actions:** Ends an ongoing bet and distributes blanks to the winners\n**Usage:** p.endbet [betID], [winningSide]',
         }})
       break;
-      case 'stopbet':
+      case 'destroybet':
         message.channel.send({embed: {
         color: 0x7a19a8,
         title: 'p.stopbet',
-        description: '**description:** Stops a bet\n**Actions:** Stops an ongoing bet and gives everyone who bet their blanks back\n**Usage:** p.stopbet [betID]',
+        description: '**description:** Stops a bet\n**Actions:** Stops an ongoing bet and gives everyone who bet their blanks back\n**Usage:** p.destroybet [betID]',
+        }})
+      break;
+      case 'closebet':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.closebet',
+        description: '**description:** Closes a bet\n**Actions:** Closes an ongoing bet so no more bets can be placed\n**Usage:** p.closebet [betID]',
         }})
       break;
       default:
@@ -144,11 +151,11 @@ module.exports = {
           {name: "Commands",
           value: "**p.ping** - Replies 'Pong' to check if the bot is working properly\n**p.rank** - Replies with your rank\n**p.whale** - Whale facts\n**p.kanye** - Kanye quotes or lyrics\n**p.meme** - Meme generator"},
           {name: "Economy Commands",
-          value: "**p.bal** - Replies with your balance\n**p.setblanks** - Sets your balance\n**p.addblanks** - Adds to your your balance\n" +
+          value: "**p.bal** - Replies with your balance\n**p.setblanks** - Sets your balance\n**p.addblanks** - Adds to your balance\n" +
           "**p.takeblanks** - Subtracts from your balance\n**p.give** - Sends blanks to another user\n**p.leaderboard** - Check the top 5 players by blank balance"},
           {name: "Bet Commands",
           value: "**p.bets** - Displays ongoing bets\n**p.startbet** - Starts a bet\n**p.placebet** - Places a bet\n" +
-          "**p.addtobet** - Adds on to a placed bet\n**p.endbet** - Ends an ongoing bet\n**p.stopbet** - Stops an ongoing bet"}
+          "**p.addtobet** - Adds on to a placed bet\n**p.closebet** - Closes an ongoing bet\n**p.endbet** - Ends an ongoing bet\n**p.destroybet** - Destroys an ongoing bet"}
         ]
       }
       })
