@@ -144,7 +144,7 @@ module.exports = {
           {name: "Commands",
           value: "**p.ping** - Replies 'Pong' to check if the bot is working properly\n**p.rank** - Replies with your rank\n**p.whale** - Whale facts\n**p.kanye** - Kanye quotes or lyrics\n**p.meme** - Meme generator"},
           {name: "Economy Commands",
-          value: "**p.bal** - Replies with your balance\n**p.setblanks** - Sets your balance\n**p.addblanks** - Adds to your your balance\n" +
+          value: "**p.bal** - Replies with your balance\n**p.setblanks** - Sets your balance\n**p.addblanks** - Adds to your balance\n" +
           "**p.takeblanks** - Subtracts from your balance\n**p.give** - Sends blanks to another user\n**p.leaderboard** - Check the top 5 players by blank balance"},
           {name: "Bet Commands",
           value: "**p.bets** - Displays ongoing bets\n**p.startbet** - Starts a bet\n**p.placebet** - Places a bet\n" +
