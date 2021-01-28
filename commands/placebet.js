@@ -15,10 +15,16 @@ module.exports = {
     if (!parseInt(paramsCom[0])) return message.reply('BetID needs to be a number!')
     if (!parseInt(paramsCom[2])) return message.reply('Bet amount needs to be a number!')
     var betted = await bet.fetchBet(paramsCom[0])
+    if (!betted) return message.reply('This BetID does not exist')
+
+    if (betted.close === 1) return message.reply('Error: Bet is closed')
 
     if (parseInt(paramsCom[2]) < betted.sBal) {
       return message.reply('Error: Bet must be at or greater than minumum bet')
     }
+    var pbetted = await bet.fetchPlayerBet(message.author.id, paramsCom[0])
+
+    if (pbetted.bID) return message.reply("Error: User has already bet")
 
     var output = await bet.addPlayerBet(paramsCom[0], message.author.id, paramsCom[1], paramsCom[2])
     if (!output.bID) {
