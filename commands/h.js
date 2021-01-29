@@ -77,14 +77,35 @@ module.exports = {
         message.channel.send({embed: {
         color: 0x7a19a8,
         title: 'p.leaderboard',
-        description: '**description:** Command that shows the blanks leaderboard\n**Actions:** Shows the top 5 players ranked by blank balance. Also shows user placement and balance\n**Usage:** p.leaderboard',
+        description: '**description:** Blanks leaderboard\n**Actions:** Shows the top 5 players ranked by blank balance. Also shows user placement and balance\n**Usage:** p.leaderboard',
         }})
       break;
       case 'meme':
         message.channel.send({embed: {
         color: 0x7a19a8,
         title: 'p.meme',
-        description: '**description:** Command that generates a randome meme\n**Actions:** Searches reddit and finds and replies a meme\n**Usage:** p.meme',
+        description: '**description:** Meme generator\n**Actions:** Searches reddit and finds and replies a meme\n**Usage:** p.meme',
+        }})
+      break;
+      case 'turtle':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.turtle',
+        description: '**description:** Turtle facts\n**Actions:** Replies with a random turtle fact\n**Usage:** p.turtle',
+        }})
+      break;
+      case 'shark':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.shark',
+        description: '**description:** Shark facts\n**Actions:** Replies with a random shark fact\n**Usage:** p.shark',
+        }})
+      break;
+      case 'paper':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.paper',
+        description: '**description:** Paper facts\n**Actions:** Replies with a random paper fact\n**Usage:** p.paper',
         }})
       break;
       case 'rank':
@@ -143,19 +164,61 @@ module.exports = {
         description: '**description:** Closes a bet\n**Actions:** Closes an ongoing bet so no more bets can be placed\n**Usage:** p.closebet [betID]',
         }})
       break;
+      case 'shop':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.shop',
+        description: '**description:** Opens the shop\n**Actions:** Shows the shop. The shop has a list of purchasable items\n**Usage:** p.shop',
+        }})
+      break;
+      case 'buy':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.buy',
+        description: '**description:** Buys an item from the shop\n**Actions:** Purchases an item from the shop and adds it to your inventory\n**Usage:** p.buy [itemName/itemNumber]',
+        }})
+      break;
+      case 'inventory':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.inventory',
+        description: '**description:** Shows you or another user\'s inventory\n**Actions:** Replies with you or a mentioned user\'s inventory\n**Usage:** p.inventory [user(optional)]',
+        }})
+      break;
+      case 'equip':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.equip',
+        description: '**description:** Equips an item\n**Actions:** Equips an item from your inventory\n**Usage:** p.equip [itemName]',
+        }})
+      break;
+      case 'unequip':
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: 'p.unequip',
+        description: '**description:** Unequips an item\n**Actions:** Unequips an item from your inventory\n**Usage:** p.unequip [itemName]',
+        }})
+      break;
       default:
         message.channel.send({embed: {
         color: 0x7a19a8,
         description: '**A bot made of paper\ndo p.help [command] to see more help on a specific command**',
         fields: [
           {name: "Commands",
-          value: "**p.ping** - Replies 'Pong' to check if the bot is working properly\n**p.rank** - Replies with your rank\n**p.whale** - Whale facts\n**p.kanye** - Kanye quotes or lyrics\n**p.meme** - Meme generator"},
+          value: "**p.ping** - Replies 'Pong' to check if the bot is working properly\n**p.rank** - Replies with your rank\n" +
+          "**p.kanye** - Kanye quotes or lyrics\n**p.meme** - Meme generator"},
+          {name: "Fact Commands",
+          value: "**p.whale** - Whale facts\n**p.turtle** - Turtle facts\n**p.shark** - Shark facts\n**p.paper** - Paper facts"},
           {name: "Economy Commands",
           value: "**p.bal** - Replies with your balance\n**p.setblanks** - Sets your balance\n**p.addblanks** - Adds to your balance\n" +
-          "**p.takeblanks** - Subtracts from your balance\n**p.give** - Sends blanks to another user\n**p.leaderboard** - Check the top 5 players by blank balance"},
+          "**p.takeblanks** - Subtracts from your balance\n**p.give** - Sends blanks to another user\n" +
+          "**p.leaderboard** - Check the top 5 players by blank balance\n**p.shop** - Opens the shop\n**p.buy** - Buys from the shop"},
           {name: "Bet Commands",
           value: "**p.bets** - Displays ongoing bets\n**p.startbet** - Starts a bet\n**p.placebet** - Places a bet\n" +
-          "**p.addtobet** - Adds on to a placed bet\n**p.closebet** - Closes an ongoing bet\n**p.endbet** - Ends an ongoing bet\n**p.destroybet** - Destroys an ongoing bet"}
+          "**p.addtobet** - Adds on to a placed bet\n**p.closebet** - Closes an ongoing bet\n**p.endbet** - Ends an ongoing bet\n**p.destroybet** - Destroys an ongoing bet"},
+          {name: "Inventory Commands",
+          value: "**p.inventory** - Displays you or another user\'s inventory\n**p.equip** - Equips an item\n**p.unequip** - Unequips an item\n" +
+          "**p.shop** - Opens the shop\n**p.buy** - Buys from the shop"}
         ]
       }
       })
