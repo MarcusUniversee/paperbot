@@ -8,7 +8,8 @@ module.exports = {
   usage: 'destroybet [betID]',
 
   async run (client, message, params, paramsCom) {
-    console.log(message.author.tag + ' stopbet');
+    
+    console.log(message.author.tag + ' destroybet');
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply('no')
     if (!params[0]) return message.reply('Error: No bet id specified')
     if (!parseInt(params[0])) return message.reply('BetID needs to be a number!')
