@@ -16,7 +16,7 @@ module.exports = {
     var output = await eco.FetchBalance(message.author.id)
     if (output.balance < params[1]) return message.reply('You do not have enough blanks!')
 
-    var transfer = await eco.Transfer(message.author.id, message.mentions.users.first().id, params[1])
+    var transfer = await eco.Transfer(message.author.id, message.mentions.users.first().id, paramsCom[1])
     message.reply(`Sent successfully!\n${message.author.tag} now owns ${transfer.FromUser} blanks\n${message.mentions.users.first().tag} now owns ${transfer.ToUser} blanks`);
     return;
   }

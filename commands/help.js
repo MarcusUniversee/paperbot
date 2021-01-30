@@ -70,7 +70,7 @@ module.exports = {
         message.channel.send({embed: {
         color: 0x7a19a8,
         title: 'p.giveblanks',
-        description: '**description:** Command for giving blanks to someone else\n**Actions:** Sends a specified amount from the user\'s balance to the mentioned user\'s balance\n**Usage:** p.give [user], [amount]',
+        description: '**description:** Command for giving blanks to someone else\n**Actions:** Sends a specified amount from the user\'s balance to the mentioned user\'s balance\n**Usage:** p.giveblanks [user], [amount]',
         }})
       break;
       case 'leaderboard':
@@ -211,7 +211,7 @@ module.exports = {
           value: "**p.whale** - Whale facts\n**p.turtle** - Turtle facts\n**p.shark** - Shark facts\n**p.paper** - Paper facts"},
           {name: "Economy Commands",
           value: "**p.bal** - Replies with your balance\n**p.setblanks** - Sets your balance\n**p.addblanks** - Adds to your balance\n" +
-          "**p.takeblanks** - Subtracts from your balance\n**p.give** - Sends blanks to another user\n" +
+          "**p.takeblanks** - Subtracts from your balance\n**p.giveblanks** - Sends blanks to another user\n" +
           "**p.leaderboard** - Check the top 5 players by blank balance\n**p.shop** - Opens the shop\n**p.buy** - Buys from the shop"},
           {name: "Bet Commands",
           value: "**p.bets** - Displays ongoing bets\n**p.startbet** - Starts a bet\n**p.placebet** - Places a bet\n" +
