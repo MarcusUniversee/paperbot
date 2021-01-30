@@ -7,6 +7,7 @@ module.exports = {
 
   async run (client, message, params, paramsCom) {
     console.log(message.author.tag + ' equip')
+    if (!params[0]) return message.reply('Error: No item specified')
     var item = await inv.fetchItem(message.author.id, paramsCom[0])
     if (!item.pID) {
       return message.reply('You do not own an item with this name')
