@@ -38,19 +38,20 @@ client.on('message', async message => {
       message.reply("Shut up Al")
     }
 
-  }*/
-  if (message.content.toLowerCase().includes(' ')) {
-    if (message.content.toLowerCase().replace(/\s+/g, '').includes('hi')) {
-      if (message.author.id === '381910494493278208') {
-        message.reply("Shut up Al")
-      }
-    }
   }
   if (message.content.toLowerCase().includes('hi')) {
     if (message.author.id === '381910494493278208') {
       message.reply("Shut up Al")
     }
   }
+  if (message.content.toLowerCase().includes(' ')) {
+    if (message.content.toLowerCase().replace(/\s+/g, '').includes('hi')) {
+      if (message.author.id === '381910494493278208') {
+        message.reply("Shut up Al")
+      }
+    }
+  }*/
+
 
   var profile = await leveling.Fetch(message.author.id)
   if (message.channel.id === '704489252125409314') {
