@@ -6,7 +6,7 @@ var paperFacts = ['Around 100 B.C., the Chinese invented paper from hemp. They l
                   'Johannes Gutenberg printed the first Bible on parchment–that is, sheep skin. In fact, he used the skins of 300 sheep to end up with the final product',
                   '1 pine tree can produce about 80,500 sheets of paper',
                   'Our “paper money” isn’t really paper at all. Instead, U.S. paper currency is composed of 75% cotton and 25% linen',
-                  'Lastly, American businesses use enough paper every day to circle the globe 20 times',
+                  'American businesses use enough paper every day to circle the globe 20 times',
                   'The machine that extracts and prepares tree fibers for papermaking is called Hollander',
                   'Recycling one ton of paper saves 17 trees!',
                   'Largest producers of paper by quantity in the world are US and Canada. After them come Finland, Japan and Sweden',
@@ -30,10 +30,16 @@ var paperFacts = ['Around 100 B.C., the Chinese invented paper from hemp. They l
 module.exports = {
   name: 'paper',
   description: 'Replies with a paper fact',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: '',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' paper');
     var paperNum = await Math.floor((Math.random() * paperFacts.length));
     message.reply(paperFacts[paperNum]);
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

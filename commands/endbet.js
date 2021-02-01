@@ -4,21 +4,20 @@ const eco = require('discord-economy');
 module.exports = {
   name: 'endbet',
   description: 'Ends a bet',
-  usage: 'endbet [betID], [winningSide]',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '[betID], [winningSide]',
+  category: 'Betting',
+  permissionError: 'no',
+  minArgs: 2,
+  maxArgs: 2,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' endbet');
-    if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply('no')
-    if (!paramsCom[0]) return message.reply('Error: No betID specfied')
-    if (!paramsCom[1]) return message.reply('Error: No side on bet chosen')
     if (!paramsCom[1] === '1' || !paramsCom[1] === '2') return message.reply('Error: Winning bet side must be 1 or 2')
     if (!parseInt(paramsCom[0])) return message.reply('Error: BetID has to be a number')
     var parseBetSide = parseInt(paramsCom[1])
     var output = await bet.fetchBetPlayers(paramsCom[0])
     var betPool = await bet.fetchBet(paramsCom[0])
-    if (!betPool.bID) {
-      return message.reply('BetID does not exist')
-    }
+    if (!betPool.bID) return message.reply('BetID does not exist')
+
     var betBal = betPool.balance
     var winners = []
 
@@ -49,6 +48,7 @@ module.exports = {
       message.channel.send(`<@${winners[i].dataValues.pID}>, you have won ${Math.floor(winnings)} blanks!`)
     }
 
+    bet.createArchBet(betPool.bID, betPool.desc1, betPool.desc2, betPool.balance, paramsCom[1])
 
     for (var i=0;i<output.length;i++) {//iterates through all players who have bet on the betID
       bet.removePlayerBet(output[i].dataValues.pID, paramsCom[0]) //destroys the player bets
@@ -56,7 +56,8 @@ module.exports = {
 
     bet.removeBet(paramsCom[0])
 
-
     return;
-  }
+  },
+  permissions: 'ADMINISTRATOR',
+  requiredRoles: [],
 }

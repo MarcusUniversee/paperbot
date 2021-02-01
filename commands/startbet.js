@@ -4,13 +4,13 @@ const bet = require('betting')
 module.exports = {
   name: 'startbet',
   description: 'Starts a new bet',
-  usage: 'startbet [minimumBalance], [description1], [description2]',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '[minimumBalance], [description1], [description2]',
+  category: 'Betting',
+  permissionError: '',
+  minArgs: 3,
+  maxArgs: 3,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' startbet');
-    if (!paramsCom[1]) return message.reply('Error: Side 1 has no description')
-    if (!paramsCom[2]) return message.reply('Error: Side 2 has no description')
-    if (!paramsCom[0]) return message.reply('Error: No minimum balance given')
     if (!parseInt(paramsCom[0])) return message.reply('Minimum balance needs to be a number!')
     var output = await bet.createBet(paramsCom[1], paramsCom[2], paramsCom[0])
     message.channel.send({embed: {
@@ -27,5 +27,7 @@ module.exports = {
       },
     ],
     }})
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

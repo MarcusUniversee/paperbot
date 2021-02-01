@@ -8,85 +8,46 @@ const inv = require('inventory')
 
 const eco = require('discord-economy');
 const leveling = require('discord-leveling');
-const { readdirSync } = require('fs');
+const fs = require('fs');
 
-const { join } = require('path');
+const path = require('path');
 
-
+const loadCommands = require('./commands/load-commands')
 
 client.commands = new Discord.Collection();
 //prefix
 let prefix = 'p.';
 
-const commandFiles = readdirSync(join(__dirname, 'commands')).filter(file => file.endsWith('.js'));
+client.setMaxListeners(35);
 
-for (const file of commandFiles) {
-  const command = require(join(__dirname, 'commands', `${file}`));
-  client.commands.set(command.name, command)
-}
+client.on('ready', async () => {
+  console.log('The client is ready!')
+
+  loadCommands(client)
+})
 
 //hi
 client.on('error', console.error);
 
 client.on('message', async message => {
-
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
-
-  /*if (message.author.id === '381910494493278208') {
-    if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236') {
-      message.reply("Shut up Al")
-    }
-
-  }
-  if (message.content.toLowerCase().includes('hi')) {
-    if (message.author.id === '381910494493278208') {
-      message.reply("Shut up Al")
-    }
-  }
-  if (message.content.toLowerCase().includes(' ')) {
-    if (message.content.toLowerCase().replace(/\s+/g, '').includes('hi')) {
-      if (message.author.id === '381910494493278208') {
-        message.reply("Shut up Al")
-      }
-    }
-  }*/
-
 
   var profile = await leveling.Fetch(message.author.id)
   if (message.channel.id === '704489252125409314') {
 
     if (message.content.includes('hi')) return;
+    if (message.content.includes('hello')) return;
+    if (message.embeds[0]) return;
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level
-    if (message.author.id === '381910494493278208') {
-      var maxXp = ((profile.level*50)) + 1;
-      if (profile.xp + 1 > maxXp) {
-        await leveling.AddLevel(message.author.id, 1)
-        await leveling.SetXp(message.author.id, 0)
-        var profileBal = await eco.AddToBalance(message.author.id, 5)
-        message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned 5 blanks`)
-
-      }
-      return;
-    }
-    if (message.author.id === '389135826413682689') {
-      var maxXp = ((profile.level*20)) + 1;
-      if (profile.xp + 1 > maxXp) {
-        await leveling.AddLevel(message.author.id, 1)
-        await leveling.SetXp(message.author.id, 0)
-        var profileBal = await eco.AddToBalance(message.author.id, 5)
-        message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned 5 blanks`)
-
-      }
-      return;
-    }
     var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
     if (profile.xp + 1 > maxXp) {
+      var money = 5 + Math.floor(profile.level/5)
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
-      var profileBal = await eco.AddToBalance(message.author.id, 5)
-      message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned 5 blanks`)
+      var profileBal = await eco.AddToBalance(message.author.id, money)
+      message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned ${money} blanks`)
 
     }
     return;
@@ -105,14 +66,6 @@ client.on('message', async message => {
   let params1 = message.content.split(' ').slice(1).join(" "); //same as params but as a string with a space in between
   let paramsCom = message.content.split(' ').slice(1).join(" ").split(', '); //array containing each param when set by comma
 
-  if (!client.commands.has(command)) return;
-
-  try {
-    client.commands.get(command).run(client, message, params, paramsCom);
-
-  } catch (error) {
-    console.error(error)
-  }
 
 
   /*copypaste code

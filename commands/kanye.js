@@ -17,11 +17,16 @@ var kanyeQuotes = ['I know I got angels watching me from the other side',
 module.exports = {
   name: 'kanye',
   description: 'Replies with a kanye quote',
-  usage: 'kanye',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: '',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' kanye');
     var kanyeNum = await Math.floor((Math.random() * kanyeQuotes.length));
     message.reply('"' + kanyeQuotes[kanyeNum] + '"' + ' - Kanye West');
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

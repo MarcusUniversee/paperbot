@@ -4,9 +4,12 @@ const inv = require('inventory');
 module.exports = {
   name: 'buy',
   description: 'Buys an item from the shop',
-  usage: 'buy [item]',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '[itemName/itemNumber]',
+  category: 'Economy',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' shop')
     if (paramsCom[0]) var item = paramsCom[0].toLowerCase()
     switch (item) {
@@ -19,7 +22,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -32,7 +35,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -45,7 +48,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -58,7 +61,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -72,7 +75,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -85,7 +88,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -98,7 +101,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -111,7 +114,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -124,7 +127,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -137,7 +140,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -150,7 +153,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -163,7 +166,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -176,7 +179,7 @@ module.exports = {
         if (hasItem.pID) return message.reply('You already own this item')
         var output = await eco.FetchBalance(message.author.id)
         if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-        var profile = await eco.SubtractFromBalance(message.author.id, 1)
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
@@ -185,5 +188,7 @@ module.exports = {
 
       break;
     }
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }
