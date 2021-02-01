@@ -48,6 +48,8 @@ module.exports = {
       message.channel.send(`<@${winners[i].dataValues.pID}>, you have won ${Math.floor(winnings)} blanks!`)
     }
 
+    bet.createArchBet(betPool.bID, betPool.desc1, betPool.desc2, betPool.balance, paramsCom[1])
+
     for (var i=0;i<output.length;i++) {//iterates through all players who have bet on the betID
       bet.removePlayerBet(output[i].dataValues.pID, paramsCom[0]) //destroys the player bets
     }
