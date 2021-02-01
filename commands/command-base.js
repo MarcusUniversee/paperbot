@@ -72,6 +72,12 @@ module.exports = (client, commandOptions) => {
 
   // Listen for messages
   client.on('message', (message) => {
+    if (message.channel.id === '789215234376073236') {
+      return;
+    }
+    if (message.channel.id === '704489252125409314') {
+      return;
+    }
     const { member, content, guild } = message
 
     for (const alias of name) {

@@ -1,7 +1,9 @@
 const path = require('path')
 const fs = require('fs')
+const Discord = require('discord.js');
 
 module.exports = (client) => {
+  
   const baseFile = 'command-base.js'
   const commandBase = require(`./${baseFile}`)
 
