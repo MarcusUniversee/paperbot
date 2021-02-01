@@ -3,9 +3,12 @@ const Discord = require('discord.js')
 module.exports = {
   name: 'shop',
   description: 'Replies with the shop',
-  usage: 'shop',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: 'Economy',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' shop')
     message.channel.send({embed: {
       color: 0x7a19a8,
@@ -30,5 +33,7 @@ module.exports = {
       ]
     }
     })
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

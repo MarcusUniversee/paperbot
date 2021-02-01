@@ -3,14 +3,25 @@ const leveling = require('discord-leveling');
 module.exports = {
   name: 'rank',
   description: 'Replies with you or a mentioned user\'s rank',
-  usage: 'rank [user(optional)]',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '[user[optional]]',
+  category: '',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' rank')
-    var user = message.mentions.users.first() || message.author
+    if (!message.mentions.users.first()) {
+      var user = message.author
+    } else {
+      var user = message.mentions.users.first()
+    }
+
 
     var output = await leveling.Fetch(user.id)
     if (message.mentions.users.first()) return message.reply(`${message.mentions.users.first().tag} is rank ${output.level}!`);
     message.reply(`You are rank ${output.level}!`);
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
+
 }

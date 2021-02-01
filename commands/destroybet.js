@@ -4,17 +4,17 @@ const eco = require('discord-economy');
 
 module.exports = {
   name: 'destroybet',
-  description: 'destroybet a bet',
-  usage: 'destroybet [betID]',
-
-  async run (client, message, params, paramsCom) {
-    
+  description: 'Destroys a bet',
+  expectedArgs: '[betID]',
+  category: 'Betting',
+  permissionError: 'no',
+  minArgs: 1,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' destroybet');
-    if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply('no')
-    if (!params[0]) return message.reply('Error: No bet id specified')
-    if (!parseInt(params[0])) return message.reply('BetID needs to be a number!')
-    var output = await bet.fetchBetPlayers(params[0])
-    var betPool = await bet.fetchBet(params[0])
+    if (!parseInt(paramsCom[0])) return message.reply('BetID needs to be a number!')
+    var output = await bet.fetchBetPlayers(paramsCom[0])
+    var betPool = await bet.fetchBet(paramsCom[0])
     if (!betPool.bID) {
       return message.reply('BetID does not exist')
     }
@@ -36,9 +36,11 @@ module.exports = {
     }})
 
     for (var i=0;i<output.length;i++) {//iterates through all players who have bet on the betID
-      bet.removePlayerBet(output[i].dataValues.pID, params[0]) //destroys the player bets
+      bet.removePlayerBet(output[i].dataValues.pID, paramsCom[0]) //destroys the player bets
     }
     bet.removeBet(params[0]);
+  },
+  permissions: 'ADMINISTRATOR',
+  requiredRoles: [],
 
-  }
 }

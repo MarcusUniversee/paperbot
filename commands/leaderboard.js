@@ -3,10 +3,13 @@ const eco = require('discord-economy');
 
 module.exports = {
   name: 'leaderboard',
-  description: 'Shows the top 5 most rich users and your own rank',
-  usage: 'leaderboard',
-
-  async run (client, message, params, paramsCom) {
+  description: 'Shows the top 5 most rich users',
+  expectedArgs: '',
+  category: 'Economy',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom, client) => {
     console.log(message.author.tag + ' leaderboard');
     var output = await eco.Leaderboard({
         filter: x => x.balance > 20,
@@ -35,7 +38,8 @@ module.exports = {
 
                     ${output}. ${message.author.tag} - ${authorBal.balance} Blanks`,
       }})
-
     })
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

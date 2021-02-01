@@ -4,18 +4,18 @@ const eco = require('discord-economy');
 module.exports = {
   name: 'placebet',
   description: 'Places a bet',
-  usage: 'placebet [betID], [betSide], [betAmount]',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '[betID], [betSide], [betAmount]',
+  category: 'Betting',
+  permissionError: '',
+  minArgs: 3,
+  maxArgs: 3,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' placebet');
-    if (!paramsCom[0]) return message.reply('Error: No betID amount specified')
-    if (!paramsCom[1]) return message.reply('Error: No side on bet chosen')
     if (!paramsCom[1] === '1' || !paramsCom[1] === '2') return message.reply('Error: Bet side must be 1 or 2')
-    if (!paramsCom[2]) return message.reply('Error: No bet amount specified')
     if (!parseInt(paramsCom[0])) return message.reply('BetID needs to be a number!')
     if (!parseInt(paramsCom[2])) return message.reply('Bet amount needs to be a number!')
     var betted = await bet.fetchBet(paramsCom[0])
-    if (!betted) return message.reply('This BetID does not exist')
+    if (!betted.bID) return message.reply('This BetID does not exist')
 
     if (betted.close === 1) return message.reply('Error: Bet is closed')
 
@@ -42,5 +42,7 @@ module.exports = {
       },
     ],
     }})
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

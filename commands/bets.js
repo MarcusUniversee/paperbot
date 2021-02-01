@@ -4,9 +4,12 @@ const bet = require('betting')
 module.exports = {
   name: 'bets',
   description: 'Returns a list of bets',
-  usage: 'bets',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: 'Betting',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' bets');
     var output = await bet.fetchBetList();
     var betList = [];
@@ -33,5 +36,5 @@ module.exports = {
     title: 'Bet List',
     description: bets,
     }})
-  }
+  },
 }
