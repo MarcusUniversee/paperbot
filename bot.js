@@ -34,10 +34,10 @@ client.on('message', async message => {
   if (message.channel.type === 'dm') return;
 
   var profile = await leveling.Fetch(message.author.id)
-  if (message.channel.id === '704489252125409314') {
+  if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236' || message.channel.id === '801939862303014912') {//chat school and trivia
 
-    if (message.content.includes('hi')) return;
-    if (message.content.includes('hello')) return;
+    if (message.content == 'hi') return;
+    if (message.content == 'hello') return;
     if (message.embeds[0]) return;
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level

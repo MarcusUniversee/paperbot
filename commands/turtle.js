@@ -35,7 +35,7 @@ module.exports = {
   name: 'turtle',
   description: 'Replies with a turtle fact',
   expectedArgs: '',
-  category: '',
+  category: 'Facts',
   permissionError: '',
   minArgs: 0,
   maxArgs: 1,

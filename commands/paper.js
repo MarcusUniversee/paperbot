@@ -31,7 +31,7 @@ module.exports = {
   name: 'paper',
   description: 'Replies with a paper fact',
   expectedArgs: '',
-  category: '',
+  category: 'Facts',
   permissionError: '',
   minArgs: 0,
   maxArgs: 1,

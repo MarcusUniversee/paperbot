@@ -43,7 +43,7 @@ module.exports = {
   name: 'shark',
   description: 'Replies with a shark fact',
   expectedArgs: '',
-  category: '',
+  category: 'Facts',
   permissionError: '',
   minArgs: 0,
   maxArgs: 1,

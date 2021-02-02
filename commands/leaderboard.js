@@ -29,7 +29,7 @@ module.exports = {
 
       message.channel.send({embed: {
       color: 0x7a19a8,
-      title: 'Leaderboard',
+      title: 'Blanks Leaderboard',
       description: `1. ${firstplace.tag || 'Nobody Yet'} - ${users[0].balance || 'None'} Blanks
                     2. ${secondplace.tag || 'Nobody Yet'} - ${users[1].balance || 'None'} Blanks
                     3. ${thirdplace.tag || 'Nobody Yet'} - ${users[2].balance || 'None'} Blanks
