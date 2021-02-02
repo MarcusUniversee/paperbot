@@ -60,7 +60,7 @@ module.exports = {
   name: 'whale',
   description: 'Replies with a whale fact',
   expectedArgs: '',
-  category: '',
+  category: 'Facts',
   permissionError: '',
   minArgs: 0,
   maxArgs: 1,

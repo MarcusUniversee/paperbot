@@ -7,7 +7,7 @@ module.exports = {
   expectedArgs: '',
   category: '',
   callback: (message, arguments, text) => {
-    const categories = ['Economy', 'Betting', 'Inventory', '']
+    const categories = ['Economy', 'Betting', 'Inventory', 'Facts', '']
     var reply = [];
     const commands = loadCommands()
     for (var i=0;i<categories.length;i++) {
