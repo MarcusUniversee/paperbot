@@ -13,33 +13,39 @@ module.exports = {
     var item = await inv.fetchItem(message.author.id, paramsCom[0])
     if (!item.pID) return message.reply('You do not own an item with this name')
     var eItem = await inv.equipItem(message.author.id, paramsCom[0])
-    if (eItem.type === 'color') {
-      const role = message.guild.roles.cache.find(role => role.name === paramsCom[0]);
-      message.member.roles.add(role);
-      message.channel.send({embed: {
-      color: 0x7a19a8,
-      title: 'Item Equipped',
-      fields: [
-        {
-          name: `${eItem.name}`,
-          value: `type: ${eItem.type}`,
-        },
-      ],
-      }})
+    switch (eItem.type) {
+      case 'color':
+      case 'role':
+        const role = message.guild.roles.cache.find(role => role.name === paramsCom[0]);
+        message.member.roles.add(role);
+        message.channel.send({embed: {
+          color: 0x7a19a8,
+          title: 'Item Equipped',
+          fields: [
+            {
+              name: `${eItem.name}`,
+              value: `type: ${eItem.type}`,
+            },
+          ],
+        }})
+      break;
+      case 'badge':
+        message.channel.send({embed: {
+          color: 0x7a19a8,
+          title: 'Item Equipped',
+          fields: [
+            {
+              name: `${eItem.name}`,
+              value: `type: ${eItem.type}`,
+            },
+          ],
+        }})
+      break;
+      default:
+        message.channel.send('Error: wrong item type')
+      break;
     }
-    if (eItem.type === 'badge') {
 
-      message.channel.send({embed: {
-      color: 0x7a19a8,
-      title: 'Item Equipped',
-      fields: [
-        {
-          name: `${eItem.name}`,
-          value: `type: ${eItem.type}`,
-        },
-      ],
-      }})
-    }
   },
   permissions: '',
   requiredRoles: [],

@@ -183,6 +183,20 @@ module.exports = {
         var itemInv = await inv.addItem(message.author.id, itemType, itemName)
         message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
       break;
+      case '14':
+      case 'dj':
+      case 'dj role':
+        var price = 300;
+        var itemName = 'burnt sienna';
+        var itemType = 'role';
+        var hasItem = await inv.fetchItem(message.author.id, itemName)
+        if (hasItem.pID) return message.reply('You already own this item')
+        var output = await eco.FetchBalance(message.author.id)
+        if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
+        var profile = await eco.SubtractFromBalance(message.author.id, price)
+        var itemInv = await inv.addItem(message.author.id, itemType, itemName)
+        message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
+      break;
       default:
         message.reply('Not a valid item. Check p.shop to view purchasable items')
 
