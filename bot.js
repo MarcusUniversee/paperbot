@@ -32,9 +32,10 @@ client.on('error', console.error);
 client.on('message', async message => {
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
-
+  var botchannel = message.guild.channels.cache.get('801558022823477339')
+  botchannel.setRateLimitPerUser(2);
   var profile = await leveling.Fetch(message.author.id)
-  if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236' || message.channel.id === '801939862303014912') {//chat school and trivia
+  if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236' || message.channel.id === '801939862303014912' || message.channel.id == '801558022823477339') {//chat school and trivia
 
     if (message.content == 'hi') return;
     if (message.content == 'hello') return;
