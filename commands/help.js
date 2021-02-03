@@ -7,7 +7,7 @@ module.exports = {
   expectedArgs: '',
   category: '',
   callback: (message, arguments, text) => {
-    const categories = ['Economy', 'Betting', 'Inventory', 'Facts', '']
+    const categories = ['', 'Economy', 'Betting', 'Inventory', 'Facts']
     var reply = [];
     const commands = loadCommands()
     for (var i=0;i<categories.length;i++) {
@@ -46,21 +46,49 @@ module.exports = {
 
         desc.push(`**${prefix}${mainCommand}${args}**: ${description}\n`)
       }
-      reply.push({type: categories[i] || 'Other commands', value: desc.join(" ")})
+      reply.push({type: categories[i] || 'Commands', value: desc.join(" ")})
     }
-
+    let page = 0;
 
     const messageEmbed = new Discord.MessageEmbed()
     	.setColor('0x7a19a8')
-    	.setTitle('Commands')
-    	.setDescription('Help menu')
-      reply.forEach(entry => {
-        console.log(entry)
-        messageEmbed.addField(entry.type, entry.value);
-      });
+    	.setTitle('Help menu')
+      .addField(reply[0].type, reply[0].value);
 
 
-    message.channel.send(messageEmbed);
+    message.channel.send(messageEmbed).then(msg =>{
+      msg.react('⬅️').then(r => {
+        msg.react('➡️')
+        const backFilter = (reaction, user) => reaction.emoji.name === '⬅️' && user.id === message.author.id;
+        const forFilter = (reaction, user) => reaction.emoji.name === '➡️' && user.id === message.author.id;
+
+        const backwards = msg.createReactionCollector(backFilter, { time: 60000 })
+        const forwards = msg.createReactionCollector(forFilter, { time: 60000 })
+
+        backwards.on('collect', r => {
+          r.users.remove(message.author.id)
+          if (page === 0) return;
+          page--;
+          var field = {name: reply[page].type, value: reply[page].value}
+          messageEmbed.spliceFields(0, 1, field)
+          msg.edit(messageEmbed)
+        })
+
+        forwards.on('collect', r => {
+          r.users.remove(message.author.id)
+          if (page === (categories.length - 1)) return;
+          page++;
+          var field = {name: reply[page].type, value: reply[page].value}
+          messageEmbed.spliceFields(0, 1, field)
+          msg.edit(messageEmbed)
+        })
+
+
+      })
+
+
+
+    });
 
   },
 }
