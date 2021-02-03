@@ -29,7 +29,10 @@ module.exports = {
                 11. grey - 1200
                 12. pink - 960
                 13. burnt sienna - 800
-                `}
+                `},
+        {name: 'Other Roles',
+        value: `14. DJ role - 300`
+      }
       ]
     }
     })
