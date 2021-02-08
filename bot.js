@@ -39,6 +39,7 @@ client.on('message', async message => {
 
     if (message.content == 'hi') return;
     if (message.content.includes('hello')) return;
+    if (message.content.startsWith('http'))) return;
     if (message.embeds[0]) return;
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level

@@ -187,7 +187,7 @@ module.exports = {
       case 'dj':
       case 'dj role':
         var price = 300;
-        var itemName = 'burnt sienna';
+        var itemName = 'DJ';
         var itemType = 'role';
         var hasItem = await inv.fetchItem(message.author.id, itemName)
         if (hasItem.pID) return message.reply('You already own this item')

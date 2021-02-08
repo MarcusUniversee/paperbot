@@ -37,4 +37,6 @@ module.exports = {
     description: bets,
     }})
   },
+  permissions: [],
+  requiredRoles: [],
 }
