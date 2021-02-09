@@ -20,10 +20,13 @@ module.exports = {
     var rankOutput = await leveling.Fetch(user.id)
     var pInv = await inv.fetchInv(user.id)
     var invList = [];
+
     for (var i=0; i<pInv.length; i++) {
       if (pInv[i].dataValues.equip === 1) {
-        invList.push(pInv[i].dataValues.name)
-        invList.push('\n\n')
+        if (pInv[i].dataValues.type == 'badge') {
+          invList.push(pInv[i].dataValues.name)
+          invList.push('\n\n')
+        }
       }
     }
     if (!invList[0]) invList.push('None')
