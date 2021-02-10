@@ -82,12 +82,7 @@ module.exports = {
           messageEmbed.spliceFields(0, 1, field)
           msg.edit(messageEmbed)
         })
-
-
       })
-
-
-
     });
 
   },

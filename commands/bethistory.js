@@ -12,8 +12,9 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' bethistory');
     var output = await bet.fetchArchBetList();
-    var betList = [];
+    var betsList = [];
     for (var i=0; i<output.length; i++) {
+      var betList = [];
       betList.push('id:')
       betList.push(output[i].dataValues.bID)
       betList.push('| 1:')
@@ -24,14 +25,56 @@ module.exports = {
       betList.push(output[i].dataValues.balance)
       betList.push('| Winning Side:')
       betList.push(output[i].dataValues.bSide)
-      betList.push('\n\n')
+      betsList.push(betList.join(" "))
     }
 
-    var bets = betList.join(" ");
-    message.channel.send({embed: {
-    color: 0x7a19a8,
-    title: 'Bet History',
-    description: bets,
-    }})
+    var betsGroupedList = []
+    for (var i=0;i<(Math.floor(betsList.length/5)+1);i++) {
+      betsGroupedList.push("")
+    }
+    if (betList.length % 5) {
+      betsGroupedList.push("")
+    }
+    for (var i=0;i<betsList.length;i++) {
+      betsGroupedList[Math.floor(i/5)] += betsList[i];
+      betsGroupedList[Math.floor(i/5)] += "\n\n";
+    }
+
+    //var bets = betsList.join("\n\n");
+
+    let page = 0;
+    const messageEmbed = new Discord.MessageEmbed()
+    	.setColor('0x7a19a8')
+    	.setTitle('Bet History')
+      .setDescription(betsGroupedList[0]);
+
+
+    message.channel.send(messageEmbed).then(msg =>{
+      msg.react('⬅️').then(r => {
+        msg.react('➡️')
+        
+        const backFilter = (reaction, user) => reaction.emoji.name === '⬅️' && user.id === message.author.id;
+        const forFilter = (reaction, user) => reaction.emoji.name === '➡️' && user.id === message.author.id;
+
+        const backwards = msg.createReactionCollector(backFilter, { time: 60000 })
+        const forwards = msg.createReactionCollector(forFilter, { time: 60000 })
+
+        backwards.on('collect', r => {
+          r.users.remove(message.author.id)
+          if (page === 0) return;
+          page--;
+          messageEmbed.setDescription(betsGroupedList[page])
+          msg.edit(messageEmbed)
+        })
+
+        forwards.on('collect', r => {
+          r.users.remove(message.author.id)
+          if (page === (betsGroupedList.length - 1)) return;
+          page++;
+          messageEmbed.setDescription(betsGroupedList[page])
+          msg.edit(messageEmbed)
+        })
+      })
+    });
   },
 }
