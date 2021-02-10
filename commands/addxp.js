@@ -14,7 +14,6 @@ module.exports = {
     if (!message.mentions.users.first()) return message.reply('User not mentioned')
     if (!parseInt(paramsCom[1])) return message.reply('Amount needs to be a number!')
     var profile = await leveling.Fetch(message.mentions.users.first().id)
-    leveling.AddXp(message.mentions.users.first().id, paramsCom[1])
     //If user xp higher than 100 add level
     var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
     var xp = paramsCom[1]
@@ -31,10 +30,12 @@ module.exports = {
         console.log(xp)
       } else {
         leveling.AddXp(message.mentions.users.first().id, xp)
+        xp = 0;
         console.log(xp)
-        return;
+        break;
       }
     }
+    message.reply(`Successfully added ${paramsCom[1]} xp to ${message.mentions.users.first().tag}`)
     return;
   },
   permissions: 'ADMINISTRATOR',
