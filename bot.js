@@ -35,6 +35,7 @@ client.on('message', async message => {
   var botchannel = message.guild.channels.cache.get('801558022823477339')
   botchannel.setRateLimitPerUser(2);
   var profile = await leveling.Fetch(message.author.id)
+  //if (message.author.id == '381910494493278208') return message.reply('Imposter! you get no xp')
   if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236' || message.channel.id === '801939862303014912' || message.channel.id == '801558022823477339') {//chat school and trivia
 
     if (message.content == 'hi') return;
@@ -49,7 +50,7 @@ client.on('message', async message => {
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
       var profileBal = await eco.AddToBalance(message.author.id, money)
-      message.reply(`You just leveled up!! You are now level ${profile.level + 1} and you have earned ${money} blanks`)
+      message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks`)
 
     }
     return;

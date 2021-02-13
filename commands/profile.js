@@ -25,7 +25,7 @@ module.exports = {
       if (pInv[i].dataValues.equip === 1) {
         if (pInv[i].dataValues.type == 'badge') {
           invList.push(pInv[i].dataValues.name)
-          invList.push('\n\n')
+          invList.push('\n')
         }
       }
     }
