@@ -1,0 +1,72 @@
+[
+  {
+		"name": "crimson",
+		"type": "color",
+    "price": 9600
+	},
+  {
+		"name": "sky blue",
+		"type": "color",
+    "price": 7360
+	},
+  {
+		"name": "cobalt",
+		"type": "color",
+    "price": 7040
+	},
+  {
+		"name": "purple",
+		"type": "color",
+    "price": 6000
+	},
+  {
+		"name": "titanium white",
+		"type": "color",
+    "price": 5360
+	},
+  {
+		"name": "black",
+		"type": "color",
+    "price": 5360
+	},
+  {
+		"name": "forest green",
+		"type": "color",
+    "price": 5200
+	},
+	{
+		"name": "lime",
+		"type": "color",
+    "price": 4600
+	},
+  {
+		"name": "orange",
+		"type": "color",
+    "price": 4320
+	},
+  {
+		"name": "saffron",
+		"type": "color",
+    "price": 4000
+	},
+  {
+		"name": "grey",
+		"type": "color",
+    "price": 1200
+	},
+  {
+		"name": "pink",
+		"type": "color",
+    "price": 960
+	},
+  {
+		"name": "burnt sienna",
+		"type": "color",
+    "price": 800
+	},
+	{
+    "name": "DJ",
+		"type": "role",
+    "price": 300
+	}
+]

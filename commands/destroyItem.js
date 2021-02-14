@@ -17,7 +17,13 @@ module.exports = {
     if (!output.pID) {
       return message.reply('Item does not exist')
     }
-
+    if (output.equip === 1) {
+      var eItem = await inv.unequipItem(message.mentions.users.first().id, paramsCom[1])
+      if (eItem.type === 'color' || eItem.type === 'role') {
+        const role = message.guild.roles.cache.find(role => role.name === paramsCom[1]);
+        message.member.roles.remove(role);
+      }
+    }
 
     message.channel.send({embed: {
     color: 0x7a19a8,
