@@ -125,8 +125,8 @@ module.exports = (client, commandOptions) => {
 
         // Ensure we have the correct number of arguments
         if (
-          paramsCom.length < minArgs ||
-          (maxArgs !== null && paramsCom.length > maxArgs)
+          params.length < minArgs ||
+          (maxArgs !== null && params.length > maxArgs)
         ) {
           message.reply(
             `Error: incorrect syntax! use p.${alias} ${expectedArgs}`
