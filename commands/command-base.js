@@ -122,7 +122,17 @@ module.exports = (client, commandOptions) => {
         let params1 = message.content.split(' ').slice(1).join(" "); //same as params but as a string with a space in between
         let paramsCom = message.content.split(' ').slice(1).join(" ").split(', '); //array containing each param when set by comma
 
-
+        if (paramsCom[0] === '') {
+          if (
+            params.length < minArgs ||
+            (maxArgs !== null && params.length > maxArgs)
+          ) {
+            message.reply(
+              `Error: incorrect syntax! use p.${alias} ${expectedArgs}`
+            )
+            return
+          }
+        }
         // Ensure we have the correct number of arguments
         if (
           paramsCom.length < minArgs ||
