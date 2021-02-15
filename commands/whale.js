@@ -59,11 +59,16 @@ var whaleFacts = ['The blue whale is the largest animal that ever lived and can 
 module.exports = {
   name: 'whale',
   description: 'Replies with a whale fact',
-  usage: 'whale',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: 'Facts',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' whale');
     var whaleNum = await Math.floor((Math.random() * whaleFacts.length));
     message.reply(whaleFacts[whaleNum]);
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

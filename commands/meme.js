@@ -4,16 +4,20 @@ const randomPuppy = require('random-puppy');
 module.exports = {
   name: 'meme',
   description: 'Replies with a random meme from reddit',
-  usage: 'meme',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: '',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' meme');
     const subReddits = ['dankmeme', 'meme', 'me_irl', 'memes', 'dankmemes'];
     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
     var img = await randomPuppy(random);
-    console.log(img)
 
     message.reply(`from r/${random} ` + img)
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

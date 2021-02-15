@@ -2,34 +2,32 @@ const Discord = require('discord.js')
 const bet = require('betting')
 
 module.exports = {
-  name: 'bets',
-  description: 'Returns a list of bets',
+  name: 'bethistory',
+  description: 'Returns a list of ended bets',
   expectedArgs: '',
   category: 'Betting',
   permissionError: '',
   minArgs: 0,
   maxArgs: 1,
   callback: async (message, paramsCom) => {
-    console.log(message.author.tag + ' bets');
-    var output = await bet.fetchBetList();
+    console.log(message.author.tag + ' bethistory');
+    var output = await bet.fetchArchBetList();
     var betsList = [];
     for (var i=0; i<output.length; i++) {
       var betList = [];
-      if (output[i].dataValues.closed === 1) {
-        betList.push('[CLOSED]')
-      }
       betList.push('id:')
-      betList.push(output[i].dataValues.id)
+      betList.push(output[i].dataValues.bID)
       betList.push('| 1:')
       betList.push(output[i].dataValues.desc1)
       betList.push('| 2:')
       betList.push(output[i].dataValues.desc2)
       betList.push('| Pool:')
       betList.push(output[i].dataValues.balance)
-      betList.push('| Minimum Bet:')
-      betList.push(output[i].dataValues.startBal)
+      betList.push('| Winning Side:')
+      betList.push(output[i].dataValues.bSide)
       betsList.push(betList.join(" "))
     }
+
     var betsGroupedList = []
     for (var i=0;i<(Math.floor(betsList.length/5)+1);i++) {
       betsGroupedList.push("")
@@ -47,13 +45,14 @@ module.exports = {
     let page = 0;
     const messageEmbed = new Discord.MessageEmbed()
     	.setColor('0x7a19a8')
-    	.setTitle('Bet List')
+    	.setTitle('Bet History')
       .setDescription(betsGroupedList[0]);
 
 
     message.channel.send(messageEmbed).then(msg =>{
       msg.react('⬅️').then(r => {
         msg.react('➡️')
+        
         const backFilter = (reaction, user) => reaction.emoji.name === '⬅️' && user.id === message.author.id;
         const forFilter = (reaction, user) => reaction.emoji.name === '➡️' && user.id === message.author.id;
 
@@ -77,8 +76,5 @@ module.exports = {
         })
       })
     });
-
   },
-  permissions: [],
-  requiredRoles: [],
 }

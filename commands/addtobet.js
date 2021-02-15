@@ -1,16 +1,16 @@
 const Discord = require('discord.js')
 const bet = require('betting')
 const eco = require('discord-economy');
-//Provides the description for addtobet.js
 module.exports = {
   name: 'addtobet',
   description: 'Adds to a bet',
-  usage: 'addtobet [betID], [betAmount]',
-
-  async run (client, message, params, paramsCom) {
-    console.log(message.author.tag + ' addtobet
-    if (!paramsCom[0]) return message.reply('Error: No betID amount specified')
-    if (!paramsCom[1]) return message.reply('Error: No bet amount specified')
+  expectedArgs: '[betID], [betAmount]',
+  category: 'Betting',
+  permissionError: '',
+  minArgs: 2,
+  maxArgs: 2,
+  callback: async (message, paramsCom) => {
+    console.log(message.author.tag + ' addtobet')
     if (!parseInt(paramsCom[0])) return message.reply('Error: BetID has to be a number')
     if (!parseInt(paramsCom[1])) return message.reply('Error: Blank amount has to be a number')
     var playerBal = await eco.FetchBalance(message.author.id)
@@ -39,5 +39,7 @@ module.exports = {
       },
     ],
     }})
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

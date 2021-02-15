@@ -34,11 +34,16 @@ var turtleQuotes = ['Many turtles are able to retract their heads and feet into 
 module.exports = {
   name: 'turtle',
   description: 'Replies with a turtle fact',
-  usage: 'turtle',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: 'Facts',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' turtle');
     var turtleNum = await Math.floor((Math.random() * turtleQuotes.length));
     message.reply(turtleQuotes[turtleNum]);
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }

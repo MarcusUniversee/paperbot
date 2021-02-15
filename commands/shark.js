@@ -42,11 +42,16 @@ var sharkQuotes = ['Whale sharks can grow to be 60-plus feet long — that\'s a 
 module.exports = {
   name: 'shark',
   description: 'Replies with a shark fact',
-  usage: 'shark',
-
-  async run (client, message, params, paramsCom) {
+  expectedArgs: '',
+  category: 'Facts',
+  permissionError: '',
+  minArgs: 0,
+  maxArgs: 1,
+  callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' shark');
     var sharkNum = await Math.floor((Math.random() * sharkQuotes.length));
     message.reply(sharkQuotes[sharkNum]);
-  }
+  },
+  permissions: [],
+  requiredRoles: [],
 }
