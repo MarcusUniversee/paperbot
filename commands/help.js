@@ -8,7 +8,18 @@ module.exports = {
   category: '',
   callback: (message, arguments, text) => {
     const categories = ['', 'Economy', 'Betting', 'Inventory', 'Facts']
-    var reply = [];
+    var reply = [{
+                  type: `About`,
+                  value: `Paper bot is multi-purpose bot made for the paper server
+
+                          **Functions:**
+                          __Economy__ - Handles an economy based on the currency, blanks.
+                          __Ranks__ - Earn xp to rank up by being active in the server. Blanks are awarded for ranking up.
+                          __Shop__ - Buy color roles and other items using blanks.
+                          __Inventory__ - Every player has their own inventory to manage and equip items/roles.
+                          __Betting__ - Make bets on anything with other players. Uses blanks.
+                          __Facts and generators__ - Variety of commands that return random facts`
+                }];
     const commands = loadCommands()
     for (var i=0;i<categories.length;i++) {
       var desc = [];

@@ -3,25 +3,25 @@
 		"name": "crimson",
 		"type": "color",
     "price": 9600,
-    "reqRank": 60
+    "reqRank": 50
 	},
   {
 		"name": "sky blue",
 		"type": "color",
     "price": 7360,
-    "reqRank": 55
+    "reqRank": 46
 	},
   {
 		"name": "cobalt",
 		"type": "color",
     "price": 7040,
-    "reqRank": 50
+    "reqRank": 45
 	},
   {
 		"name": "purple",
 		"type": "color",
     "price": 6000,
-    "reqRank": 45
+    "reqRank": 43
 	},
   {
 		"name": "titanium white",
@@ -39,43 +39,43 @@
 		"name": "forest green",
 		"type": "color",
     "price": 5200,
-    "reqRank": 40
+    "reqRank": 41
 	},
 	{
 		"name": "lime",
 		"type": "color",
     "price": 4600,
-    "reqRank": 37
+    "reqRank": 40
 	},
   {
 		"name": "orange",
 		"type": "color",
     "price": 4320,
-    "reqRank": 35
+    "reqRank": 39
 	},
   {
 		"name": "saffron",
 		"type": "color",
     "price": 4000,
-    "reqRank": 32
+    "reqRank": 38
 	},
   {
 		"name": "grey",
 		"type": "color",
     "price": 1200,
-    "reqRank": 25
+    "reqRank": 30
 	},
   {
 		"name": "pink",
 		"type": "color",
     "price": 960,
-    "reqRank": 20
+    "reqRank": 26
 	},
   {
 		"name": "burnt sienna",
 		"type": "color",
     "price": 800,
-    "reqRank": 15
+    "reqRank": 25
 	},
 	{
     "name": "DJ",
