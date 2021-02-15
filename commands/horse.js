@@ -13,8 +13,8 @@ module.exports = {
   maxArgs: 1,
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' horse');
-    var paperNum = await Math.floor((Math.random() * paperFacts.length));
-    message.reply(paperFacts[paperNum]);
+    var paperNum = await Math.floor((Math.random() * horseFacts.length));
+    message.reply(horseFacts[horseNum]);
   },
   permissions: [],
   requiredRoles: [],
