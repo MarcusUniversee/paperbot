@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const eco = require('discord-economy');
 const inv = require('inventory');
+const leveling = require('discord-leveling');
 const list = require("../getJSON/shop.json")
 module.exports = {
   name: 'buy',
@@ -29,10 +30,17 @@ module.exports = {
     var price = item.price;
     var itemName = item.name;
     var itemType = item.type;
+    var itemRank = item.reqRank
+
+    //CHECKS
     var hasItem = await inv.fetchItem(message.author.id, itemName)
     if (hasItem.pID) return message.reply('You already own this item')
     var output = await eco.FetchBalance(message.author.id)
     if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
+    var lvlProfile = await leveling.Fetch(message.author.id)
+    if (itemRank > lvlProfile.level) return message.reply('Your rank is too low')
+
+    //EXECUTE
     var profile = await eco.SubtractFromBalance(message.author.id, price)
     var itemInv = await inv.addItem(message.author.id, itemType, itemName)
     message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
