@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 
-var paperFacts = ['COMING SOON'
+var horseFacts = ['COMING SOON'
                  ]
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
   maxArgs: 1,
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' horse');
-    var paperNum = await Math.floor((Math.random() * horseFacts.length));
+    var horseNum = await Math.floor((Math.random() * horseFacts.length));
     message.reply(horseFacts[horseNum]);
   },
   permissions: [],
