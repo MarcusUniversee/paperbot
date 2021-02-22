@@ -44,7 +44,7 @@ var horseFacts = ['Horses can run shortly after birth.',
                   'A horse can see better at night than a human. However, it takes a horse\'s eyes longer to adjust from light to dark and from dark to light than a human\'s',
                   'The first cloned horse was a Haflinger mare in Italy in 2003',
                   'Horses like sweet flavors and will usually reject anything sour or bitter',
-                  'Wild horses generally gather in groups of 3 to 20 animals. A stallion (mature male) leads the group, which consists of mares (females) and young foals. When young males become colts, at around two years of age, the stallion drives them away. The colts then roam with other young males until they can gather their own band of females.'
+                  'Wild horses generally gather in groups of 3 to 20 animals. A stallion (mature male) leads the group, which consists of mares (females) and young foals. When young males become colts, at around two years of age, the stallion drives them away. The colts then roam with other young males until they can gather their own band of females.',
                   'Most of the time, wherever a horse\'s ear is pointing is where the horse is looking with the eye on the same side. If the ears are pointing in different directions, the horse is looking at two different things at the same time.',
                   'Horses produce approximately 10 gallons of saliva a day',
                   'On the underside of a horse\'s hoof is a triangular shaped area called the “frog," which acts as a shock absorber for a horse\'s leg, and also helps to pump blood back up the leg.',

@@ -18,7 +18,7 @@ client.commands = new Discord.Collection();
 //prefix
 let prefix = 'p.';
 
-client.setMaxListeners(35);
+client.setMaxListeners(36);
 
 client.on('ready', async () => {
   console.log('The client is ready!')
