@@ -52,7 +52,7 @@ module.exports = {
     message.channel.send(messageEmbed).then(msg =>{
       msg.react('⬅️').then(r => {
         msg.react('➡️')
-        
+
         const backFilter = (reaction, user) => reaction.emoji.name === '⬅️' && user.id === message.author.id;
         const forFilter = (reaction, user) => reaction.emoji.name === '➡️' && user.id === message.author.id;
 
@@ -77,4 +77,6 @@ module.exports = {
       })
     });
   },
+  permissions: [],
+  requiredRoles: [],
 }

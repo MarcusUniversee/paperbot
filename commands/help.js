@@ -27,35 +27,19 @@ module.exports = {
         const { category } = command
         if (category !== categories[i]) continue
         // Check for permissions
-        let permissions = command.permission
+        let permissions = command.permissions
+        console.log(permissions)
+        if (!permissions[0]) {
+          // Format the text
+          const mainCommand =
+            typeof command.name === 'string'
+              ? command.name
+              : command.name[0]
+          const args = command.expectedArgs ? ` ${command.expectedArgs}` : ''
+          const { description } = command
 
-        if (permissions) {
-          let hasPermission = true
-          if (typeof permissions === 'string') {
-            permissions = [permissions]
-          }
-
-          for (const permission of permissions) {
-            if (!message.member.hasPermission(permission)) {
-              hasPermission = false
-              break
-            }
-          }
-
-          if (!hasPermission) {
-            continue
-          }
+          desc.push(`**${prefix}${mainCommand}${args}**: ${description}\n`)
         }
-
-        // Format the text
-        const mainCommand =
-          typeof command.name === 'string'
-            ? command.name
-            : command.name[0]
-        const args = command.expectedArgs ? ` ${command.expectedArgs}` : ''
-        const { description } = command
-
-        desc.push(`**${prefix}${mainCommand}${args}**: ${description}\n`)
       }
       reply.push({type: categories[i] || 'Commands', value: desc.join(" ")})
     }
@@ -87,7 +71,7 @@ module.exports = {
 
         forwards.on('collect', r => {
           r.users.remove(message.author.id)
-          if (page === (categories.length - 1)) return;
+          if (page === (categories.length)) return;
           page++;
           var field = {name: reply[page].type, value: reply[page].value}
           messageEmbed.spliceFields(0, 1, field)
@@ -97,4 +81,6 @@ module.exports = {
     });
 
   },
+  permissions: [],
+  requiredRoles: [],
 }

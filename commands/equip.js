@@ -47,6 +47,6 @@ module.exports = {
     }
 
   },
-  permissions: '',
+  permissions: [],
   requiredRoles: [],
 }

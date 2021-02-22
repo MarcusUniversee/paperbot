@@ -46,6 +46,6 @@ module.exports = {
       break;
     }
   },
-  permissions: '',
+  permissions: [],
   requiredRoles: [],
 }
