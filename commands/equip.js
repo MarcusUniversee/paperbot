@@ -42,7 +42,7 @@ module.exports = {
         }})
       break;
       default:
-        message.channel.send('Error: wrong item type')
+        message.channel.send('You cannot equip this item')
       break;
     }
 

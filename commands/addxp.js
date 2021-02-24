@@ -16,22 +16,25 @@ module.exports = {
     var profile = await leveling.Fetch(message.mentions.users.first().id)
     //If user xp higher than 100 add level
     var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
-    var xp = paramsCom[1]
+    var xp = parseInt(paramsCom[1])
     while (xp > 0) {
-      profile = await leveling.Fetch(message.mentions.users.first().id)
+      profile = await leveling.Fetch(message.author.id)
+      var curXp = profile.xp
+      console.log("current xp: " + curXp)
+      xp = xp + curXp
+      console.log("total xp: " + xp)
       maxXp = ((profile.level*10)-(profile.level*2)) + 1;
+      console.log("max xp: " + maxXp)
       if (xp > maxXp) {
         var money = 5 + Math.floor(profile.level/5)
-        await leveling.AddLevel(message.mentions.users.first().id, 1)
-        await leveling.SetXp(message.mentions.users.first().id, 0)
+        await leveling.AddLevel(message.author.id, 1)
+        await leveling.SetXp(message.author.id, 0)
         var profileBal = await eco.AddToBalance(message.mentions.users.first().id, money)
-        message.reply(`${message.mentions.users.first().tag} just leveled up!! They are now level ${profile.level + 1} and they have earned ${money} blanks`)
+        message.reply(`${message.author.tag} just leveled up!! They are now level ${profile.level + 1} and they have earned ${money} blanks`)
         xp = xp - maxXp
-        console.log(xp)
       } else {
-        leveling.AddXp(message.mentions.users.first().id, xp)
+        leveling.AddXp(message.author.id, xp)
         xp = 0;
-        console.log(xp)
         break;
       }
     }
