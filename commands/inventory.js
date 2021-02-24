@@ -26,6 +26,8 @@ module.exports = {
       invList.push(pInv[i].dataValues.name)
       invList.push('| Type: ')
       invList.push(pInv[i].dataValues.type)
+      invList.push('| Quantity: ')
+      invList.push(pInv[i].dataValues.quantity)
       invList.push('\n\n')
     }
     var inventory = invList.join(" ");
