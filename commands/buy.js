@@ -9,17 +9,18 @@ module.exports = {
   expectedArgs: '[itemName/itemNumber]',
   category: 'Economy',
   permissionError: '',
-  minArgs: 0,
+  minArgs: 1,
   maxArgs: 1,
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' shop')
+    var item;
     if (paramsCom[0]) var inputItem = paramsCom[0].toLowerCase()
     if (parseInt(inputItem)) {
-      var item = list[parseInt(inputItem)-1]
+      item = list[parseInt(inputItem)-1]
     } else {
       for (var i=0; i<list.length;i++) {
         if (inputItem === list[i].name) {
-          var item = list[i];
+          item = list[i];
           break;
         }
       }

@@ -2,16 +2,16 @@
   {
 		"name": "gold crate",
 		"type": "crate",
-    "contents": [["blanks", 80, 200, 1], ["xp", 100, 250, 1], ["color", 1, 1, 0.015]]
+    "contents": [["blanks", 80, 200, 1], ["xp", 100, 250, 1], ["color", 1, 1, 0.005]]
 	},
   {
 		"name": "silver crate",
 		"type": "crate",
-    "contents": [["blanks", 40, 100, 1], ["xp", 50, 150, 1], ["color", 1, 1, 0.001]]
+    "contents": [["blanks", 40, 100, 1], ["xp", 50, 150, 1], ["color", 1, 1, 0.0025]]
 	},
   {
 		"name": "bronze crate",
 		"type": "crate",
-    "contents": [["blanks", 10, 50, 1], ["xp", 20, 60, 1], ["color", 1, 1, 0.005]]
+    "contents": [["blanks", 10, 50, 1], ["xp", 20, 60, 1], ["color", 1, 1, 0.001]]
 	}
 ]
