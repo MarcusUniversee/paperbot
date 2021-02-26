@@ -3,7 +3,7 @@ const eco = require('discord-economy');
 const inv = require('inventory');
 const leveling = require('discord-leveling');
 const list = require('../getJSON/crates.json')
-const rolesList = require('../getJSON/roles.json')
+const prizeList = require('../getJSON/prizes.json')
 module.exports = {
   name: 'opencrate',
   description: 'Opens an owned crate',
@@ -21,7 +21,6 @@ module.exports = {
     for (var i=0;i<list.length;i++) {
       if (paramsCom[0] === list[i].name) {
         var crate = list[i];
-        console.log("crate: " + crate)
         break;
       }
     }
@@ -40,45 +39,24 @@ module.exports = {
             var profile = await eco.AddToBalance(message.author.id, amount)
             message.reply(`You have earned ${amount} blanks and now own ${profile.newbalance} blanks.`);
           break;
-          case "xp":
-            var profile2 = await leveling.Fetch(message.author.id)
-            //If user xp higher than 100 add level
-            var maxXp = ((profile2.level*10)-(profile2.level*2)) + 1;
-            var xp = amount
-            message.reply(`You have earned ${amount} xp`);
-            while (xp > 0) {
-              profile2 = await leveling.Fetch(message.author.id)
-              var curXp = profile2.xp
-              console.log("current xp: " + curXp)
-              xp = xp + curXp
-              console.log("total xp: " + xp)
-              maxXp = ((profile2.level*10)-(profile2.level*2)) + 1;
-              console.log("max xp: " + maxXp)
-              if (xp > maxXp) {
-                var money = 5 + Math.floor(profile2.level/5)
-                await leveling.AddLevel(message.author.id, 1)
-                await leveling.SetXp(message.author.id, 0)
-                var profileBal = await eco.AddToBalance(message.author.id, money)
-                message.reply(`${message.author.tag} just leveled up!! They are now level ${profile2.level + 1} and they have earned ${money} blanks`)
-                xp = xp - maxXp
-              } else {
-                leveling.AddXp(message.author.id, xp)
-                xp = 0;
-                break;
+          case "item":
+            var prizes = []
+            for (var k=0;k<prizeList.length;k++) {
+              if (prizeList[k].series === crate.series) {
+                if (prizeList[k].tier <= crate.tier) {
+                  prizes.push(prizeList[k])
+                }
               }
             }
-          break;
-          case "color":
-            var role = rolesList[Math.floor(Math.random() * rolesList.length)]
-            var hasItem = await inv.fetchItem(message.author.id, role.name)
+            var prize = prizes[Math.floor(Math.random() * prizes.length)]
+            var hasItem = await inv.fetchItem(message.author.id, prize.name)
             if (hasItem.pID) {
-              var profile3 = await eco.AddToBalance(message.author.id, amount)
-              message.reply(`You already own ${role.name} so you have recieved 150 blanks. You now own ${profile3.newbalance} blanks.`);
+              var profile3 = await eco.AddToBalance(message.author.id, 200)
+              message.reply(`You already own ${prize.name} so you have recieved 200 blanks. You now own ${profile3.newbalance} blanks.`);
             } else {
-              var itemInv = await inv.addItem(message.author.id, "color", role.name)
-              message.reply(`You found the color ${role.name}!`);
+              var itemInv = await inv.addItem(message.author.id, prize.type, prize.name)
+              message.reply(`You found ${prize.name}!`);
             }
-
           break;
           default:
             return message.reply("Error: bad content name type")

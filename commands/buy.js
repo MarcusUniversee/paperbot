@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const eco = require('discord-economy');
 const inv = require('inventory');
 const leveling = require('discord-leveling');
+const prof = require('profile')
 const list = require("../getJSON/shop.json")
 module.exports = {
   name: 'buy',
@@ -9,17 +10,18 @@ module.exports = {
   expectedArgs: '[itemName/itemNumber]',
   category: 'Economy',
   permissionError: '',
-  minArgs: 0,
+  minArgs: 1,
   maxArgs: 1,
   callback: async (message, paramsCom) => {
-    console.log(message.author.tag + ' shop')
+    console.log(message.author.tag + ' buy')
+    var item;
     if (paramsCom[0]) var inputItem = paramsCom[0].toLowerCase()
     if (parseInt(inputItem)) {
-      var item = list[parseInt(inputItem)-1]
+      item = list[parseInt(inputItem)-1]
     } else {
       for (var i=0; i<list.length;i++) {
         if (inputItem === list[i].name) {
-          var item = list[i];
+          item = list[i];
           break;
         }
       }
@@ -33,17 +35,42 @@ module.exports = {
     var itemRank = item.reqRank
 
     //CHECKS
-    var hasItem = await inv.fetchItem(message.author.id, itemName)
-    if (hasItem.pID) return message.reply('You already own this item')
     var output = await eco.FetchBalance(message.author.id)
     if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
     var lvlProfile = await leveling.Fetch(message.author.id)
     if (itemRank > lvlProfile.level) return message.reply('Your rank is too low')
 
     //EXECUTE
-    var profile = await eco.SubtractFromBalance(message.author.id, price)
-    var itemInv = await inv.addItem(message.author.id, itemType, itemName)
-    message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
+    if (item.isItem) {
+      var hasItem = await inv.fetchItem(message.author.id, itemName)
+      if (hasItem.pID) return message.reply('You already own this item')
+      var profile = await eco.SubtractFromBalance(message.author.id, price)
+      var itemInv = await inv.addItem(message.author.id, itemType, itemName)
+      message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
+    } else {
+      switch (item.id) {
+        case 'badgeLimit':
+          var profile = await prof.fetchProfile(message.author.id)
+          var limit = profile.badgeLimit + 1
+          var balProfile = await eco.SubtractFromBalance(message.author.id, price)
+          var profUpdate = await prof.updateField(message.author.id, item.id, limit)
+          message.reply(`Successfully purchased ${item.name}! You now own ${balProfile.newbalance} blanks.`);
+        break;
+        case 'authorName':
+          var balProfile = await eco.SubtractFromBalance(message.author.id, price)
+          message.reply(`Successfully purchased ${item.name}! You now own ${balProfile.newbalance} blanks\nPlease enter your new author name within the next five minutes`);
+          const filter = m => m.author.id === message.author.id
+
+          const respond = message.channel.createMessageCollector(filter, { time: 300000 });
+
+          respond.on('collect', async m => {
+            var profUpdate = await prof.updateField(message.author.id, item.id, m.content)
+            message.reply(`Successfully set ${message.author.tag}\'s author name to ${m.content}`)
+            respond.stop()
+          })
+        break;
+      }
+    }
   },
   permissions: [],
   requiredRoles: [],

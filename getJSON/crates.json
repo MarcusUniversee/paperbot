@@ -2,16 +2,29 @@
   {
 		"name": "gold crate",
 		"type": "crate",
-    "contents": [["blanks", 80, 200, 1], ["xp", 100, 250, 1], ["color", 1, 1, 0.015]]
+    "contents": [["blanks", 80, 200, 1], ["item", 1, 1, 0.01]],
+    "tier": 3,
+    "series": "normal"
 	},
   {
 		"name": "silver crate",
 		"type": "crate",
-    "contents": [["blanks", 40, 100, 1], ["xp", 50, 150, 1], ["color", 1, 1, 0.001]]
+    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.008]],
+    "tier": 3,
+    "series": "normal"
 	},
   {
 		"name": "bronze crate",
 		"type": "crate",
-    "contents": [["blanks", 10, 50, 1], ["xp", 20, 60, 1], ["color", 1, 1, 0.005]]
+    "contents": [["blanks", 10, 50, 1], ["item", 1, 1, 0.005]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "level crate",
+		"type": "crate",
+    "contents": [["blanks", 1, 20, 1], ["item", 1, 1, 0.004]],
+    "tier": 1,
+    "series": "normal"
 	}
 ]

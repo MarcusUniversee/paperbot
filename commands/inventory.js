@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const inv = require('inventory');
+const list = require('../getJSON/crates.json')
 module.exports = {
   name: ['inventory', 'inv'],
   description: 'Shows player inventory',
@@ -24,6 +25,13 @@ module.exports = {
       }
       invList.push('Item:')
       invList.push(pInv[i].dataValues.name)
+      if (pInv[i].dataValues.type === 'crate') {
+        for (var j=0;j<list.length;j++) {
+          if (list[j].name === pInv[i].dataValues.name) {
+            invList.push(`(Tier ${list[j].tier})`)
+          }
+        }
+      }
       invList.push('| Type: ')
       invList.push(pInv[i].dataValues.type)
       invList.push('| Quantity: ')
