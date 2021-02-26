@@ -5,11 +5,14 @@ const client = new Discord.Client();
 
 const bet = require('betting')
 const inv = require('inventory')
-
+const prof = require('profile')
 const eco = require('discord-economy');
 const leveling = require('discord-leveling');
-const fs = require('fs');
 
+const list = require('./getJSON/crates.json')
+const prizeList = require('./getJSON/prizes.json')
+
+const fs = require('fs');
 const path = require('path');
 
 const loadCommands = require('./commands/load-commands')
@@ -46,11 +49,14 @@ client.on('message', async message => {
     //If user xp higher than 100 add level
     var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
     if (profile.xp + 1 > maxXp) {
-      var money = 5 + Math.floor(profile.level/5)
+      var money = 1 + Math.floor(profile.level/6)
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
+      var itemType = 'crate'
+      var itemName = 'level crate'
+      var itemInv = await inv.addItem(message.author.id, itemType, itemName)
       var profileBal = await eco.AddToBalance(message.author.id, money)
-      message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks`)
+      message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a level crate!`)
 
     }
     return;

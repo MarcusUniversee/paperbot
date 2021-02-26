@@ -1,86 +1,138 @@
 [
   {
 		"name": "crimson",
+    "id": "",
 		"type": "color",
     "price": 9600,
-    "reqRank": 50
+    "reqRank": 50,
+    "isItem": true
 	},
   {
 		"name": "sky blue",
+    "id": "",
 		"type": "color",
     "price": 7360,
-    "reqRank": 46
+    "reqRank": 46,
+    "isItem": true
 	},
   {
 		"name": "cobalt",
+    "id": "",
 		"type": "color",
     "price": 7040,
-    "reqRank": 45
+    "reqRank": 45,
+    "isItem": true
 	},
   {
 		"name": "purple",
+    "id": "",
 		"type": "color",
     "price": 6000,
-    "reqRank": 43
+    "reqRank": 43,
+    "isItem": true
 	},
   {
 		"name": "titanium white",
+    "id": "",
 		"type": "color",
     "price": 5360,
-    "reqRank": 42
+    "reqRank": 42,
+    "isItem": true
 	},
   {
 		"name": "black",
+    "id": "",
 		"type": "color",
     "price": 5360,
-    "reqRank": 42
+    "reqRank": 42,
+    "isItem": true
 	},
   {
 		"name": "forest green",
+    "id": "",
 		"type": "color",
     "price": 5200,
-    "reqRank": 41
+    "reqRank": 41,
+    "isItem": true
 	},
 	{
 		"name": "lime",
+    "id": "",
 		"type": "color",
     "price": 4600,
-    "reqRank": 40
+    "reqRank": 40,
+    "isItem": true
 	},
   {
 		"name": "orange",
+    "id": "",
 		"type": "color",
     "price": 4320,
-    "reqRank": 39
+    "reqRank": 39,
+    "isItem": true
 	},
   {
 		"name": "saffron",
+    "id": "",
 		"type": "color",
     "price": 4000,
-    "reqRank": 38
+    "reqRank": 38,
+    "isItem": true
 	},
   {
 		"name": "grey",
+    "id": "",
 		"type": "color",
     "price": 1200,
-    "reqRank": 30
+    "reqRank": 30,
+    "isItem": true
 	},
   {
 		"name": "pink",
+    "id": "",
 		"type": "color",
     "price": 960,
-    "reqRank": 26
+    "reqRank": 26,
+    "isItem": true
 	},
   {
 		"name": "burnt sienna",
+    "id": "",
 		"type": "color",
     "price": 800,
-    "reqRank": 25
+    "reqRank": 25,
+    "isItem": true
 	},
 	{
     "name": "DJ",
+    "id": "",
 		"type": "role",
     "price": 300,
-    "reqRank": 15
+    "reqRank": 15,
+    "isItem": true
+	},
+  {
+		"name": "embed",
+    "id": "",
+		"type": "profile",
+    "price": 1000,
+    "reqRank": 1,
+    "isItem": true
+	},
+  {
+		"name": "increase badge limit",
+    "id": "badgeLimit",
+		"type": "profile",
+    "price": 200,
+    "reqRank": 1,
+    "isItem": false
+	},
+  {
+		"name": "change header (requires embed)",
+    "id": "authorName",
+		"type": "profile",
+    "price": 250,
+    "reqRank": 1,
+    "isItem": false
 	}
 ]

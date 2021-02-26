@@ -15,7 +15,7 @@ module.exports = {
     var itemName = paramsCom[2]
     if (!message.mentions.users.first()) return message.reply('User not mentioned')
     var hasItem = await inv.fetchItem(message.mentions.users.first().id, itemName)
-    if (hasItem.pID) message.reply('This player already owns this item. Adding another one to thei inventory')
+    if (hasItem.pID) message.reply('This player already owns this item. Adding another one to their inventory')
     var itemInv = await inv.addItem(message.mentions.users.first().id, itemType, itemName)
     message.reply(`Successfully added ${itemInv.name} to ${message.mentions.users.first().tag}`);
   },

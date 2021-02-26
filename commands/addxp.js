@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const leveling = require('discord-leveling');
 const eco = require('discord-economy');
+const inv = require('inventory')
 module.exports = {
   name: 'addxp',
   description: 'Adds xp to a mentioned user',
@@ -18,7 +19,7 @@ module.exports = {
     var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
     var xp = parseInt(paramsCom[1])
     while (xp > 0) {
-      profile = await leveling.Fetch(message.author.id)
+      profile = await leveling.Fetch(message.mentions.users.first().id)
       var curXp = profile.xp
       console.log("current xp: " + curXp)
       xp = xp + curXp
@@ -26,14 +27,17 @@ module.exports = {
       maxXp = ((profile.level*10)-(profile.level*2)) + 1;
       console.log("max xp: " + maxXp)
       if (xp > maxXp) {
-        var money = 5 + Math.floor(profile.level/5)
-        await leveling.AddLevel(message.author.id, 1)
-        await leveling.SetXp(message.author.id, 0)
+        var money = 1 + Math.floor(profile.level/6)
+        await leveling.AddLevel(message.mentions.users.first().id, 1)
+        await leveling.SetXp(message.mentions.users.first().id, 0)
+        var itemType = 'crate'
+        var itemName = 'level crate'
+        var itemInv = await inv.addItem(message.mentions.users.first().id, itemType, itemName)
         var profileBal = await eco.AddToBalance(message.mentions.users.first().id, money)
-        message.reply(`${message.author.tag} just leveled up!! They are now level ${profile.level + 1} and they have earned ${money} blanks`)
+        message.reply(`${message.mentions.users.first().tag} just ranked up and is now rank ${profile.level + 1} and has earned ${money} blanks and a level crate!`)
         xp = xp - maxXp
       } else {
-        leveling.AddXp(message.author.id, xp)
+        await leveling.AddXp(message.mentions.users.first().id, xp)
         xp = 0;
         break;
       }

@@ -10,7 +10,7 @@ module.exports = {
   maxArgs: 1,
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' shop')
-    const categories = ['color', 'role']
+    const categories = ['color', 'role', 'profile']
     var reply = [] //id. name
     var reply2 = [] //price
     var reply3 = [] //required xp
