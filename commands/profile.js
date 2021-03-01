@@ -24,6 +24,7 @@ module.exports = {
     var profile = await prof.fetchProfile(user.id)
 
     for (var i=0; i<profile.badgeLimit; i++) {
+      if (!pInv[i]) break;
       if (pInv[i].dataValues.equip === 1) {
         if (pInv[i].dataValues.type == 'badge') {
           invList.push(pInv[i].dataValues.name)
