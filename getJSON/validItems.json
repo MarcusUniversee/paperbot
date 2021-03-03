@@ -1,0 +1,210 @@
+[
+  {
+		"name": "crimson",
+		"type": "color"
+	},
+  {
+		"name": "sky blue",
+		"type": "color"
+	},
+  {
+		"name": "cobalt",
+		"type": "color"
+	},
+  {
+		"name": "purple",
+		"type": "color"
+	},
+  {
+		"name": "titanium white",
+		"type": "color"
+	},
+  {
+		"name": "black",
+		"type": "color"
+	},
+  {
+		"name": "forest green",
+		"type": "color"
+	},
+	{
+		"name": "lime",
+		"type": "color"
+	},
+  {
+		"name": "orange",
+		"type": "color"
+	},
+  {
+		"name": "saffron",
+		"type": "color"
+	},
+  {
+		"name": "grey",
+		"type": "color"
+	},
+  {
+		"name": "pink",
+		"type": "color"
+	},
+  {
+		"name": "burnt sienna",
+		"type": "color"
+	},
+	{
+    "name": "DJ",
+		"type": "role"
+	},
+  {
+		"name": "embed",
+		"type": "profile"
+	},
+  {
+		"name": "aqua",
+    "type": "color"
+	},
+  {
+		"name": "electrum",
+    "type": "color"
+	},
+  {
+		"name": "acacia",
+    "type": "color"
+	},
+  {
+		"name": "coral",
+    "type": "color"
+	},
+  {
+		"name": "army green",
+    "type": "color"
+	},
+  {
+		"name": "barbie pink",
+    "type": "color"
+	},
+  {
+		"name": "azure",
+    "type": "color"
+	},
+  {
+		"name": "lavender",
+    "type": "color"
+	},
+  {
+		"name": "gold",
+    "type": "color"
+	},
+  {
+		"name": "shamrock",
+    "type": "color"
+	},
+  {
+		"name": "fuchsia",
+    "type": "color"
+	},
+  {
+		"name": "silver",
+    "type": "color"
+	},
+  {
+		"name": "smallpfp",
+    "type": "profile"
+	},
+  {
+		"name": "medpfp",
+    "type": "profile"
+	},
+  {
+		"name": "largepfp",
+    "type": "profile"
+	},
+  {
+		"name": "xlargepfp",
+    "type": "profile"
+	},
+  {
+		"name": "gold crate",
+		"type": "crate"
+	},
+  {
+		"name": "silver crate",
+		"type": "crate"
+	},
+  {
+		"name": "bronze crate",
+		"type": "crate"
+	},
+  {
+		"name": "platinum crate",
+		"type": "crate"
+	},
+  {
+		"name": "diamond crate",
+		"type": "crate"
+	},
+  {
+		"name": "champions crate",
+		"type": "crate"
+	},
+  {
+		"name": "legends crate",
+		"type": "crate"
+	},
+  {
+		"name": "printers crate",
+		"type": "crate"
+	},
+  {
+		"name": "paper crate",
+		"type": "crate"
+	},
+  {
+		"name": "cardboard crate 1",
+		"type": "crate"
+	},
+  {
+		"name": "cardboard crate 2",
+		"type": "crate"
+	},
+  {
+		"name": "cardboard crate 3",
+		"type": "crate"
+	},
+  {
+		"name": "level crate",
+		"type": "crate"
+	},
+  {
+		"name": "week 1 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 2 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 3 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 4 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 5 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 6 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 7 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 8 trivia champion",
+		"type": "badge"
+	}
+]

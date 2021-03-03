@@ -1,19 +1,27 @@
 const Discord = require('discord.js')
 const inv = require('inventory')
-
+const validItems = require('../getJSON/validItems.json')
 module.exports = {
   name: 'additem',
   description: 'Adds an item to a specified user\'s inventory',
-  expectedArgs: '[player], [itemType], [itemName], [quantity]',
+  expectedArgs: '[player], [itemName], [quantity]',
   category: 'Inventory',
   permissionError: 'no',
-  minArgs: 3,
-  maxArgs: 4,
+  minArgs: 2,
+  maxArgs: 3,
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' addItem')
-    var itemType = paramsCom[1]
-    var itemName = paramsCom[2]
+    var itemName = paramsCom[1]
     if (!message.mentions.users.first()) return message.reply('User not mentioned')
+    var isItem = false
+    for (var i=0;i<validItems.length;i++) {
+      if (validItems[i].name === itemName) {
+        isItem = true
+        var itemType = validItems[i].type
+        break;
+      }
+    }
+    if (!isItem) return message.reply('Item is not valid')
     var hasItem = await inv.fetchItem(message.mentions.users.first().id, itemName)
     if (hasItem.pID) message.reply('This player already owns this item. Adding another one to their inventory')
     if (!paramsCom[3]) {

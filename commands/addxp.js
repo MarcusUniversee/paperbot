@@ -16,7 +16,7 @@ module.exports = {
     if (!parseInt(paramsCom[1])) return message.reply('Amount needs to be a number!')
     var profile = await leveling.Fetch(message.mentions.users.first().id)
     //If user xp higher than 100 add level
-    var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
+    var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1;
     var xp = parseInt(paramsCom[1])
     while (xp > 0) {
       profile = await leveling.Fetch(message.mentions.users.first().id)
@@ -24,7 +24,7 @@ module.exports = {
       console.log("current xp: " + curXp)
       xp = xp + curXp
       console.log("total xp: " + xp)
-      maxXp = ((profile.level*10)-(profile.level*2)) + 1;
+      maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1;
       console.log("max xp: " + maxXp)
       if (xp > maxXp) {
         var money = 1 + Math.floor(profile.level/6)
