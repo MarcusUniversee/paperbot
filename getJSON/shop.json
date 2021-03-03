@@ -105,7 +105,7 @@
 	},
 	{
     "name": "DJ",
-    "id": "dj",
+    "id": "DJ",
 		"type": "role",
     "description": "Gives you the DJ role",
     "price": 300,

@@ -47,7 +47,7 @@ client.on('message', async message => {
     if (message.embeds[0]) return;
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level
-    var maxXp = ((profile.level*10)-(profile.level*2)) + 1;
+    var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
     if (profile.xp + 1 > maxXp) {
       var money = 1 + Math.floor(profile.level/6)
       await leveling.AddLevel(message.author.id, 1)

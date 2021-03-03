@@ -20,11 +20,11 @@ module.exports = {
     var rankOutput = await leveling.Fetch(user.id)
     var pInv = await inv.fetchInv(user.id)
     var invList = [];
-
     var profile = await prof.fetchProfile(user.id)
 
-    for (var i=0; i<profile.badgeLimit; i++) {
+    for (var i=0; i<pInv.length; i++) {
       if (!pInv[i]) break;
+      if (invList[profile.badgeLimit-1]) break;
       if (pInv[i].dataValues.equip === 1) {
         if (pInv[i].dataValues.type == 'badge') {
           invList.push(pInv[i].dataValues.name)

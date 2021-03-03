@@ -1,5 +1,17 @@
 [
   {
+		"name": "aqua",
+		"tier": 3,
+    "type": "color",
+    "series": "normal"
+	},
+  {
+		"name": "electrum",
+		"tier": 3,
+    "type": "color",
+    "series": "normal"
+	},
+  {
 		"name": "acacia",
 		"tier": 2,
     "type": "color",
@@ -12,26 +24,14 @@
     "series": "normal"
 	},
   {
-		"name": "electrum",
-		"tier": 3,
-    "type": "color",
-    "series": "normal"
-	},
-  {
-		"name": "gold",
-		"tier": 2,
-    "type": "color",
-    "series": "normal"
-	},
-  {
 		"name": "army green",
 		"tier": 1,
     "type": "color",
     "series": "normal"
 	},
   {
-		"name": "aqua",
-		"tier": 3,
+		"name": "barbie pink",
+		"tier": 1,
     "type": "color",
     "series": "normal"
 	},
@@ -39,26 +39,39 @@
 		"name": "azure",
 		"tier": 3,
     "type": "color",
-    "series": "normal"
+    "series": "cardboard"
 	},
   {
 		"name": "lavender",
+		"tier": 3,
+    "type": "color",
+    "series": "cardboard"
+	},
+  {
+		"name": "gold",
 		"tier": 2,
     "type": "color",
-    "series": "normal"
+    "series": "cardboard"
+	},
+  {
+		"name": "shamrock",
+		"tier": 2,
+    "type": "color",
+    "series": "cardboard"
 	},
   {
 		"name": "fuchsia",
 		"tier": 1,
     "type": "color",
-    "series": "normal"
+    "series": "cardboard"
 	},
   {
 		"name": "silver",
 		"tier": 1,
     "type": "color",
-    "series": "normal"
+    "series": "cardboard"
 	},
+
   {
 		"name": "smallpfp",
 		"tier": 1,
