@@ -27,7 +27,7 @@
 		"name": "purple",
     "id": "purple",
 		"type": "color",
-    "price": 6000,
+    "price": 6200,
     "reqRank": 43,
     "isItem": true
 	},
@@ -35,7 +35,7 @@
 		"name": "titanium white",
     "id": "titanium white",
 		"type": "color",
-    "price": 5360,
+    "price": 5800,
     "reqRank": 42,
     "isItem": true
 	},
@@ -43,7 +43,7 @@
 		"name": "black",
     "id": "black",
 		"type": "color",
-    "price": 5360,
+    "price": 5800,
     "reqRank": 42,
     "isItem": true
 	},
@@ -51,7 +51,7 @@
 		"name": "forest green",
     "id": "forest green",
 		"type": "color",
-    "price": 5200,
+    "price": 5700,
     "reqRank": 41,
     "isItem": true
 	},
@@ -59,7 +59,7 @@
 		"name": "lime",
     "id": "lime",
 		"type": "color",
-    "price": 4600,
+    "price": 5500,
     "reqRank": 40,
     "isItem": true
 	},
@@ -67,7 +67,7 @@
 		"name": "orange",
     "id": "orange",
 		"type": "color",
-    "price": 4320,
+    "price": 5000,
     "reqRank": 39,
     "isItem": true
 	},
@@ -75,7 +75,7 @@
 		"name": "saffron",
     "id": "saffron",
 		"type": "color",
-    "price": 4000,
+    "price": 4600,
     "reqRank": 38,
     "isItem": true
 	},
@@ -83,7 +83,7 @@
 		"name": "grey",
     "id": "grey",
 		"type": "color",
-    "price": 1200,
+    "price": 1300,
     "reqRank": 30,
     "isItem": true
 	},

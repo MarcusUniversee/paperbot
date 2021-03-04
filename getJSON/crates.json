@@ -23,21 +23,21 @@
   {
 		"name": "platinum crate",
 		"type": "crate",
-    "contents": [["blanks", 120, 280, 1], ["item", 1, 1, 0.03]],
+    "contents": [["blanks", 120, 280, 1], ["item", 1, 1, 0.04]],
     "tier": 3,
     "series": "normal"
 	},
   {
 		"name": "diamond crate",
 		"type": "crate",
-    "contents": [["blanks", 230, 360, 1], ["item", 1, 1, 0.04]],
+    "contents": [["blanks", 230, 360, 1], ["item", 1, 1, 0.06]],
     "tier": 3,
     "series": "normal"
 	},
   {
 		"name": "champions crate",
 		"type": "crate",
-    "contents": [["blanks", 350, 500, 1], ["item", 1, 1, 0.08]],
+    "contents": [["blanks", 350, 500, 1], ["item", 1, 1, 0.10]],
     "tier": 3,
     "series": "normal"
 	},

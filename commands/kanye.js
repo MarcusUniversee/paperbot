@@ -11,7 +11,8 @@ var kanyeQuotes = ['I know I got angels watching me from the other side',
                    'I am not a fan of books',
                    'I love sleep; it\'s my favorite',
                    'I care. I care about everything. Sometimes not giving a fuck is caring the most',
-                   'I\'mma let you finish, but Beyoncé had one of the best videos of all time!'
+                   'I\'mma let you finish, but Beyoncé had one of the best videos of all time!',
+                   'Al is not me'
                   ]
 
 module.exports = {

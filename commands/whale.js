@@ -52,7 +52,8 @@ var whaleFacts = ['The blue whale is the largest animal that ever lived and can 
                   'Many expensive perfumes contain whale poop',
                   'Whales walked on land about 47 million years ago',
                   'Whales are big',
-                  'There are whales in Seaworld'
+                  'There are whales in Seaworld',
+                  'Al is not a whale'
                  ];
 
 

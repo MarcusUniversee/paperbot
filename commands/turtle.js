@@ -28,7 +28,8 @@ var turtleQuotes = ['Many turtles are able to retract their heads and feet into 
                    'Turtles evolved millions of years ago, and as such are among the oldest groups of reptiles',
                    'As pets, certain species of turtles can live to be 10-150+!',
                    'The largest turtles weigh more than a thousand pounds',
-                   'The largest sea turtle species—the leatherback turtle—can weigh between 600 and 2,000 pounds and grow up to 8 feet in length.'
+                   'The largest sea turtle species—the leatherback turtle—can weigh between 600 and 2,000 pounds and grow up to 8 feet in length.',
+                   'Al is not a turtle'
                   ]
 
 module.exports = {

@@ -24,7 +24,8 @@ var paperFacts = ['Around 100 B.C., the Chinese invented paper from hemp. They l
                   'To produce a ton of paper we need about 115,000 liters of water',
                   'Paper can be recycled up to 11 times in different types of cardboard',
                   'A typical school wastes 360,000 sheets of paper per year',
-                  'According to Xerox, an average office worker uses around 10,000 sheets of photocopy paper every year'
+                  'According to Xerox, an average office worker uses around 10,000 sheets of photocopy paper every year',
+                  'Al is not paper'
                  ]
 
 module.exports = {

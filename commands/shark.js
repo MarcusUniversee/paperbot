@@ -36,7 +36,7 @@ var sharkQuotes = ['Whale sharks can grow to be 60-plus feet long — that\'s a 
                    'Carpet sharks live on the ocean floor and have elaborate patterns to blend in with perfect camouflage. The Tasseled Wobbegong shark takes this to the extreme, with a fringe of feathery ‘tassels’ around its body.',
                    'Epaulette sharks have developed a cunning ability to hold their breath and walk over rocks and land using their fins and tail. This lets them check out the seafood buffet in neighboring rockpools at low tide.',
                    'Hammerhead sharks elongated heads not only give them supersense when it comes to electromagnetic detection, but they also have almost 360-degree surround vision.',
-
+                   'Al is not a shark.'
                   ]
 
 module.exports = {
