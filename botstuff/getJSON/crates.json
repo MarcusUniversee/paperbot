@@ -1,0 +1,93 @@
+[
+  {
+		"name": "gold crate",
+		"type": "crate",
+    "contents": [["blanks", 80, 190, 1], ["item", 1, 1, 0.02]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "silver crate",
+		"type": "crate",
+    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.015]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "bronze crate",
+		"type": "crate",
+    "contents": [["blanks", 10, 50, 1], ["item", 1, 1, 0.01]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "platinum crate",
+		"type": "crate",
+    "contents": [["blanks", 120, 280, 1], ["item", 1, 1, 0.04]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "diamond crate",
+		"type": "crate",
+    "contents": [["blanks", 230, 360, 1], ["item", 1, 1, 0.06]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "champions crate",
+		"type": "crate",
+    "contents": [["blanks", 350, 500, 1], ["item", 1, 1, 0.10]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "legends crate",
+		"type": "crate",
+    "contents": [["blanks", 500, 800, 1], ["item", 1, 1, 0.15]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "printers crate",
+		"type": "crate",
+    "contents": [["blanks", 750, 1000, 1], ["item", 1, 1, 0.25]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "paper crate",
+		"type": "crate",
+    "contents": [["blanks", 1000, 1500, 1], ["item", 1, 1, 0.40]],
+    "tier": 3,
+    "series": "normal"
+	},
+  {
+		"name": "cardboard crate 1",
+		"type": "crate",
+    "contents": [["blanks", 30, 70, 1], ["item", 1, 1, 0.01]],
+    "tier": 1,
+    "series": "cardboard"
+	},
+  {
+		"name": "cardboard crate 2",
+		"type": "crate",
+    "contents": [["blanks", 50, 100, 1], ["item", 1, 1, 0.03]],
+    "tier": 2,
+    "series": "cardboard"
+	},
+  {
+		"name": "cardboard crate 3",
+		"type": "crate",
+    "contents": [["blanks", 90, 150, 1], ["item", 1, 1, 0.06]],
+    "tier": 3,
+    "series": "cardboard"
+	},
+  {
+		"name": "level crate",
+		"type": "crate",
+    "contents": [["blanks", 1, 20, 1], ["item", 1, 1, 0.003]],
+    "tier": 1,
+    "series": "normal"
+	}
+]

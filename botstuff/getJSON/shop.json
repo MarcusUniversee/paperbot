@@ -1,0 +1,142 @@
+[
+  {
+		"name": "crimson",
+    "id": "crimson",
+		"type": "color",
+    "price": 9600,
+    "reqRank": 50,
+    "isItem": true
+	},
+  {
+		"name": "sky blue",
+    "id": "sky blue",
+		"type": "color",
+    "price": 7360,
+    "reqRank": 46,
+    "isItem": true
+	},
+  {
+		"name": "cobalt",
+    "id": "cobalt",
+		"type": "color",
+    "price": 7040,
+    "reqRank": 45,
+    "isItem": true
+	},
+  {
+		"name": "purple",
+    "id": "purple",
+		"type": "color",
+    "price": 6200,
+    "reqRank": 43,
+    "isItem": true
+	},
+  {
+		"name": "titanium white",
+    "id": "titanium white",
+		"type": "color",
+    "price": 5800,
+    "reqRank": 42,
+    "isItem": true
+	},
+  {
+		"name": "black",
+    "id": "black",
+		"type": "color",
+    "price": 5800,
+    "reqRank": 42,
+    "isItem": true
+	},
+  {
+		"name": "forest green",
+    "id": "forest green",
+		"type": "color",
+    "price": 5700,
+    "reqRank": 41,
+    "isItem": true
+	},
+	{
+		"name": "lime",
+    "id": "lime",
+		"type": "color",
+    "price": 5500,
+    "reqRank": 40,
+    "isItem": true
+	},
+  {
+		"name": "orange",
+    "id": "orange",
+		"type": "color",
+    "price": 5000,
+    "reqRank": 39,
+    "isItem": true
+	},
+  {
+		"name": "saffron",
+    "id": "saffron",
+		"type": "color",
+    "price": 4600,
+    "reqRank": 38,
+    "isItem": true
+	},
+  {
+		"name": "grey",
+    "id": "grey",
+		"type": "color",
+    "price": 1300,
+    "reqRank": 30,
+    "isItem": true
+	},
+  {
+		"name": "pink",
+    "id": "pink",
+		"type": "color",
+    "price": 960,
+    "reqRank": 26,
+    "isItem": true
+	},
+  {
+		"name": "burnt sienna",
+    "id": "burnt sienna",
+		"type": "color",
+    "price": 800,
+    "reqRank": 25,
+    "isItem": true
+	},
+	{
+    "name": "DJ",
+    "id": "DJ",
+		"type": "role",
+    "description": "Gives you the DJ role",
+    "price": 300,
+    "reqRank": 15,
+    "isItem": true
+	},
+  {
+		"name": "embed",
+    "id": "embed",
+		"type": "profile",
+    "description": "Makes your profile an embed",
+    "price": 1000,
+    "reqRank": 1,
+    "isItem": true
+	},
+  {
+		"name": "increase badge limit",
+    "id": "badgeLimit",
+		"type": "profile",
+    "description": "Increases the amount of badges shown on your profile",
+    "price": 200,
+    "reqRank": 1,
+    "isItem": false
+	},
+  {
+		"name": "change header (requires embed)",
+    "id": "authorName",
+		"type": "profile",
+    "description": "Change the header of your profile",
+    "price": 250,
+    "reqRank": 1,
+    "isItem": false
+	}
+]
