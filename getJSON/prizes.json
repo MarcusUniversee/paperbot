@@ -39,37 +39,37 @@
 		"name": "azure",
 		"tier": 3,
     "type": "color",
-    "series": "cardboard"
+    "series": "accolade"
 	},
   {
 		"name": "lavender",
 		"tier": 3,
     "type": "color",
-    "series": "cardboard"
+    "series": "accolade"
 	},
   {
 		"name": "gold",
 		"tier": 2,
     "type": "color",
-    "series": "cardboard"
+    "series": "accolade"
 	},
   {
 		"name": "shamrock",
 		"tier": 2,
     "type": "color",
-    "series": "cardboard"
+    "series": "accolade"
 	},
   {
 		"name": "fuchsia",
 		"tier": 1,
     "type": "color",
-    "series": "cardboard"
+    "series": "accolade"
 	},
   {
 		"name": "silver",
 		"tier": 1,
     "type": "color",
-    "series": "cardboard"
+    "series": "accolade"
 	},
 
   {
@@ -80,18 +80,12 @@
 	},
   {
 		"name": "medpfp",
-		"tier": 1,
-    "type": "profile",
-    "series": "normal"
-	},
-  {
-		"name": "largepfp",
 		"tier": 2,
     "type": "profile",
     "series": "normal"
 	},
   {
-		"name": "xlargepfp",
+		"name": "largepfp",
 		"tier": 3,
     "type": "profile",
     "series": "normal"

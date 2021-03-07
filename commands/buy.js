@@ -31,7 +31,11 @@ module.exports = {
     }
     var price = item.price;
     var itemName = item.name;
-    var itemType = item.type;
+    if (item.subtype) {
+      var itemType = item.subtype
+    } else {
+      var itemType = item.type;
+    }
     var itemRank = item.reqRank
 
     //CHECKS

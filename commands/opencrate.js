@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 const eco = require('discord-economy');
 const inv = require('inventory');
 const leveling = require('discord-leveling');
-const list = require('../getJSON/crates.json')
-const prizeList = require('../getJSON/prizes.json')
+const list = require('../getJSON/crates.json');
+const prizeList = require('../getJSON/prizes.json');
 module.exports = {
   name: 'opencrate',
   description: 'Opens an owned crate',

@@ -117,7 +117,7 @@
     "id": "embed",
 		"type": "profile",
     "description": "Makes your profile an embed",
-    "price": 1000,
+    "price": 500,
     "reqRank": 1,
     "isItem": true
 	},
@@ -138,5 +138,15 @@
     "price": 250,
     "reqRank": 1,
     "isItem": false
+	},
+  {
+		"name": "black border",
+    "id": "black",
+		"type": "profile",
+    "subtype": "pfpborder",
+    "description": "Black border around your profile picture",
+    "price": 1000,
+    "reqRank": 1,
+    "isItem": true
 	}
 ]

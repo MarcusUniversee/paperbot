@@ -1,0 +1,102 @@
+[
+  {
+		"name": "crimson",
+		"id": "#a00000"
+	},
+  {
+		"name": "sky blue",
+		"id": "#62c8ec"
+	},
+  {
+		"name": "cobalt",
+		"id": "#0047ab"
+	},
+  {
+		"name": "purple",
+		"id": "#67329c"
+	},
+  {
+		"name": "titanium white",
+		"id": "#e2e2e2"
+	},
+  {
+		"name": "black",
+		"id": "#010101"
+	},
+  {
+		"name": "forest green",
+		"id": "#259b25"
+	},
+	{
+		"name": "lime",
+		"id": "#00ff17"
+	},
+  {
+		"name": "orange",
+		"id": "#ff6f00"
+	},
+  {
+		"name": "saffron",
+		"id": "#d4c900"
+	},
+  {
+		"name": "grey",
+		"id": "#6c6c6c"
+	},
+  {
+		"name": "pink",
+		"id": "#ff69b4"
+	},
+  {
+		"name": "burnt sienna",
+		"id": "#974222"
+	},
+  {
+		"name": "aqua",
+    "id": "#85efcc"
+	},
+  {
+		"name": "electrum",
+    "id": "#d9a55c"
+	},
+  {
+		"name": "acacia",
+    "id": ""
+	},
+  {
+		"name": "coral",
+    "id": ""
+	},
+  {
+		"name": "army green",
+    "id": ""
+	},
+  {
+		"name": "barbie pink",
+    "id": ""
+	},
+  {
+		"name": "azure",
+    "id": ""
+	},
+  {
+		"name": "lavender",
+    "id": ""
+	},
+  {
+		"name": "gold",
+    "id": ""
+	},
+  {
+		"name": "shamrock",
+    "id": ""
+	},
+  {
+		"name": "fuchsia",
+    "id": ""
+	},
+  {
+		"name": "silver",
+    "id": ""
+	}
+]

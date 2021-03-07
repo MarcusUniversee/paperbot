@@ -45,7 +45,11 @@ client.on('message', async message => {
     if (message.content.includes('hello')) return;
     if (message.content.startsWith('http')) return;
     if (message.embeds[0]) return;
-    leveling.AddXp(message.author.id, 1)
+    if (profile.xp%3 === 0) {
+      leveling.AddXp(message.author.id, 1)
+    } else {
+      leveling.AddXp(message.author.id, 2)
+    }
     //If user xp higher than 100 add level
     var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
     if (profile.xp + 1 > maxXp) {

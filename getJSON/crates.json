@@ -63,25 +63,32 @@
     "series": "normal"
 	},
   {
-		"name": "cardboard crate 1",
+		"name": "accolade crate 1",
 		"type": "crate",
-    "contents": [["blanks", 30, 70, 1], ["item", 1, 1, 0.01]],
-    "tier": 1,
-    "series": "cardboard"
+    "contents": [["blanks", 120, 180, 1], ["item", 1, 1, 0.08]],
+    "tier": 3,
+    "series": "accolade"
 	},
   {
-		"name": "cardboard crate 2",
+		"name": "accolade crate 2",
+		"type": "crate",
+    "contents": [["blanks", 90, 140, 1], ["item", 1, 1, 0.05]],
+    "tier": 3,
+    "series": "accolade"
+	},
+  {
+		"name": "accolade crate 3",
 		"type": "crate",
     "contents": [["blanks", 50, 100, 1], ["item", 1, 1, 0.03]],
     "tier": 2,
-    "series": "cardboard"
+    "series": "accolade"
 	},
   {
-		"name": "cardboard crate 3",
+		"name": "accolade crate",
 		"type": "crate",
-    "contents": [["blanks", 90, 150, 1], ["item", 1, 1, 0.06]],
-    "tier": 3,
-    "series": "cardboard"
+    "contents": [["blanks", 10, 60, 1], ["item", 1, 1, 0.02]],
+    "tier": 1,
+    "series": "accolade"
 	},
   {
 		"name": "level crate",
