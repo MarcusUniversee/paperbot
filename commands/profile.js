@@ -6,7 +6,7 @@ const prof = require('profile')
 const Canvas = require('canvas')
 const colorID = require('../getJSON/colorId.json');
 module.exports = {
-  name: 'profile',
+  name: ['profile', 'p', 'prof'],
   description: 'Replies with you or a user\'s profile, showing ranks, balance, and badges',
   expectedArgs: '[user(optional)]',
   category: '',
@@ -26,15 +26,16 @@ module.exports = {
     var borderColor;
     for (var i=0; i<pInv.length; i++) {
       if (!pInv[i]) break;
-      if (invList[(profile.badgeLimit-1)*2]) break;
       if (pInv[i].dataValues.equip === 1) {
         if (pInv[i].dataValues.type == 'badge') {
-          invList.push(pInv[i].dataValues.name)
-          invList.push('\n')
+          if (!invList[(profile.badgeLimit-1)*2]) {
+            invList.push(pInv[i].dataValues.name)
+            invList.push('\n')
+          }
         }
         if (pInv[i].dataValues.type == 'pfpborder') {
-          border = pInv[i].dataValues.name
-          borderColor = colorID.find( ({ name }) => name === border );
+          border = pInv[i].dataValues.name.slice(0, -7)
+          borderColor = colorID.find( ({ name }) => name === border ).id;
         }
       }
     }

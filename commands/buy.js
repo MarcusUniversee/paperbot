@@ -26,7 +26,7 @@ module.exports = {
         }
       }
       if (!item) {
-        message.reply('Not a valid item. Check p.shop to view purchasable items')
+        return message.reply('Not a valid item. Check p.shop to view purchasable items')
       }
     }
     var price = item.price;

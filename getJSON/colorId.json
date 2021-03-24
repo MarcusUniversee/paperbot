@@ -61,42 +61,54 @@
 	},
   {
 		"name": "acacia",
-    "id": ""
+    "id": "#f45c49"
 	},
   {
 		"name": "coral",
-    "id": ""
+    "id": "#ff9966"
 	},
   {
 		"name": "army green",
-    "id": ""
+    "id": "#5f6c1f"
 	},
   {
 		"name": "barbie pink",
-    "id": ""
+    "id": "#e0218a"
 	},
   {
 		"name": "azure",
-    "id": ""
+    "id": "#1e8cff"
 	},
   {
 		"name": "lavender",
-    "id": ""
+    "id": "#b9b9ff"
 	},
   {
 		"name": "gold",
-    "id": ""
+    "id": "#daa520"
 	},
   {
 		"name": "shamrock",
-    "id": ""
+    "id": "#009e60"
 	},
   {
 		"name": "fuchsia",
-    "id": ""
+    "id": "#c154c1"
 	},
   {
 		"name": "silver",
-    "id": ""
+    "id": "#c3c3c3"
+	},
+  {
+		"name": "bronze",
+    "id": "#bd752e"
+	},
+  {
+		"name": "poppy",
+    "id": "#dc252f"
+	},
+  {
+		"name": "indigo",
+    "id": "#2d00e1"
 	}
 ]

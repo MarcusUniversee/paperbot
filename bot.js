@@ -45,11 +45,12 @@ client.on('message', async message => {
     if (message.content.includes('hello')) return;
     if (message.content.startsWith('http')) return;
     if (message.embeds[0]) return;
-    if (profile.xp%3 === 0) {
+    /*if (profile.xp%3 === 0) { //Double xp every other
       leveling.AddXp(message.author.id, 1)
     } else {
       leveling.AddXp(message.author.id, 2)
-    }
+    }*/
+    leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level
     var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
     if (profile.xp + 1 > maxXp) {
@@ -57,13 +58,28 @@ client.on('message', async message => {
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
       var itemType = 'crate'
-      var itemName = 'level crate'
+      var itemName = 'rank crate'
       var itemInv = await inv.addItem(message.author.id, itemType, itemName)
       var profileBal = await eco.AddToBalance(message.author.id, money)
-      message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a level crate!`)
+      message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a rank crate!`)
 
     }
-    return;
+
+    var iType = 'crate'
+    var chance = Math.random() //common - 0.01
+    if (chance < 0.00015) {
+      var itemInv = await inv.addItem(message.author.id, iType, 'very rare crate')
+      message.reply(`You just found a very rare crate!`)
+    } else if (chance < 0.0005) {
+      var itemInv = await inv.addItem(message.author.id, iType, 'rare crate')
+      message.reply(`You just found a rare crate!`)
+    } else if (chance < 0.002) {
+      var itemInv = await inv.addItem(message.author.id, iType, 'uncommon crate')
+      message.reply(`You just found a uncommon crate!`)
+    } else if (chance < 0.01) {
+      var itemInv = await inv.addItem(message.author.id, iType, 'common crate')
+      message.reply(`You just found a common crate!`)
+    }
   }
 
   if (message.channel.id === '789215234376073236') {

@@ -108,6 +108,18 @@
     "type": "color"
 	},
   {
+		"name": "indigo",
+    "type": "color"
+	},
+  {
+		"name": "bronze",
+    "type": "color"
+	},
+  {
+		"name": "poppy",
+    "type": "color"
+	},
+  {
 		"name": "smallpfp",
     "type": "profile"
 	},
@@ -120,7 +132,111 @@
     "type": "profile"
 	},
   {
+		"name": "crimson border",
+		"type": "profile"
+	},
+  {
+		"name": "sky blue border",
+		"type": "profile"
+	},
+  {
+		"name": "cobalt border",
+		"type": "profile"
+	},
+  {
+		"name": "purple border",
+		"type": "profile"
+	},
+  {
+		"name": "titanium white border",
+		"type": "profile"
+	},
+  {
 		"name": "black border",
+		"type": "profile"
+	},
+  {
+		"name": "forest green border",
+		"type": "profile"
+	},
+	{
+		"name": "lime border",
+		"type": "profile"
+	},
+  {
+		"name": "orange border",
+		"type": "profile"
+	},
+  {
+		"name": "saffron border",
+		"type": "profile"
+	},
+  {
+		"name": "grey border",
+		"type": "profile"
+	},
+  {
+		"name": "pink border",
+		"type": "profile"
+	},
+  {
+		"name": "aqua border",
+    "type": "profile"
+	},
+  {
+		"name": "electrum border",
+    "type": "profile"
+	},
+  {
+		"name": "acacia border",
+    "type": "profile"
+	},
+  {
+		"name": "coral border",
+    "type": "profile"
+	},
+  {
+		"name": "army green border",
+    "type": "profile"
+	},
+  {
+		"name": "barbie pink border",
+    "type": "profile"
+	},
+  {
+		"name": "azure border",
+    "type": "profile"
+	},
+  {
+		"name": "lavender border",
+    "type": "profile"
+	},
+  {
+		"name": "gold border",
+    "type": "profile"
+	},
+  {
+		"name": "shamrock border",
+    "type": "profile"
+	},
+  {
+		"name": "fuchsia border",
+    "type": "profile"
+	},
+  {
+		"name": "silver border",
+    "type": "profile"
+	},
+  {
+		"name": "bronze border",
+    "type": "profile"
+	},
+  {
+		"name": "indigo border",
+    "type": "profile"
+	},
+  {
+		"name": "poppy border",
     "type": "profile"
 	},
   {
@@ -176,7 +292,35 @@
 		"type": "crate"
 	},
   {
-		"name": "level crate",
+		"name": "rank crate",
+		"type": "crate"
+	},
+  {
+		"name": "common crate",
+		"type": "crate"
+	},
+  {
+		"name": "uncommon crate",
+		"type": "crate"
+	},
+  {
+		"name": "rare crate",
+		"type": "crate"
+	},
+  {
+		"name": "very rare crate",
+		"type": "crate"
+	},
+  {
+		"name": "import crate",
+		"type": "crate"
+	},
+  {
+		"name": "exotic crate",
+		"type": "crate"
+	},
+  {
+		"name": "black market crate",
 		"type": "crate"
 	},
   {

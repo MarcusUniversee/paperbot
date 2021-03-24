@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const inv = require('inventory')
 const eco = require('discord-economy');
+const prof = require('profile');
 
 module.exports = {
   name: 'destroyitem',
@@ -23,6 +24,8 @@ module.exports = {
         const role = message.guild.roles.cache.find(role => role.name === paramsCom[1]);
         message.member.roles.remove(role);
       }
+      if (eItem.type === 'profile') var profUpdate = await prof.updateField(message.author.id, eItem.name, false)
+      if (eItem.type === 'pfpborder') var profUpdate = await prof.updateField(message.author.id, 'hasBorder', false)
     }
 
     message.channel.send({embed: {

@@ -7,6 +7,7 @@ module.exports = {
   expectedArgs: '',
   category: '',
   callback: (message, arguments, text) => {
+    console.log(message.author.tag + ' help')
     const categories = ['', 'Economy', 'Betting', 'Inventory', 'Facts']
     var reply = [{
                   type: `About`,
@@ -28,7 +29,6 @@ module.exports = {
         if (category !== categories[i]) continue
         // Check for permissions
         let permissions = command.permissions
-        console.log(permissions)
         if (!permissions[0]) {
           // Format the text
           const mainCommand =

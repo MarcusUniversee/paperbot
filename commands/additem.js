@@ -24,10 +24,10 @@ module.exports = {
     if (!isItem) return message.reply('Item is not valid')
     var hasItem = await inv.fetchItem(message.mentions.users.first().id, itemName)
     if (hasItem.pID) message.reply('This player already owns this item. Adding another one to their inventory')
-    if (!paramsCom[3]) {
+    if (!paramsCom[2]) {
       var quantity = 1
     } else {
-      var quantity = paramsCom[3]
+      var quantity = paramsCom[2]
     }
     var itemInv = await inv.addItem(message.mentions.users.first().id, itemType, itemName, quantity)
     message.reply(`Successfully added ${itemInv.name} to ${message.mentions.users.first().tag}`);
