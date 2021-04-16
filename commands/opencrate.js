@@ -30,7 +30,8 @@ module.exports = {
       var max = crate.contents[j][2]
       var chances = crate.contents[j][3]
       var chance = Math.random() < chances
-      console.log("chance: " + chance)
+      console.log("chance: " + chances)
+      console.log("result: " + chance)
       if (chance) {
         var amount = Math.floor(Math.random() * ((max - min) + 1) + min);
         console.log("amount: " + amount)

@@ -24,7 +24,7 @@ var monkeyFacts = ['There are currently 264 known monkey species.',
                    'Chimpanzees are not only the closest living relatives to humans; they also use tools, have complex hierarchies, and can be taught sign language.',
                    'There are five endangered primate species including the Roloway monkey, the Javan slow loris, the brown spider monkey, the greater bamboo lemur and blood capuchin.',
                    'There\'s Only One Species of Wild Monkey in Europe.',
-                   'The Color of a Bald Uakari\'s Face May Reveal Its Health.'
+                   'The Color of a Bald Uakari\'s Face May Reveal Its Health.',
                    'If there is a lack of food, female monkeys will stop mating until there are better circumstances for getting pregnant. Even when conditions are right, a mother will only give birth once every two years.',
                    'Proboscis monkeys only eat unripe fruit. This is because the sugars in ripe fruit ferment. The fermentation causes bloating in the stomach that can kill them.',
                    'According to NASA, the first living creature in space was a rhesus monkey named Albert I. His launch took place in White Sands, New Mexico, on June 11, 1948.',

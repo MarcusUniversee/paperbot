@@ -2,7 +2,7 @@
   {
 		"name": "gold crate",
 		"type": "crate",
-    "contents": [["blanks", 80, 190, 1], ["item", 1, 1, 0.02]],
+    "contents": [["blanks", 80, 190, 1], ["item", 1, 1, 0.04]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -10,7 +10,7 @@
   {
 		"name": "silver crate",
 		"type": "crate",
-    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.015]],
+    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.02]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -26,7 +26,7 @@
   {
 		"name": "platinum crate",
 		"type": "crate",
-    "contents": [["blanks", 120, 280, 1], ["item", 1, 1, 0.04]],
+    "contents": [["blanks", 120, 280, 1], ["item", 1, 1, 0.06]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -34,7 +34,7 @@
   {
 		"name": "diamond crate",
 		"type": "crate",
-    "contents": [["blanks", 230, 360, 1], ["item", 1, 1, 0.06]],
+    "contents": [["blanks", 230, 360, 1], ["item", 1, 1, 0.10]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -74,7 +74,7 @@
   {
 		"name": "accolade crate 1",
 		"type": "crate",
-    "contents": [["blanks", 120, 180, 1], ["item", 1, 1, 0.1]],
+    "contents": [["blanks", 150, 210, 1], ["item", 1, 1, 0.16]],
     "tier": 3,
     "series": "accolade",
     "tradable": false
@@ -82,15 +82,15 @@
   {
 		"name": "accolade crate 2",
 		"type": "crate",
-    "contents": [["blanks", 90, 140, 1], ["item", 1, 1, 0.06]],
-    "tier": 3,
+    "contents": [["blanks", 80, 120, 1], ["item", 1, 1, 0.09]],
+    "tier": 2,
     "series": "accolade",
     "tradable": false
 	},
   {
 		"name": "accolade crate 3",
 		"type": "crate",
-    "contents": [["blanks", 50, 100, 1], ["item", 1, 1, 0.04]],
+    "contents": [["blanks", 50, 90, 1], ["item", 1, 1, 0.05]],
     "tier": 2,
     "series": "accolade",
     "tradable": false
@@ -98,7 +98,7 @@
   {
 		"name": "accolade crate",
 		"type": "crate",
-    "contents": [["blanks", 10, 60, 1], ["item", 1, 1, 0.02]],
+    "contents": [["blanks", 20, 60, 1], ["item", 1, 1, 0.02]],
     "tier": 1,
     "series": "accolade",
     "tradable": false
@@ -160,7 +160,7 @@
 		"name": "exotic crate",
 		"type": "crate",
     "contents": [["blanks", 300, 800, 1], ["item", 1, 1, 0.16]],
-    "tier": 2,
+    "tier": 3,
     "series": "normal",
     "tradable": true,
     "tradefor": "black market crate"

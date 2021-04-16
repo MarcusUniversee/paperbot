@@ -21,7 +21,7 @@ client.commands = new Discord.Collection();
 //prefix
 let prefix = 'p.';
 
-client.setMaxListeners(38);
+client.setMaxListeners(40);
 
 client.on('ready', async () => {
   console.log('The client is ready!')
@@ -52,9 +52,13 @@ client.on('message', async message => {
     }*/
     leveling.AddXp(message.author.id, 1)
     //If user xp higher than 100 add level
-    var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
+    if (profile.level >= 90) {
+      var maxXp = 450
+    } else {
+      var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
+    }
     if (profile.xp + 1 > maxXp) {
-      var money = 1 + Math.floor(profile.level/6)
+      var money = 1 + Math.floor(profile.level/5)
       await leveling.AddLevel(message.author.id, 1)
       await leveling.SetXp(message.author.id, 0)
       var itemType = 'crate'
@@ -66,19 +70,41 @@ client.on('message', async message => {
     }
 
     var iType = 'crate'
-    var chance = Math.random() //common - 0.01
-    if (chance < 0.00015) {
+    var chance = Math.random()
+    console.log("crate chance: " + chance)
+    //1.5x CRATE EVENT
+    var vrchance = 0.000027
+    var rchance = 0.00024
+    var uchance = 0.0021
+    var cchance = 0.018
+
+    //2.0x CRATE EVENT
+    /*var vrchance = 0.000036
+    var rchance = 0.00032
+    var uchance = 0.0028
+    var cchance = 0.024*/
+
+    //Original
+    /*var vrchance = 0.000018
+    var rchance = 0.00016
+    var uchance = 0.0014
+    var cchance = 0.012*/
+    if (chance < vrchance) {
       var itemInv = await inv.addItem(message.author.id, iType, 'very rare crate')
       message.reply(`You just found a very rare crate!`)
-    } else if (chance < 0.0005) {
+      console.log(message.author.tag + ' very rare crate')
+    } else if (chance < rchance) {
       var itemInv = await inv.addItem(message.author.id, iType, 'rare crate')
       message.reply(`You just found a rare crate!`)
-    } else if (chance < 0.002) {
+      console.log(message.author.tag + ' rare crate')
+    } else if (chance < uchance) {
       var itemInv = await inv.addItem(message.author.id, iType, 'uncommon crate')
       message.reply(`You just found a uncommon crate!`)
-    } else if (chance < 0.01) {
+      console.log(message.author.tag + ' uncommon crate')
+    } else if (chance < cchance) {
       var itemInv = await inv.addItem(message.author.id, iType, 'common crate')
       message.reply(`You just found a common crate!`)
+      console.log(message.author.tag + ' common crate')
     }
   }
 
