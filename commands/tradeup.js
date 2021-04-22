@@ -3,6 +3,8 @@ const eco = require('discord-economy');
 const inv = require('inventory');
 const leveling = require('discord-leveling');
 const list = require('../getJSON/crates.json');
+const dailyStats = require('dailystats')
+
 module.exports = {
   name: 'tradeup',
   description: 'trades up 5 crates for a crate of a higher rarity',
@@ -63,6 +65,7 @@ module.exports = {
             var itemName = list[k].tradefor
             var itemInv = await inv.addItem(message.author.id, 'crate', itemName, 1)
             message.reply('Trade up successful!')
+            dailyStats.updateStat(message.author.id, 'tradecrate', 1)
             respond.stop()
             return;
           } else {

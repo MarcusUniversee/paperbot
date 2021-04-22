@@ -3,7 +3,7 @@ const fs = require('fs')
 const Discord = require('discord.js');
 
 module.exports = (client) => {
-  
+
   const baseFile = 'command-base.js'
   const commandBase = require(`./${baseFile}`)
 
@@ -15,7 +15,7 @@ module.exports = (client) => {
       const stat = fs.lstatSync(path.join(__dirname, dir, file))
       if (stat.isDirectory()) {
         readCommands(path.join(dir, file))
-      } else if (file !== baseFile && file !== 'load-commands.js') {
+      } else if (file !== baseFile && file !== 'load-commands.js' && file !== 'stat-check.js') {
         const option = require(path.join(__dirname, dir, file))
         commands.push(option)
         if (client) {

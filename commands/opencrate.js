@@ -4,6 +4,7 @@ const inv = require('inventory');
 const leveling = require('discord-leveling');
 const list = require('../getJSON/crates.json');
 const prizeList = require('../getJSON/prizes.json');
+const dailyStats = require('dailystats')
 module.exports = {
   name: 'opencrate',
   description: 'Opens an owned crate',
@@ -33,11 +34,13 @@ module.exports = {
       console.log("chance: " + chances)
       console.log("result: " + chance)
       if (chance) {
+        dailyStats.updateStat(message.author.id, 'opencrate', 1)
         var amount = Math.floor(Math.random() * ((max - min) + 1) + min);
         console.log("amount: " + amount)
         switch (crate.contents[j][0]) {
           case "blanks":
             var profile = await eco.AddToBalance(message.author.id, amount)
+            await dailyStats.updateStat(message.author.id, 'blankcount', amount)
             message.reply(`You have earned ${amount} blanks and now own ${profile.newbalance} blanks.`);
           break;
           case "item":
@@ -46,14 +49,18 @@ module.exports = {
               if (prizeList[k].series === crate.series) {
                 if (prizeList[k].tier <= crate.tier) {
                   prizes.push(prizeList[k])
+                  if (prizeList[k].tier === crate.tier) {
+                    prizes.push(prizeList[k])
+                  }
                 }
               }
             }
             var prize = prizes[Math.floor(Math.random() * prizes.length)]
             var hasItem = await inv.fetchItem(message.author.id, prize.name)
             if (hasItem.pID) {
-              var profile3 = await eco.AddToBalance(message.author.id, 200)
-              message.reply(`You already own ${prize.name} so you have recieved 200 blanks. You now own ${profile3.newbalance} blanks.`);
+              var profile3 = await eco.AddToBalance(message.author.id, 500)
+              message.reply(`You already own ${prize.name} so you have recieved 500 blanks. You now own ${profile3.newbalance} blanks.`);
+              await dailyStats.updateStat(message.author.id, 'blankcount', 500)
             } else {
               var itemInv = await inv.addItem(message.author.id, prize.type, prize.name)
               message.reply(`You found ${prize.name}!`);
