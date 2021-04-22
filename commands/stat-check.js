@@ -131,6 +131,7 @@ module.exports = {
         if ((totalXp) > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
+          var money = 1 + Math.floor(profile.level/5)
           var itemType = 'crate'
           var itemName = 'rank crate'
           var itemInv = await inv.addItem(message.author.id, itemType, itemName)
@@ -148,6 +149,7 @@ module.exports = {
         if ((totalXp) > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
+          var money = 1 + Math.floor(profile.level/5)
           var itemType = 'crate'
           var itemName = 'rank crate'
           var itemInv = await inv.addItem(message.author.id, itemType, itemName)
@@ -165,6 +167,7 @@ module.exports = {
         if ((totalXp) > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
+          var money = 1 + Math.floor(profile.level/5)
           var itemType = 'crate'
           var itemName = 'rank crate'
           var itemInv = await inv.addItem(message.author.id, itemType, itemName)
@@ -183,6 +186,7 @@ module.exports = {
         if ((totalXp) > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
+          var money = 1 + Math.floor(profile.level/5)
           var itemType = 'crate'
           var itemName = 'rank crate'
           var itemInv = await inv.addItem(message.author.id, itemType, itemName)
@@ -203,6 +207,7 @@ module.exports = {
         if ((totalXp) > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
+          var money = 1 + Math.floor(profile.level/5)
           var itemType = 'crate'
           var itemName = 'rank crate'
           var itemInv = await inv.addItem(message.author.id, itemType, itemName)
