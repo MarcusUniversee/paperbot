@@ -268,11 +268,11 @@
 		"type": "crate"
 	},
   {
-		"name": "printers crate",
+		"name": "paper scrap crate",
 		"type": "crate"
 	},
   {
-		"name": "paper crate",
+		"name": "paper lord crate",
 		"type": "crate"
 	},
   {
@@ -289,6 +289,26 @@
 	},
   {
 		"name": "accolade crate",
+		"type": "crate"
+	},
+  {
+		"name": "challenge crate 1",
+		"type": "crate"
+	},
+  {
+		"name": "challenge crate 2",
+		"type": "crate"
+	},
+  {
+		"name": "challenge crate 3",
+		"type": "crate"
+	},
+  {
+		"name": "challenge crate 4",
+		"type": "crate"
+	},
+  {
+		"name": "challenge crate 5",
 		"type": "crate"
 	},
   {

@@ -104,6 +104,50 @@
     "tradable": false
 	},
   {
+		"name": "challenge crate 1",
+		"type": "crate",
+    "contents": [["blanks", 40, 70, 1], ["item", 1, 1, 0.001]],
+    "tier": 1,
+    "series": "accolade",
+    "tradable": true,
+    "tradefor": "challenge crate 2"
+	},
+  {
+		"name": "challenge crate 2",
+		"type": "crate",
+    "contents": [["blanks", 90, 120, 1], ["item", 1, 1, 0.004]],
+    "tier": 2,
+    "series": "accolade",
+    "tradable": true,
+    "tradefor": "challenge crate 3"
+	},
+  {
+		"name": "challenge crate 3",
+		"type": "crate",
+    "contents": [["blanks", 250, 300, 1], ["item", 1, 1, 0.016]],
+    "tier": 2,
+    "series": "accolade",
+    "tradable": true,
+    "tradefor": "challenge crate 4"
+	},
+  {
+		"name": "challenge crate 4",
+		"type": "crate",
+    "contents": [["blanks", 450, 550, 1], ["item", 1, 1, 0.064]],
+    "tier": 3,
+    "series": "accolade",
+    "tradable": true,
+    "tradefor": "challenge crate 5"
+	},
+  {
+		"name": "challenge crate 5",
+		"type": "crate",
+    "contents": [["blanks", 800, 1000, 1], ["item", 1, 1, 0.256]],
+    "tier": 3,
+    "series": "accolade",
+    "tradable": false
+	},
+  {
 		"name": "rank crate",
 		"type": "crate",
     "contents": [["blanks", 1, 20, 1], ["item", 1, 1, 0.003]],

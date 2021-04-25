@@ -23,7 +23,7 @@ module.exports = {
       },
       {
         name: 'Betting',
-        value: `p.placebet [betID], 1, [amount] to bet on ${output.desc1}\np.placebet [betID], 2, [amount] to bet on ${output.desc2}`,
+        value: `p.placebet ${output.bID}, 1, [amount] to bet on ${output.desc1}\np.placebet ${output.bID}, 2, [amount] to bet on ${output.desc2}`,
       },
     ],
     }})

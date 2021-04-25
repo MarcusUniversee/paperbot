@@ -113,7 +113,25 @@ module.exports = {
       var num1 = Math.floor(Math.random()*challengeList.length) + 1
       var num2 = Math.floor(Math.random()*challengeList.length) + 1
       var num3 = Math.floor(Math.random()*challengeList.length) + 1
-      while ((challengeList[num1-1].category === challengeList[num2-1].category) || (challengeList[num1-1].category === challengeList[num3-1].category) || (challengeList[num2-1].category === challengeList[num3-1].category)) {
+      while (
+        (
+          (
+            challengeList[num1-1].category === challengeList[num2-1].category
+          ) || (
+            challengeList[num1-1].category === challengeList[num3-1].category
+          ) || (
+            challengeList[num2-1].category === challengeList[num3-1].category
+          )
+        ) || (
+          !(
+            (challengeList[num1-1].difficulty === 'hard') || (challengeList[num1-1].difficulty === 'very hard')
+          ) && !(
+            (challengeList[num2-1].difficulty === 'hard') || (challengeList[num2-1].difficulty === 'very hard')
+          ) && !(
+            (challengeList[num3-1].difficulty === 'hard') || (challengeList[num3-1].difficulty === 'very hard')
+          )
+        )
+      ) {
         var num1 = Math.floor(Math.random()*challengeList.length) + 1
         var num2 = Math.floor(Math.random()*challengeList.length) + 1
         var num3 = Math.floor(Math.random()*challengeList.length) + 1
@@ -124,7 +142,7 @@ module.exports = {
       return message.reply('challenges activated! check p.challenges to view your challenges')
     } else if (paramsCom[0] === 'reroll') {
 
-      message.reply('Rerolling costs 10 blanks. This will also reset progress on any active challenges. Confirm by typing yes')
+      message.reply('Rerolling costs 15 blanks. This will also reset progress on any active challenges. Confirm by typing yes')
       const filter = m => m.author.id === message.author.id
 
       const respond = message.channel.createMessageCollector(filter, { time: 30000 });
@@ -132,13 +150,31 @@ module.exports = {
       respond.on('collect', async m => {
         var confirmation = m.content.toLowerCase()
         if (confirmation === 'yes') {
-          await challenge.resetAllActiveChallenges(message.author.id)
-          await eco.SubtractFromBalance(message.author.id, 10)
+          await challenge.resetAllChallenges(message.author.id)
+          await eco.SubtractFromBalance(message.author.id, 15)
           var reset = dailyStats.resetAllStat(message.author.id)
           var num1 = Math.floor(Math.random()*challengeList.length) + 1
           var num2 = Math.floor(Math.random()*challengeList.length) + 1
           var num3 = Math.floor(Math.random()*challengeList.length) + 1
-          while ((challengeList[num1-1].category === challengeList[num2-1].category) || (challengeList[num1-1].category === challengeList[num3-1].category) || (challengeList[num2-1].category === challengeList[num3-1].category)) {
+          while (
+            (
+              (
+                challengeList[num1-1].category === challengeList[num2-1].category
+              ) || (
+                challengeList[num1-1].category === challengeList[num3-1].category
+              ) || (
+                challengeList[num2-1].category === challengeList[num3-1].category
+              )
+            ) || (
+              !(
+                (challengeList[num1-1].difficulty === 'hard') || (challengeList[num1-1].difficulty === 'very hard')
+              ) && !(
+                (challengeList[num2-1].difficulty === 'hard') || (challengeList[num2-1].difficulty === 'very hard')
+              ) && !(
+                (challengeList[num3-1].difficulty === 'hard') || (challengeList[num3-1].difficulty === 'very hard')
+              )
+            )
+          ) {
             var num1 = Math.floor(Math.random()*challengeList.length) + 1
             var num2 = Math.floor(Math.random()*challengeList.length) + 1
             var num3 = Math.floor(Math.random()*challengeList.length) + 1

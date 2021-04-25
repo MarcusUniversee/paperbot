@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -200,4 +198,4 @@ client.on('ready', () => {
     })
 });
 
-client.login(process.env.DISCORDJS_BOT_TOKEN);
+client.login('ODAxNTU0NTA5NTQ4ODc5OTIz.YAiXzw.G3orrrOPtlXCZ8G_d4GO-N5j9f0');

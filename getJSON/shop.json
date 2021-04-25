@@ -117,7 +117,7 @@
     "id": "embed",
 		"type": "profile",
     "description": "Makes your profile an embed",
-    "price": 400,
+    "price": 500,
     "reqRank": 1,
     "isItem": true
 	},
@@ -126,7 +126,7 @@
     "id": "badgeLimit",
 		"type": "profile",
     "description": "Increases the amount of badges shown on your profile",
-    "price": 200,
+    "price": 150,
     "reqRank": 1,
     "isItem": false
 	},
@@ -135,7 +135,7 @@
     "id": "authorName",
 		"type": "profile",
     "description": "Change the header of your profile",
-    "price": 250,
+    "price": 200,
     "reqRank": 1,
     "isItem": false
 	},
@@ -145,7 +145,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "Black border around your profile picture",
-    "price": 4000,
+    "price": 3500,
     "reqRank": 70,
     "isItem": true
 	},
@@ -155,7 +155,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "cobalt border around your profile picture",
-    "price": 3800,
+    "price": 3400,
     "reqRank": 68,
     "isItem": true
 	},
@@ -165,7 +165,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "grey border around your profile picture",
-    "price": 3700,
+    "price": 3300,
     "reqRank": 66,
     "isItem": true
 	},
@@ -175,7 +175,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "crimson border around your profile picture",
-    "price": 3600,
+    "price": 3200,
     "reqRank": 65,
     "isItem": true
 	},
@@ -185,7 +185,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "purple border around your profile picture",
-    "price": 3500,
+    "price": 3100,
     "reqRank": 64,
     "isItem": true
 	},
@@ -195,7 +195,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "forest green border around your profile picture",
-    "price": 3400,
+    "price": 3000,
     "reqRank": 63,
     "isItem": true
 	},
@@ -205,7 +205,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "lime border around your profile picture",
-    "price": 3300,
+    "price": 2900,
     "reqRank": 60,
     "isItem": true
 	},
@@ -215,7 +215,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "orange border around your profile picture",
-    "price": 3200,
+    "price": 2800,
     "reqRank": 58,
     "isItem": true
 	},
@@ -225,7 +225,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "titanium white border around your profile picture",
-    "price": 3100,
+    "price": 2700,
     "reqRank": 56,
     "isItem": true
 	},
@@ -235,7 +235,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "burnt sienna border around your profile picture",
-    "price": 3000,
+    "price": 2600,
     "reqRank": 54,
     "isItem": true
 	},
@@ -245,7 +245,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "sky blue border around your profile picture",
-    "price": 2900,
+    "price": 2500,
     "reqRank": 53,
     "isItem": true
 	},
@@ -255,7 +255,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "saffron border around your profile picture",
-    "price": 2800,
+    "price": 2400,
     "reqRank": 52,
     "isItem": true
 	},
@@ -265,7 +265,7 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "pink border around your profile picture",
-    "price": 2700,
+    "price": 2300,
     "reqRank": 51,
     "isItem": true
 	}
