@@ -142,7 +142,7 @@ module.exports = {
       return message.reply('challenges activated! check p.challenges to view your challenges')
     } else if (paramsCom[0] === 'reroll') {
 
-      message.reply('Rerolling costs 15 blanks. This will also reset progress on any active challenges. Confirm by typing yes')
+      message.reply('Rerolling costs 10 blanks. This will also reset progress on any active challenges. Confirm by typing yes')
       const filter = m => m.author.id === message.author.id
 
       const respond = message.channel.createMessageCollector(filter, { time: 30000 });
@@ -151,7 +151,7 @@ module.exports = {
         var confirmation = m.content.toLowerCase()
         if (confirmation === 'yes') {
           await challenge.resetAllChallenges(message.author.id)
-          await eco.SubtractFromBalance(message.author.id, 15)
+          await eco.SubtractFromBalance(message.author.id, 10)
           var reset = dailyStats.resetAllStat(message.author.id)
           var num1 = Math.floor(Math.random()*challengeList.length) + 1
           var num2 = Math.floor(Math.random()*challengeList.length) + 1
@@ -183,6 +183,9 @@ module.exports = {
           var dChallenge2 = await challenge.addChallenge(message.author.id, num2, challengeList[num2-1].category)
           var dChallenge3 = await challenge.addChallenge(message.author.id, num3, challengeList[num3-1].category)
           message.reply('challenges rerolled! check p.challenges to view your challenges')
+          respond.stop()
+          return;
+        } else {
           respond.stop()
           return;
         }
