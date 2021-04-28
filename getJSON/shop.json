@@ -131,13 +131,22 @@
     "isItem": false
 	},
   {
-		"name": "change header (requires embed)",
+		"name": "change header",
     "id": "authorName",
 		"type": "profile",
-    "description": "Change the header of your profile",
+    "description": "Change the header of your profile (requires embed)",
     "price": 200,
     "reqRank": 1,
     "isItem": false
+	},
+  {
+		"name": "defaultpfp",
+    "id": "defaultpfp",
+		"type": "profile",
+    "description": "Adds a profile picture to your profile in the thumbnail location",
+    "price": 100,
+    "reqRank": 30,
+    "isItem": true
 	},
   {
 		"name": "black border",

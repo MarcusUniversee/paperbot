@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const { Op } = require('sequelize');
 const queuing = require("./queue.js");
 const dbQueue = new queuing();
 
@@ -142,7 +143,10 @@ module.exports = {
 
       const Info = await CDB.findAll({
         where: {
-          pID: playerID
+          pID: playerID,
+          status: {
+            [Op.or]: ['active', 'inactive']
+          }
         }
       });
       if (Info) {
@@ -229,6 +233,30 @@ module.exports = {
         where: {
           pID: playerID,
           status: 'active'
+        }
+      });
+      if (Info) {
+        return resolve('Challenge removed')
+      } else {
+        return resolve('No record of the challenge in database')
+      }
+    });
+  },
+
+  resetAllInactiveChallenges: function(playerID) {
+    return dbQueue.addToQueue({
+      "value": this._resetAllInactiveChallenges.bind(this),
+      "args": [playerID]
+    });
+  },
+
+  _resetAllInactiveChallenges: async function(playerID) {
+    if (!playerID) throw new Error('resetAllInactiveChallenges function is missing parameters!')
+    return new Promise(async (resolve, error) => {
+      const Info = await CDB.destroy({
+        where: {
+          pID: playerID,
+          status: 'inactive'
         }
       });
       if (Info) {

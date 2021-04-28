@@ -16,6 +16,7 @@ const PRDB = sequelize.define('Profiles', {
   smallpfp: Sequelize.BOOLEAN,
   medpfp: Sequelize.BOOLEAN,
   largepfp: Sequelize.BOOLEAN,
+  defaultpfp: Sequelize.BOOLEAN,
   badgeLimit: Sequelize.INTEGER,
   hasBorder: Sequelize.BOOLEAN
 });
@@ -80,6 +81,15 @@ module.exports = {
         case 'largepfp':
           var Info = await PRDB.update({
             largepfp: value
+          }, {
+            where: {
+              pID: playerID
+            }
+          });
+        break;
+        case 'defaultpfp':
+          var Info = await PRDB.update({
+            defaultpfp: value
           }, {
             where: {
               pID: playerID
@@ -173,6 +183,7 @@ module.exports = {
           smallpfp: Info.smallpfp,
           medpfp: Info.medpfp,
           largepfp: Info.largepfp,
+          defaultpfp: Info.defaultpfp,
           badgeLimit: Info.badgeLimit,
           hasBorder: Info.hasBorder
         })
@@ -185,6 +196,7 @@ module.exports = {
             smallpfp: false,
             medpfp: false,
             largepfp: false,
+            defaultpfp: false,
             badgeLimit: 1,
             hasBorder: false
           });
@@ -195,6 +207,7 @@ module.exports = {
             smallpfp: false,
             medpfp: false,
             largepfp: false,
+            defaultpfp: false,
             badgeLimit: 1,
             hasBorder: false
           })

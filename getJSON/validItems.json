@@ -132,6 +132,10 @@
     "type": "profile"
 	},
   {
+		"name": "defaultpfp",
+    "type": "profile"
+	},
+  {
 		"name": "crimson border",
 		"type": "profile"
 	},

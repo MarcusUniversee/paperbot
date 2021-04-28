@@ -141,19 +141,19 @@
 	},
   {
 		"name": "smallpfp",
-		"tier": 1,
-    "type": "profile",
-    "series": "normal"
-	},
-  {
-		"name": "medpfp",
 		"tier": 2,
     "type": "profile",
     "series": "normal"
 	},
   {
-		"name": "largepfp",
+		"name": "medpfp",
 		"tier": 3,
+    "type": "profile",
+    "series": "normal"
+	},
+  {
+		"name": "largepfp",
+		"tier": 1,
     "type": "profile",
     "series": "normal"
 	}

@@ -58,18 +58,18 @@ module.exports = {
     var smallpfp = ''
     var medpfp = ''
     var largepfp = ''
-    var defaultpfp = 'attachment://dimage.png';
+    var defaultpfp = '';
     if (profile.smallpfp) {
       smallpfp = 'attachment://dimage.png';
-      defaultpfp = '';
     }
     if (profile.medpfp) {
       medpfp = 'attachment://dimage.png';
-      defaultpfp = '';
     }
-    if (profile.medpfp) {
+    if (profile.largepfp) {
       largepfp = 'attachment://dimage.png';
-      defaultpfp = '';
+    }
+    if (profile.defaultpfp) {
+      defaultpfp = 'attachment://dimage.png';
     }
 
     if (profile.hasBorder) {
@@ -91,41 +91,73 @@ module.exports = {
         Balance: ${balOutput.balance}`
       )
     }
-    message.channel.send({ files: [attachment], embed: {
-      color: 0x7a19a8,
-      title: `${tag}\'s profile`,
-      author: {
-        name: profile.authorName,
-        icon_url: medpfp,
-        url: '',
-      },
-      thumbnail: {
-        url: defaultpfp,
-      },
-      fields: [
-        {
-          name: 'Badges',
-          value: badges,
+    if (!profile.smallpfp && !profile.medpfp && !profile.largepfp & !profile.defaultpfp) {
+      message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: `${tag}\'s profile`,
+        author: {
+          name: profile.authorName,
         },
-        {
-          name: 'Rank',
-          value: `${rankOutput.level}`,
-          inline: true,
+        fields: [
+          {
+            name: 'Badges',
+            value: badges,
+          },
+          {
+            name: 'Rank',
+            value: `${rankOutput.level}`,
+            inline: true,
+          },
+          {
+            name: 'Balance',
+            value: `${balOutput.balance}`,
+            inline: true,
+          },
+        ],
+        image: {
+      		url: largepfp,
+      	},
+        footer: {
+          text: user.tag,
+      	},
+      }});
+    } else {
+      message.channel.send({ files: [attachment], embed: {
+        color: 0x7a19a8,
+        title: `${tag}\'s profile`,
+        author: {
+          name: profile.authorName,
+          icon_url: medpfp,
+          url: '',
         },
-        {
-          name: 'Balance',
-          value: `${balOutput.balance}`,
-          inline: true,
+        thumbnail: {
+          url: defaultpfp,
         },
-      ],
-      image: {
-    		url: largepfp,
-    	},
-      footer: {
-        text: user.tag,
-    		icon_url: smallpfp,
-    	},
-    }});
+        fields: [
+          {
+            name: 'Badges',
+            value: badges,
+          },
+          {
+            name: 'Rank',
+            value: `${rankOutput.level}`,
+            inline: true,
+          },
+          {
+            name: 'Balance',
+            value: `${balOutput.balance}`,
+            inline: true,
+          },
+        ],
+        image: {
+      		url: largepfp,
+      	},
+        footer: {
+          text: user.tag,
+      		icon_url: smallpfp,
+      	},
+      }});
+    }
   },
   permissions: [],
   requiredRoles: [],

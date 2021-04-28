@@ -77,7 +77,7 @@
     "id": 9,
     "type": "daily",
     "category": "tradecrate",
-    "difficulty": "hard",
+    "difficulty": "medium",
     "value": 3
   },
   {
@@ -160,5 +160,14 @@
     "category": "blankcount",
     "difficulty": "very hard",
     "value": 70
+  },
+  {
+    "title": "Crate Upgrade III",
+    "description": "Trade up crates using p.tradeup five times",
+    "id": 19,
+    "type": "daily",
+    "category": "tradecrate",
+    "difficulty": "hard",
+    "value": 5
   }
 ]
