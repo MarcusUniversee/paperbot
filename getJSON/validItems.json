@@ -378,5 +378,17 @@
   {
 		"name": "week 8 trivia champion",
 		"type": "badge"
+	},
+  {
+		"name": "week 9 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 10 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 11 trivia champion",
+		"type": "badge"
 	}
 ]

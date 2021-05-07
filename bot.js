@@ -48,12 +48,12 @@ client.on('message', async message => {
     if (message.content.startsWith('http')) return;
     if (message.embeds[0]) return;
 
-    /*if (profile.xp%3 === 0) { //Double xp every other
+    if (profile.xp%3 === 0) { //1.5xp
       leveling.AddXp(message.author.id, 1)
     } else {
       leveling.AddXp(message.author.id, 2)
-    }*/
-    leveling.AddXp(message.author.id, 1)
+    }
+    //leveling.AddXp(message.author.id, 1)
     dailyStats.updateStat(message.author.id, 'messagecount', 1)
     //If user xp higher than 100 add level
     if (profile.level >= 90) {

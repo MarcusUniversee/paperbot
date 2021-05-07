@@ -30,9 +30,10 @@ module.exports = {
       var min = crate.contents[j][1]
       var max = crate.contents[j][2]
       var chances = crate.contents[j][3]
-      var chance = Math.random() < chances
+      var result = Math.random()
+      var chance = result < chances
       console.log("chance: " + chances)
-      console.log("result: " + chance)
+      console.log("result: " + result)
       if (chance) {
         dailyStats.updateStat(message.author.id, 'opencrate', 1)
         var amount = Math.floor(Math.random() * ((max - min) + 1) + min);
