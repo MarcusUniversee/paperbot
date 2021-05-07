@@ -25,7 +25,7 @@
 	},
   {
 		"name": "forest green",
-		"id": "#259b25"
+		"id": "#1aa31a"
 	},
 	{
 		"name": "lime",
@@ -57,11 +57,23 @@
 	},
   {
 		"name": "electrum",
-    "id": "#d9a55c"
+    "id": "#ffd57b"
 	},
   {
 		"name": "acacia",
     "id": "#f45c49"
+	},
+  {
+		"name": "sunset",
+    "id": "#ffa81c"
+	},
+  {
+		"name": "emerald",
+    "id": "#005f00"
+	},
+  {
+		"name": "grape",
+    "id": "#2d0046"
 	},
   {
 		"name": "coral",

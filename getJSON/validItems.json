@@ -72,6 +72,18 @@
     "type": "color"
 	},
   {
+		"name": "sunset",
+    "type": "color"
+	},
+  {
+		"name": "emerald",
+    "type": "color"
+	},
+  {
+		"name": "grape",
+    "type": "color"
+	},
+  {
 		"name": "coral",
     "type": "color"
 	},
@@ -253,6 +265,10 @@
 	},
   {
 		"name": "bronze crate",
+		"type": "crate"
+	},
+  {
+		"name": "unranked crate",
 		"type": "crate"
 	},
   {

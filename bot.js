@@ -56,8 +56,8 @@ client.on('message', async message => {
     //leveling.AddXp(message.author.id, 1)
     dailyStats.updateStat(message.author.id, 'messagecount', 1)
     //If user xp higher than 100 add level
-    if (profile.level >= 90) {
-      var maxXp = 450
+    if (profile.level >= 120) {
+      var maxXp = 550
     } else {
       var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
     }

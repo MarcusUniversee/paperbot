@@ -12,6 +12,12 @@
     "series": "normal"
 	},
   {
+		"name": "sunset",
+		"tier": 3,
+    "type": "color",
+    "series": "normal"
+	},
+  {
 		"name": "acacia",
 		"tier": 2,
     "type": "color",
@@ -24,6 +30,12 @@
     "series": "normal"
 	},
   {
+		"name": "emerald",
+		"tier": 2,
+    "type": "color",
+    "series": "normal"
+	},
+  {
 		"name": "army green",
 		"tier": 1,
     "type": "color",
@@ -31,6 +43,12 @@
 	},
   {
 		"name": "barbie pink",
+		"tier": 1,
+    "type": "color",
+    "series": "normal"
+	},
+  {
+		"name": "grape",
 		"tier": 1,
     "type": "color",
     "series": "normal"

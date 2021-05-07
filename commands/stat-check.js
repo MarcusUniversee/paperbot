@@ -21,10 +21,10 @@ module.exports = {
             message.reply('Challenge complete: ' + challengeList[cID-1].title)
             var difficulty = challengeList[cID-1].difficulty
             if (pChallenges[1]) {
-              this.chalReward(playerID, difficulty, message)
+              return this.chalReward(playerID, difficulty, message)
             } else {
-              this.chalReward(playerID, difficulty, message)
               this.chalReward(playerID, 'bonus', message)
+              return this.chalReward(playerID, difficulty, message)
             }
           }
         }
@@ -37,10 +37,10 @@ module.exports = {
             message.reply('Challenge complete: ' + challengeList[cID-1].title)
             var difficulty = challengeList[cID-1].difficulty
             if (pChallenges[1]) {
-              this.chalReward(playerID, difficulty, message)
+              return this.chalReward(playerID, difficulty, message)
             } else {
-              this.chalReward(playerID, difficulty, message)
               this.chalReward(playerID, 'bonus', message)
+              return this.chalReward(playerID, difficulty, message)
             }
           }
         }
@@ -53,10 +53,10 @@ module.exports = {
             message.reply('Challenge complete: ' + challengeList[cID-1].title)
             var difficulty = challengeList[cID-1].difficulty
             if (pChallenges[1]) {
-              this.chalReward(playerID, difficulty, message)
+              return this.chalReward(playerID, difficulty, message)
             } else {
-              this.chalReward(playerID, difficulty, message)
               this.chalReward(playerID, 'bonus', message)
+              return this.chalReward(playerID, difficulty, message)
             }
           }
         }
@@ -69,10 +69,10 @@ module.exports = {
             message.reply('Challenge complete: ' + challengeList[cID-1].title)
             var difficulty = challengeList[cID-1].difficulty
             if (pChallenges[1]) {
-              this.chalReward(playerID, difficulty, message)
+              return this.chalReward(playerID, difficulty, message)
             } else {
-              this.chalReward(playerID, difficulty, message)
               this.chalReward(playerID, 'bonus', message)
+              return this.chalReward(playerID, difficulty, message)
             }
           }
         }
@@ -85,10 +85,10 @@ module.exports = {
             message.reply('Challenge complete: ' + challengeList[cID-1].title)
             var difficulty = challengeList[cID-1].difficulty
             if (pChallenges[1]) {
-              this.chalReward(playerID, difficulty, message)
+              return this.chalReward(playerID, difficulty, message)
             } else {
-              this.chalReward(playerID, difficulty, message)
               this.chalReward(playerID, 'bonus', message)
+              return this.chalReward(playerID, difficulty, message)
             }
           }
         }
@@ -118,8 +118,8 @@ module.exports = {
 
   chalReward: async function (playerID, difficulty, message) {
     var profile = await leveling.Fetch(playerID)
-    if (profile.level >= 90) {
-      var maxXp = 450
+    if (profile.level >= 120) {
+      var maxXp = 550
     } else {
       var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
     }
@@ -164,7 +164,6 @@ module.exports = {
       break;
       case 'medium':
         var xpReward = 40
-        var blankReward = 5
         var totalXp = curXp+xpReward
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
@@ -179,13 +178,10 @@ module.exports = {
         } else {
           await leveling.AddXp(playerID, xpReward)
         }
-        await eco.AddToBalance(playerID, blankReward)
-        await dailyStats.updateStat(message.author.id, 'blankcount', blankReward)
         message.reply(`You have earned ${xpReward} xp!`);
       break;
       case 'hard':
         var xpReward = 60
-        var blankReward = 15
         var totalXp = curXp+xpReward
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
@@ -200,13 +196,10 @@ module.exports = {
         } else {
           await leveling.AddXp(playerID, xpReward)
         }
-        await eco.AddToBalance(playerID, blankReward)
-        await dailyStats.updateStat(message.author.id, 'blankcount', blankReward)
         message.reply(`You have earned ${xpReward} xp and ${blankReward} blanks!`);
       break;
       case 'very hard':
         var xpReward = 80
-        var blankReward = 25
         var totalXp = curXp+xpReward
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
@@ -221,8 +214,6 @@ module.exports = {
         } else {
           await leveling.AddXp(playerID, xpReward)
         }
-        await eco.AddToBalance(playerID, blankReward)
-        await dailyStats.updateStat(message.author.id, 'blankcount', blankReward)
         message.reply(`You have earned ${xpReward} xp and ${blankReward} blanks!`);
       break;
       case 'bonus':

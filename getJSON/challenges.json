@@ -127,39 +127,39 @@
   },
   {
     "title": "Blank Miner I",
-    "description": "Earn 20 blanks",
+    "description": "Earn 15 blanks",
     "id": 15,
     "type": "daily",
     "category": "blankcount",
     "difficulty": "easy",
-    "value": 20
+    "value": 15
   },
   {
     "title": "Blank Miner II",
-    "description": "Earn 35 blanks",
+    "description": "Earn 30 blanks",
     "id": 16,
     "type": "daily",
     "category": "blankcount",
     "difficulty": "medium",
-    "value": 35
+    "value": 30
   },
   {
     "title": "Blank Miner III",
-    "description": "Earn 50 blanks",
+    "description": "Earn 45 blanks",
     "id": 17,
     "type": "daily",
     "category": "blankcount",
     "difficulty": "hard",
-    "value": 50
+    "value": 45
   },
   {
     "title": "Blank Miner IV",
-    "description": "Earn 70 blanks",
+    "description": "Earn 60 blanks",
     "id": 18,
     "type": "daily",
     "category": "blankcount",
     "difficulty": "very hard",
-    "value": 70
+    "value": 60
   },
   {
     "title": "Crate Upgrade III",

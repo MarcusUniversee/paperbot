@@ -1,17 +1,9 @@
 [
   {
-		"name": "gold crate",
+		"name": "unranked crate",
 		"type": "crate",
-    "contents": [["blanks", 80, 190, 1], ["item", 1, 1, 0.04]],
-    "tier": 3,
-    "series": "normal",
-    "tradable": false
-	},
-  {
-		"name": "silver crate",
-		"type": "crate",
-    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.02]],
-    "tier": 3,
+    "contents": [["blanks", 5, 25, 1], ["item", 1, 1, 0.005]],
+    "tier": 1,
     "series": "normal",
     "tradable": false
 	},
@@ -19,6 +11,22 @@
 		"name": "bronze crate",
 		"type": "crate",
     "contents": [["blanks", 10, 50, 1], ["item", 1, 1, 0.01]],
+    "tier": 2,
+    "series": "normal",
+    "tradable": false
+	},
+  {
+		"name": "silver crate",
+		"type": "crate",
+    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.02]],
+    "tier": 2,
+    "series": "normal",
+    "tradable": false
+	},
+  {
+		"name": "gold crate",
+		"type": "crate",
+    "contents": [["blanks", 80, 190, 1], ["item", 1, 1, 0.04]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -106,7 +114,7 @@
   {
 		"name": "challenge crate 1",
 		"type": "crate",
-    "contents": [["blanks", 40, 70, 1], ["item", 1, 1, 0.001]],
+    "contents": [["blanks", 20, 40, 1], ["item", 1, 1, 0.001]],
     "tier": 1,
     "series": "accolade",
     "tradable": true,
@@ -115,7 +123,7 @@
   {
 		"name": "challenge crate 2",
 		"type": "crate",
-    "contents": [["blanks", 90, 120, 1], ["item", 1, 1, 0.004]],
+    "contents": [["blanks", 60, 80, 1], ["item", 1, 1, 0.004]],
     "tier": 2,
     "series": "accolade",
     "tradable": true,
@@ -124,7 +132,7 @@
   {
 		"name": "challenge crate 3",
 		"type": "crate",
-    "contents": [["blanks", 250, 300, 1], ["item", 1, 1, 0.016]],
+    "contents": [["blanks", 240, 260, 1], ["item", 1, 1, 0.016]],
     "tier": 2,
     "series": "accolade",
     "tradable": true,
@@ -133,7 +141,7 @@
   {
 		"name": "challenge crate 4",
 		"type": "crate",
-    "contents": [["blanks", 450, 550, 1], ["item", 1, 1, 0.064]],
+    "contents": [["blanks", 450, 470, 1], ["item", 1, 1, 0.064]],
     "tier": 3,
     "series": "accolade",
     "tradable": true,
@@ -142,7 +150,7 @@
   {
 		"name": "challenge crate 5",
 		"type": "crate",
-    "contents": [["blanks", 800, 1000, 1], ["item", 1, 1, 0.256]],
+    "contents": [["blanks", 1200, 1220, 1], ["item", 1, 1, 0.256]],
     "tier": 3,
     "series": "accolade",
     "tradable": false
