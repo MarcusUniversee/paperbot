@@ -56,7 +56,9 @@ module.exports = {
                 }
               }
             }
-            var prize = prizes[Math.floor(Math.random() * prizes.length)]
+            var prizeInt = Math.floor(Math.random() * prizes.length)
+            var prize = prizes[prizeInt]
+            console.log(prize)
             var hasItem = await inv.fetchItem(message.author.id, prize.name)
             if (hasItem.pID) {
               var profile3 = await eco.AddToBalance(message.author.id, 500)
@@ -67,6 +69,50 @@ module.exports = {
               message.reply(`You found ${prize.name}!`);
             }
           break;
+          case "bonus":
+            var bonusChance = Math.random()
+            var bonusblanks;
+            var bonuscrate1;
+            var bonuscrate2;
+            var bonuscrate3;
+            if (crate.tier === 1) {
+              bonusblanks = 5
+              bonuscrate1 = 'common crate'
+              bonuscrate2 = 'common crate'
+              bonuscrate3 = 'uncommon crate'
+            }
+            if (crate.tier === 2) {
+              bonusblanks = 20
+              bonuscrate1 = 'common crate'
+              bonuscrate2 = 'uncommon crate'
+              bonuscrate3 = 'rare crate'
+            }
+            if (crate.tier === 3) {
+              bonusblanks = 50
+              bonuscrate1 = 'uncommon crate'
+              bonuscrate2 = 'rare crate'
+              bonuscrate3 = 'rare crate'
+            }
+            var cchance1 = 0.5
+            var cchance2 = 0.16
+            var ccchance3 = 0.04
+            if (bonusChance < ccchance3) {
+              var itemInv = await inv.addItem(playerID, iType, bonuscrate3)
+              message.reply(`You found a bonus ${bonuscrate3}`)
+              await dailyStats.updateStat(message.author.id, 'findcrate', 1)
+            } else if (bonusChance < ccchance2) {
+              var itemInv = await inv.addItem(playerID, iType, bonuscrate2)
+              message.reply(`You found a bonus ${bonuscrate2}`)
+              await dailyStats.updateStat(message.author.id, 'findcrate', 1)
+            } else if (bonusChance < ccchance1) {
+              var itemInv = await inv.addItem(playerID, iType, bonuscrate1)
+              message.reply(`You found a bonus ${bonuscrate1}`)
+              await dailyStats.updateStat(message.author.id, 'findcrate', 1)
+            } else {
+              var profile = await eco.AddToBalance(message.author.id, bonusblanks)
+              message.reply(`You found a bonus ${bonusblanks} blanks`)
+              await dailyStats.updateStat(message.author.id, 'blankcount', bonusblanks)
+            }
           default:
             return message.reply("Error: bad content name type")
           break;

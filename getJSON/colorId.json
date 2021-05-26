@@ -1,7 +1,7 @@
 [
   {
 		"name": "crimson",
-		"id": "#a00000"
+		"id": "#e00000"
 	},
   {
 		"name": "sky blue",
@@ -69,7 +69,7 @@
 	},
   {
 		"name": "emerald",
-    "id": "#005f00"
+    "id": "#005f30"
 	},
   {
 		"name": "grape",
@@ -105,7 +105,7 @@
 	},
   {
 		"name": "fuchsia",
-    "id": "#c154c1"
+    "id": "#e75cdc"
 	},
   {
 		"name": "silver",

@@ -109,7 +109,43 @@
 		"type": "role",
     "description": "Gives you the DJ role",
     "price": 300,
-    "reqRank": 15,
+    "reqRank": 50,
+    "isItem": true
+	},
+  {
+		"name": "1.5x server xp boost",
+    "id": "1.5x server xp boost",
+		"type": "serverboost",
+    "description": "When activated, xp earnings from messages is multiplied by 1.5x for 2 hours",
+    "price": 40,
+    "reqRank": 10,
+    "isItem": true
+	},
+  {
+		"name": "2x server xp boost",
+    "id": "2x server xp boost",
+		"type": "serverboost",
+    "description": "When activated, xp earnings from messages is multiplied by 2x for 2 hours",
+    "price": 60,
+    "reqRank": 10,
+    "isItem": true
+	},
+  {
+		"name": "1.5x server crate boost",
+    "id": "1.5x server crate boost",
+		"type": "serverboost",
+    "description": "When activated, crate finding from messages is multiplied by 1.5x for 2 hours",
+    "price": 55,
+    "reqRank": 10,
+    "isItem": true
+	},
+  {
+		"name": "2x server crate boost",
+    "id": "2x server crate boost",
+		"type": "serverboost",
+    "description": "When activated, crate finding from messages is multiplied by 2x for 2 hours",
+    "price": 70,
+    "reqRank": 10,
     "isItem": true
 	},
   {
@@ -146,6 +182,15 @@
     "description": "Adds a profile picture to your profile in the thumbnail location",
     "price": 100,
     "reqRank": 30,
+    "isItem": true
+	},
+  {
+		"name": "progress bar",
+    "id": "progress bar",
+		"type": "profile",
+    "description": "Adds progress bars to challenges and your profile",
+    "price": 200,
+    "reqRank": 60,
     "isItem": true
 	},
   {

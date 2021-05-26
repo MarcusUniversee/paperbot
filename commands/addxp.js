@@ -21,6 +21,11 @@ module.exports = {
     } else {
       var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
     }
+    if (profile.level >= 145) {
+      var money = 30
+    } else {
+      var money = 1 + Math.floor(profile.level/5)
+    }
     var xp = parseInt(paramsCom[1])
     while (xp > 0) {
       profile = await leveling.Fetch(message.mentions.users.first().id)
@@ -35,7 +40,6 @@ module.exports = {
       }
       console.log("max xp: " + maxXp)
       if (xp > maxXp) {
-        var money = 1 + Math.floor(profile.level/5)
         await leveling.AddLevel(message.mentions.users.first().id, 1)
         await leveling.SetXp(message.mentions.users.first().id, 0)
         var itemType = 'crate'

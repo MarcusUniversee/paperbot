@@ -2,7 +2,7 @@
   {
 		"name": "unranked crate",
 		"type": "crate",
-    "contents": [["blanks", 5, 25, 1], ["item", 1, 1, 0.005]],
+    "contents": [["blanks", 5, 25, 1], ["item", 1, 1, 0.005], ["bonus", 1, 1, 0.2]],
     "tier": 1,
     "series": "normal",
     "tradable": false
@@ -10,7 +10,7 @@
   {
 		"name": "bronze crate",
 		"type": "crate",
-    "contents": [["blanks", 10, 50, 1], ["item", 1, 1, 0.01]],
+    "contents": [["blanks", 10, 50, 1], ["item", 1, 1, 0.01], ["bonus", 1, 1, 0.2]],
     "tier": 2,
     "series": "normal",
     "tradable": false
@@ -18,7 +18,7 @@
   {
 		"name": "silver crate",
 		"type": "crate",
-    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.02]],
+    "contents": [["blanks", 40, 100, 1], ["item", 1, 1, 0.02], ["bonus", 1, 1, 0.3]],
     "tier": 2,
     "series": "normal",
     "tradable": false
@@ -26,7 +26,7 @@
   {
 		"name": "gold crate",
 		"type": "crate",
-    "contents": [["blanks", 80, 190, 1], ["item", 1, 1, 0.04]],
+    "contents": [["blanks", 80, 190, 1], ["item", 1, 1, 0.04], ["bonus", 1, 1, 0.2]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -34,7 +34,7 @@
   {
 		"name": "platinum crate",
 		"type": "crate",
-    "contents": [["blanks", 120, 280, 1], ["item", 1, 1, 0.06]],
+    "contents": [["blanks", 120, 280, 1], ["item", 1, 1, 0.06], ["bonus", 1, 1, 0.3]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -42,7 +42,7 @@
   {
 		"name": "diamond crate",
 		"type": "crate",
-    "contents": [["blanks", 230, 360, 1], ["item", 1, 1, 0.1]],
+    "contents": [["blanks", 230, 360, 1], ["item", 1, 1, 0.1], ["bonus", 1, 1, 0.3]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -50,7 +50,7 @@
   {
 		"name": "champions crate",
 		"type": "crate",
-    "contents": [["blanks", 350, 500, 1], ["item", 1, 1, 0.2]],
+    "contents": [["blanks", 350, 500, 1], ["item", 1, 1, 0.2], ["bonus", 1, 1, 0.4]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -58,7 +58,7 @@
   {
 		"name": "legends crate",
 		"type": "crate",
-    "contents": [["blanks", 500, 800, 1], ["item", 1, 1, 0.4]],
+    "contents": [["blanks", 500, 800, 1], ["item", 1, 1, 0.4], ["bonus", 1, 1, 0.4]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -66,7 +66,7 @@
   {
 		"name": "paper scrap crate",
 		"type": "crate",
-    "contents": [["blanks", 750, 1000, 1], ["item", 1, 1, 0.6]],
+    "contents": [["blanks", 750, 1000, 1], ["item", 1, 1, 0.6], ["bonus", 1, 1, 0.5]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -74,7 +74,7 @@
   {
 		"name": "paper lord crate",
 		"type": "crate",
-    "contents": [["blanks", 1000, 1500, 1], ["item", 1, 1, 0.95]],
+    "contents": [["blanks", 1000, 1500, 1], ["item", 1, 1, 0.95], ["bonus", 1, 1, 0.5]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -82,7 +82,7 @@
   {
 		"name": "accolade crate 1",
 		"type": "crate",
-    "contents": [["blanks", 150, 210, 1], ["item", 1, 1, 0.16]],
+    "contents": [["blanks", 150, 210, 1], ["item", 1, 1, 0.16], ["bonus", 1, 1, 0.5]],
     "tier": 3,
     "series": "accolade",
     "tradable": false
@@ -90,7 +90,7 @@
   {
 		"name": "accolade crate 2",
 		"type": "crate",
-    "contents": [["blanks", 80, 120, 1], ["item", 1, 1, 0.09]],
+    "contents": [["blanks", 80, 120, 1], ["item", 1, 1, 0.09], ["bonus", 1, 1, 0.5]],
     "tier": 2,
     "series": "accolade",
     "tradable": false
@@ -98,7 +98,7 @@
   {
 		"name": "accolade crate 3",
 		"type": "crate",
-    "contents": [["blanks", 50, 90, 1], ["item", 1, 1, 0.05]],
+    "contents": [["blanks", 50, 90, 1], ["item", 1, 1, 0.05], ["bonus", 1, 1, 0.5]],
     "tier": 2,
     "series": "accolade",
     "tradable": false
@@ -106,7 +106,7 @@
   {
 		"name": "accolade crate",
 		"type": "crate",
-    "contents": [["blanks", 20, 60, 1], ["item", 1, 1, 0.02]],
+    "contents": [["blanks", 20, 60, 1], ["item", 1, 1, 0.02], ["bonus", 1, 1, 0.2]],
     "tier": 1,
     "series": "accolade",
     "tradable": false
@@ -114,7 +114,7 @@
   {
 		"name": "challenge crate 1",
 		"type": "crate",
-    "contents": [["blanks", 20, 40, 1], ["item", 1, 1, 0.001]],
+    "contents": [["blanks", 15, 35, 1], ["item", 1, 1, 0.001], ["bonus", 1, 1, 0.2]],
     "tier": 1,
     "series": "accolade",
     "tradable": true,
@@ -123,7 +123,7 @@
   {
 		"name": "challenge crate 2",
 		"type": "crate",
-    "contents": [["blanks", 60, 80, 1], ["item", 1, 1, 0.004]],
+    "contents": [["blanks", 50, 70, 1], ["item", 1, 1, 0.004], ["bonus", 1, 1, 0.2]],
     "tier": 2,
     "series": "accolade",
     "tradable": true,
@@ -132,7 +132,7 @@
   {
 		"name": "challenge crate 3",
 		"type": "crate",
-    "contents": [["blanks", 240, 260, 1], ["item", 1, 1, 0.016]],
+    "contents": [["blanks", 240, 260, 1], ["item", 1, 1, 0.016], ["bonus", 1, 1, 0.3]],
     "tier": 2,
     "series": "accolade",
     "tradable": true,
@@ -141,7 +141,7 @@
   {
 		"name": "challenge crate 4",
 		"type": "crate",
-    "contents": [["blanks", 450, 470, 1], ["item", 1, 1, 0.064]],
+    "contents": [["blanks", 450, 470, 1], ["item", 1, 1, 0.064], ["bonus", 1, 1, 0.2]],
     "tier": 3,
     "series": "accolade",
     "tradable": true,
@@ -150,7 +150,7 @@
   {
 		"name": "challenge crate 5",
 		"type": "crate",
-    "contents": [["blanks", 1200, 1220, 1], ["item", 1, 1, 0.256]],
+    "contents": [["blanks", 1200, 1220, 1], ["item", 1, 1, 0.256], ["bonus", 1, 1, 0.3]],
     "tier": 3,
     "series": "accolade",
     "tradable": false
@@ -158,7 +158,7 @@
   {
 		"name": "rank crate",
 		"type": "crate",
-    "contents": [["blanks", 1, 20, 1], ["item", 1, 1, 0.003]],
+    "contents": [["blanks", 1, 20, 1], ["item", 1, 1, 0.003], ["bonus", 1, 1, 0.2]],
     "tier": 1,
     "series": "normal",
     "tradable": false
@@ -175,7 +175,7 @@
   {
 		"name": "uncommon crate",
 		"type": "crate",
-    "contents": [["blanks", 6, 8, 1], ["item", 1, 1, 0.0008]],
+    "contents": [["blanks", 6, 8, 1], ["item", 1, 1, 0.0008], ["bonus", 1, 1, 0.2]],
     "tier": 1,
     "series": "normal",
     "tradable": true,
@@ -184,7 +184,7 @@
   {
 		"name": "rare crate",
 		"type": "crate",
-    "contents": [["blanks", 21, 25, 1], ["item", 1, 1, 0.004]],
+    "contents": [["blanks", 21, 25, 1], ["item", 1, 1, 0.004], ["bonus", 1, 1, 0.2]],
     "tier": 1,
     "series": "normal",
     "tradable": true,
@@ -193,7 +193,7 @@
   {
 		"name": "very rare crate",
 		"type": "crate",
-    "contents": [["blanks", 69, 75, 1], ["item", 1, 1, 0.013]],
+    "contents": [["blanks", 69, 75, 1], ["item", 1, 1, 0.013], ["bonus", 1, 1, 0.2]],
     "tier": 2,
     "series": "normal",
     "tradable": true,
@@ -202,7 +202,7 @@
   {
 		"name": "import crate",
 		"type": "crate",
-    "contents": [["blanks", 216, 224, 1], ["item", 1, 1, 0.06]],
+    "contents": [["blanks", 216, 224, 1], ["item", 1, 1, 0.06], ["bonus", 1, 1, 0.3]],
     "tier": 2,
     "series": "normal",
     "tradable": true,
@@ -211,7 +211,7 @@
   {
 		"name": "exotic crate",
 		"type": "crate",
-    "contents": [["blanks", 660, 670, 1], ["item", 1, 1, 0.18]],
+    "contents": [["blanks", 660, 670, 1], ["item", 1, 1, 0.18], ["bonus", 1, 1, 0.2]],
     "tier": 3,
     "series": "normal",
     "tradable": true,
@@ -220,7 +220,7 @@
   {
 		"name": "black market crate",
 		"type": "crate",
-    "contents": [["blanks", 2010, 2022, 1], ["item", 1, 1, 0.95]],
+    "contents": [["blanks", 2010, 2022, 1], ["item", 1, 1, 0.95], ["bonus", 1, 1, 0.3]],
     "tier": 3,
     "series": "normal",
     "tradable": false

@@ -149,112 +149,132 @@
 	},
   {
 		"name": "crimson border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "sky blue border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "cobalt border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "purple border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "titanium white border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "black border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "forest green border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
 	{
 		"name": "lime border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "orange border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "saffron border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "grey border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "pink border",
-		"type": "profile"
+		"type": "pfpborder"
 	},
   {
 		"name": "aqua border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "electrum border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "acacia border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "coral border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "army green border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "barbie pink border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "azure border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "lavender border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "gold border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "shamrock border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "fuchsia border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "silver border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "bronze border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "indigo border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
   {
 		"name": "poppy border",
-    "type": "profile"
+    "type": "pfpborder"
 	},
+  {
+		"name": "1.5x server crate boost",
+    "type": "serverboost"
+	},
+  {
+		"name": "2x server crate boost",
+    "type": "serverboost"
+	},
+  {
+		"name": "1.5x server xp boost",
+    "type": "serverboost"
+	},
+  {
+		"name": "2x server xp boost",
+    "type": "serverboost"
+	},
+  {
+    "name": "progress bar",
+    "type": "profile"
+  },
   {
 		"name": "gold crate",
 		"type": "crate"

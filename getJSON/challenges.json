@@ -82,48 +82,48 @@
   },
   {
     "title": "Active Chatter I",
-    "description": "Send 60 messages in any xp gaining channel",
+    "description": "Send 70 messages in any xp gaining channel",
     "id": 10,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "very easy",
-    "value": 60
+    "value": 70
   },
   {
     "title": "Active Chatter II",
-    "description": "Send 120 messages in any xp gaining channel",
+    "description": "Send 130 messages in any xp gaining channel",
     "id": 11,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "easy",
-    "value": 120
+    "value": 130
   },
   {
     "title": "Active Chatter III",
-    "description": "Send 200 messages in any xp gaining channel",
+    "description": "Send 210 messages in any xp gaining channel",
     "id": 12,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "medium",
-    "value": 200
+    "value": 210
   },
   {
     "title": "Active Chatter IV",
-    "description": "Send 290 messages in any xp gaining channel",
+    "description": "Send 300 messages in any xp gaining channel",
     "id": 13,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "hard",
-    "value": 290
+    "value": 300
   },
   {
     "title": "Active Chatter V",
-    "description": "Send 370 messages in any xp gaining channel",
+    "description": "Send 380 messages in any xp gaining channel",
     "id": 14,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "very hard",
-    "value": 370
+    "value": 380
   },
   {
     "title": "Blank Miner I",
@@ -167,7 +167,7 @@
     "id": 19,
     "type": "daily",
     "category": "tradecrate",
-    "difficulty": "hard",
+    "difficulty": "very hard",
     "value": 5
   }
 ]
