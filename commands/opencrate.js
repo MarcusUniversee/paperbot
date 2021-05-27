@@ -95,16 +95,16 @@ module.exports = {
             }
             var cchance1 = 0.5
             var cchance2 = 0.16
-            var ccchance3 = 0.04
-            if (bonusChance < ccchance3) {
+            var cchance3 = 0.04
+            if (bonusChance < cchance3) {
               var itemInv = await inv.addItem(playerID, iType, bonuscrate3)
               message.reply(`You found a bonus ${bonuscrate3}`)
               await dailyStats.updateStat(message.author.id, 'findcrate', 1)
-            } else if (bonusChance < ccchance2) {
+            } else if (bonusChance < cchance2) {
               var itemInv = await inv.addItem(playerID, iType, bonuscrate2)
               message.reply(`You found a bonus ${bonuscrate2}`)
               await dailyStats.updateStat(message.author.id, 'findcrate', 1)
-            } else if (bonusChance < ccchance1) {
+            } else if (bonusChance < cchance1) {
               var itemInv = await inv.addItem(playerID, iType, bonuscrate1)
               message.reply(`You found a bonus ${bonuscrate1}`)
               await dailyStats.updateStat(message.author.id, 'findcrate', 1)
