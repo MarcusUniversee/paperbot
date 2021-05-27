@@ -53,11 +53,8 @@ module.exports = {
               chalList.push('\n')
               var value;
               if (pChallenges[i].dataValues.status === 'inactive') {
-                if (pBar) {
-                  chalList.push(':green_square: :green_square: :green_square: :green_square: :green_square: :green_square: :green_square: :green_square: :green_square: :green_square: ')
-                }
-              }
-              if (pChallenges[i].dataValues.category === 'messagecount') {
+                value = challengeList[j].value
+              } else if (pChallenges[i].dataValues.category === 'messagecount') {
                 value = messagecount.value
               } else if (pChallenges[i].dataValues.category === 'blankcount') {
                 value = blankcount.value
