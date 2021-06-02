@@ -26,6 +26,7 @@ module.exports = {
       }
     }
     //give prizes
+    dailyStats.updateStat(message.author.id, 'opencrate', 1)
     for (var j=0;j<crate.contents.length;j++) {
       var min = crate.contents[j][1]
       var max = crate.contents[j][2]
@@ -35,7 +36,6 @@ module.exports = {
       console.log("chance: " + chances)
       console.log("result: " + result)
       if (chance) {
-        dailyStats.updateStat(message.author.id, 'opencrate', 1)
         var amount = Math.floor(Math.random() * ((max - min) + 1) + min);
         console.log("amount: " + amount)
         switch (crate.contents[j][0]) {
@@ -96,16 +96,17 @@ module.exports = {
             var cchance1 = 0.5
             var cchance2 = 0.16
             var cchance3 = 0.04
+            var iType = 'crate'
             if (bonusChance < cchance3) {
-              var itemInv = await inv.addItem(playerID, iType, bonuscrate3)
+              var itemInv = await inv.addItem(message.author.id, iType, bonuscrate3)
               message.reply(`You found a bonus ${bonuscrate3}`)
               await dailyStats.updateStat(message.author.id, 'findcrate', 1)
             } else if (bonusChance < cchance2) {
-              var itemInv = await inv.addItem(playerID, iType, bonuscrate2)
+              var itemInv = await inv.addItem(message.author.id, iType, bonuscrate2)
               message.reply(`You found a bonus ${bonuscrate2}`)
               await dailyStats.updateStat(message.author.id, 'findcrate', 1)
             } else if (bonusChance < cchance1) {
-              var itemInv = await inv.addItem(playerID, iType, bonuscrate1)
+              var itemInv = await inv.addItem(message.author.id, iType, bonuscrate1)
               message.reply(`You found a bonus ${bonuscrate1}`)
               await dailyStats.updateStat(message.author.id, 'findcrate', 1)
             } else {
@@ -113,6 +114,7 @@ module.exports = {
               message.reply(`You found a bonus ${bonusblanks} blanks`)
               await dailyStats.updateStat(message.author.id, 'blankcount', bonusblanks)
             }
+          break;
           default:
             return message.reply("Error: bad content name type")
           break;
