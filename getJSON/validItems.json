@@ -276,6 +276,10 @@
     "type": "profile"
   },
   {
+    "name": "auto challenge activation",
+    "type": "miscItem"
+  },
+  {
 		"name": "gold crate",
 		"type": "crate"
 	},
@@ -425,6 +429,10 @@
 	},
   {
 		"name": "week 11 trivia champion",
+		"type": "badge"
+	},
+  {
+		"name": "week 12 trivia champion",
 		"type": "badge"
 	}
 ]

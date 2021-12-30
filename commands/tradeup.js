@@ -16,6 +16,40 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' tradeup')
     var pInv = await inv.fetchInv(message.author.id)
+
+    if (paramsCom[0]) {
+      var item = await inv.fetchItem(message.author.id, paramsCom[0])
+      if (!item.pID) {
+        message.reply('You do not own an item with this name')
+        return;
+      }
+      if (item.type != 'crate') {
+        message.reply('This item is not a crate')
+        return;
+      }
+      for (var k=0;k<list.length;k++) {
+        if (list[k].tradable && list[k].name === paramsCom[0]) {
+          if (item.quantity >= 5) {
+            await inv.removeItem(message.author.id, item.name)
+            await inv.removeItem(message.author.id, item.name)
+            await inv.removeItem(message.author.id, item.name)
+            await inv.removeItem(message.author.id, item.name)
+            await inv.removeItem(message.author.id, item.name)
+            var itemName = list[k].tradefor
+            var itemInv = await inv.addItem(message.author.id, 'crate', itemName, 1)
+            message.reply('Trade up successful!')
+            dailyStats.updateStat(message.author.id, 'tradecrate', 1)
+            return;
+          } else {
+            message.reply('You do not have 5 of this crate')
+            return;
+          }
+        }
+      }
+      message.reply('This is not a tradable crate')
+      return;
+
+    }
     var invList = [];
     for (var i=0; i<pInv.length; i++) {
       if (pInv[i].dataValues.type === 'crate') {

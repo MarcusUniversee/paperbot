@@ -8,7 +8,7 @@ module.exports = {
   category: '',
   callback: (message, arguments, text) => {
     console.log(message.author.tag + ' help')
-    const categories = ['', 'Economy', 'Betting', 'Inventory', 'Facts']
+    const categories = ['', 'Economy', 'Betting', 'Inventory', 'Facts', 'Minigames']
     var reply = [{
                   type: `About`,
                   value: `Paper bot is multi-purpose bot made for the paper server
@@ -19,7 +19,8 @@ module.exports = {
                           __Shop__ - Buy color roles and other items using blanks.
                           __Inventory__ - Every player has their own inventory to manage and equip items/roles.
                           __Betting__ - Make bets on anything with other players. Uses blanks.
-                          __Facts and generators__ - Variety of commands that return random facts`
+                          __Facts and generators__ - Variety of commands that return random facts
+                          __Minigames__ - Play fun minigames for rewards! (BETA)`
                 }];
     const commands = loadCommands()
     for (var i=0;i<categories.length;i++) {

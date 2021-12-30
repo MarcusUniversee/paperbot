@@ -35,6 +35,7 @@ module.exports = {
         var eItem = await inv.equipItem(message.author.id, paramsCom[0])
       break;
       case 'badge':
+      case 'miscItem':
         message.channel.send({embed: {
           color: 0x7a19a8,
           title: 'Item Equipped',

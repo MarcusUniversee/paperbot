@@ -3,6 +3,7 @@ const dailyStats = require('dailystats')
 const challengeList = require('../getJSON/challenges.json')
 const leveling = require('discord-leveling');
 const eco = require('discord-economy');
+const leveling2 = require('discord-leveling2');
 const inv = require('inventory')
 const prof = require('profile')
 const boost = require('../getJSON/boosts.json')
@@ -12,8 +13,10 @@ module.exports = {
 
   statCheck: async function (playerID, message) {
     //check for every stat and compare to challenges
+    var pChallenges1 = await challenge.fetchAllChallenges(playerID)
     var pChallenges = await challenge.fetchChallenges(playerID)
-    if (pChallenges[0]) {
+    if (pChallenges1[0]) {
+      if (!pChallenges[0]) return;
       for (var i=0; i<pChallenges.length; i++) {
 
         if (pChallenges[i].dataValues.category === 'messagecount') {
@@ -98,16 +101,165 @@ module.exports = {
 
       }
     } else {
+      var auto = await inv.fetchItem(playerID, 'auto challenge activation')
+      if (auto.pID) {
+        if (auto.equip != 1) return;
+        await challenge.resetAllChallenges(message.author.id)
+        var reset = await dailyStats.resetAllStat(message.author.id)
+        var num1 = Math.floor(Math.random()*challengeList.length) + 1
+        var num2 = Math.floor(Math.random()*challengeList.length) + 1
+        var num3 = Math.floor(Math.random()*challengeList.length) + 1
+        while (
+          (
+            (
+              challengeList[num1-1].category === challengeList[num2-1].category
+            ) || (
+              challengeList[num1-1].category === challengeList[num3-1].category
+            ) || (
+              challengeList[num2-1].category === challengeList[num3-1].category
+            )
+          ) || (
+            !(
+              (challengeList[num1-1].difficulty === 'hard') || (challengeList[num1-1].difficulty === 'very hard')
+            ) && !(
+              (challengeList[num2-1].difficulty === 'hard') || (challengeList[num2-1].difficulty === 'very hard')
+            ) && !(
+              (challengeList[num3-1].difficulty === 'hard') || (challengeList[num3-1].difficulty === 'very hard')
+            )
+          )
+        ) {
+          var num1 = Math.floor(Math.random()*challengeList.length) + 1
+          var num2 = Math.floor(Math.random()*challengeList.length) + 1
+          var num3 = Math.floor(Math.random()*challengeList.length) + 1
+        }
+        var dChallenge1 = await challenge.addChallenge(message.author.id, num1, challengeList[num1-1].category)
+        var dChallenge2 = await challenge.addChallenge(message.author.id, num2, challengeList[num2-1].category)
+        var dChallenge3 = await challenge.addChallenge(message.author.id, num3, challengeList[num3-1].category)
+        var user = message.author;
+        var pChallenges = await challenge.fetchAllChallenges(message.author.id)
+        if (message.content.startsWith('p.')) return;
+        //check every stat for progress bar
+        var messagecount = await dailyStats.fetchStat(user.id, 'messagecount')
+        var blankcount = await dailyStats.fetchStat(user.id, 'blankcount')
+        var findcrate = await dailyStats.fetchStat(user.id, 'findcrate')
+        var opencrate = await dailyStats.fetchStat(user.id, 'opencrate')
+        var tradecrate = await dailyStats.fetchStat(user.id, 'tradecrate')
+
+        var pInv = await inv.fetchInv(user.id)
+        var pBar = false;
+        for (var h=0; h<pInv.length; h++) {
+          if (!pInv[h]) break;
+          if (pInv[h].dataValues.equip === 1) {
+            if (pInv[h].dataValues.name == 'progress bar') {
+              pBar = true
+            }
+          }
+        }
+        //
+        var chalList = [];
+        for (var i=0; i<pChallenges.length; i++) {
+          for (var j=0; j<challengeList.length;j++) {
+            if (pChallenges[i].dataValues.cID === challengeList[j].id) {
+              if (pChallenges[i].dataValues.status === 'inactive') {
+                chalList.push('**[COMPLETED] **')
+              }
+              chalList.push('**' + challengeList[j].title)
+              chalList.push('(' + challengeList[j].difficulty + ')**')
+              chalList.push('\n')
+              chalList.push(challengeList[j].description)
+              chalList.push('\n')
+              var value;
+              if (pChallenges[i].dataValues.status === 'inactive') {
+                value = challengeList[j].value
+              } else if (pChallenges[i].dataValues.category === 'messagecount') {
+                value = messagecount.value
+              } else if (pChallenges[i].dataValues.category === 'blankcount') {
+                value = blankcount.value
+              } else if (pChallenges[i].dataValues.category === 'findcrate') {
+                value = findcrate.value
+              } else if (pChallenges[i].dataValues.category === 'opencrate') {
+                value = opencrate.value
+              } else if (pChallenges[i].dataValues.category === 'tradecrate') {
+                value = tradecrate.value
+              }
+              var count = Math.floor((value/challengeList[j].value)*10)
+              var antiCount = 10-count
+              if (pBar) {
+                for (var k=0; k<count;k++) {
+                  chalList.push(':green_square:')
+                }
+                for (var l=0; l<antiCount;l++) {
+                  chalList.push(':red_square:')
+                }
+              } else {
+                chalList.push(value + '/' + challengeList[j].value)
+              }
+
+              chalList.push('\n')
+              chalList.push('\n')
+            }
+          }
+
+        }
+        var challenges = chalList.join(" ");
+        message.channel.send({embed: {
+        color: 0x7a19a8,
+        title: `${user.tag}\'s Challenges`,
+        description: challenges,
+        }})
+        return;
+      }
       return;
     }
   },
 
   msgCheck: async function (playerID, message, profile) {
     //check for boosts
-    var xpboost1_5 = false
-    var xpboost2 = false
-    var crateboost1_5 = false
-    var crateboost2 = false
+    var xpboost1_5 = true
+    var xpboost2 = true
+    if (boost[0].status === '1') {
+      xpboost1_5 = true
+    }
+    if (boost[1].status === '1') {
+      xpboost2 = true
+    }
+
+    if (xpboost1_5 && xpboost2) {
+      leveling.AddXp(playerID, 3)
+    } else if (xpboost2) {
+      leveling.AddXp(playerID, 2)
+    } else if (xpboost1_5) {
+      if (profile.xp%3 === 0) { //1.5xp
+        leveling.AddXp(playerID, 1)
+      } else {
+        leveling.AddXp(playerID, 2)
+      }
+    } else {
+      leveling.AddXp(playerID, 1)
+    }
+
+    //If user xp higher than 100 add level
+    if (profile.level >= 120) {
+      var maxXp = 550
+    } else {
+      var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
+    }
+    if (profile.xp + 1 > maxXp) {
+
+      await leveling.AddLevel(playerID, 1)
+      await leveling.SetXp(playerID, 0)
+
+    }
+
+
+  },
+
+  msgCheck2: async function (playerID, message, profile) {
+    //check for boosts
+    var xpboost1_5 = true
+    var xpboost2 = true
+    var crateboost1_5 = true
+    var crateboost2 = true
     if (boost[0].status === '1') {
       xpboost1_5 = true
     }
@@ -122,17 +274,17 @@ module.exports = {
     }
 
     if (xpboost1_5 && xpboost2) {
-      leveling.AddXp(playerID, 3)
+      leveling2.AddXp(playerID, 3)
     } else if (xpboost2) {
-      leveling.AddXp(playerID, 2)
+      leveling2.AddXp(playerID, 2)
     } else if (xpboost1_5) {
       if (profile.xp%3 === 0) { //1.5xp
-        leveling.AddXp(message.author.id, 1)
+        leveling2.AddXp(playerID, 1)
       } else {
-        leveling.AddXp(message.author.id, 2)
+        leveling2.AddXp(playerID, 2)
       }
     } else {
-      leveling.AddXp(playerID, 1)
+      leveling2.AddXp(playerID, 1)
     }
 
     dailyStats.updateStat(playerID, 'messagecount', 1)
@@ -142,7 +294,6 @@ module.exports = {
     } else {
       var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
     }
-
     if (profile.level >= 145) {
       var money = 30
     } else {
@@ -150,8 +301,8 @@ module.exports = {
     }
     if (profile.xp + 1 > maxXp) {
 
-      await leveling.AddLevel(playerID, 1)
-      await leveling.SetXp(playerID, 0)
+      await leveling2.AddLevel(playerID, 1)
+      await leveling2.SetXp(playerID, 0)
       var itemType = 'crate'
       var itemName = 'rank crate'
       var itemInv = await inv.addItem(playerID, itemType, itemName)
@@ -263,16 +414,12 @@ module.exports = {
 
   chalReward: async function (playerID, difficulty, message) {
     var profile = await leveling.Fetch(playerID)
+    var profile2 = await leveling2.Fetch(playerID)
+    //profile1
     if (profile.level >= 120) {
       var maxXp = 550
     } else {
       var maxXp = Math.floor((40*(Math.log(profile.level + 1))) + (3*profile.level)) + 1; //y=40ln(x+1)+3x+1
-    }
-
-    if (profile.level >= 145) {
-      var money = 30
-    } else {
-      var money = 1 + Math.floor(profile.level/5)
     }
 
     var curXp = profile.xp
@@ -283,16 +430,9 @@ module.exports = {
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
-          var itemType = 'crate'
-          var itemName = 'rank crate'
-          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
-          var profileBal = await eco.AddToBalance(message.author.id, money)
-          await dailyStats.updateStat(message.author.id, 'blankcount', money)
-          message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a rank crate!`)
         } else {
           await leveling.AddXp(playerID, xpReward)
         }
-        message.reply(`You have earned ${xpReward} xp!`);
       break;
       case 'easy':
         var xpReward = 15
@@ -300,16 +440,9 @@ module.exports = {
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
-          var itemType = 'crate'
-          var itemName = 'rank crate'
-          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
-          var profileBal = await eco.AddToBalance(message.author.id, money)
-          await dailyStats.updateStat(message.author.id, 'blankcount', money)
-          message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a rank crate!`)
         } else {
           await leveling.AddXp(playerID, xpReward)
         }
-        message.reply(`You have earned ${xpReward} xp!`);
       break;
       case 'medium':
         var xpReward = 30
@@ -317,16 +450,9 @@ module.exports = {
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
-          var itemType = 'crate'
-          var itemName = 'rank crate'
-          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
-          var profileBal = await eco.AddToBalance(message.author.id, money)
-          await dailyStats.updateStat(message.author.id, 'blankcount', money)
-          message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a rank crate!`)
         } else {
           await leveling.AddXp(playerID, xpReward)
         }
-        message.reply(`You have earned ${xpReward} xp!`);
       break;
       case 'hard':
         var xpReward = 45
@@ -334,16 +460,9 @@ module.exports = {
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
-          var itemType = 'crate'
-          var itemName = 'rank crate'
-          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
-          var profileBal = await eco.AddToBalance(message.author.id, money)
-          await dailyStats.updateStat(message.author.id, 'blankcount', money)
-          message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a rank crate!`)
         } else {
           await leveling.AddXp(playerID, xpReward)
         }
-        message.reply(`You have earned ${xpReward} xp!`);
       break;
       case 'very hard':
         var xpReward = 60
@@ -351,14 +470,112 @@ module.exports = {
         if (totalXp > maxXp) {
           await leveling.AddLevel(playerID, 1)
           await leveling.SetXp(playerID, totalXp-maxXp)
+        } else {
+          await leveling.AddXp(playerID, xpReward)
+        }
+      break;
+      case 'bonus':
+        //
+      break;
+    }
+
+    //profile2
+    if (profile2.level >= 120) {
+      var maxXp = 550
+    } else {
+      var maxXp = Math.floor((40*(Math.log(profile2.level + 1))) + (3*profile2.level)) + 1; //y=40ln(x+1)+3x+1
+    }
+
+    if (profile2.level >= 145) {
+      var money = 30
+    } else {
+      var money = 1 + Math.floor(profile2.level/5)
+    }
+
+    var curXp = profile2.xp
+    switch (difficulty) {
+      case 'very easy':
+        var xpReward = 5
+        var totalXp = curXp+xpReward
+        if (totalXp > maxXp) {
+          await leveling2.AddLevel(playerID, 1)
+          await leveling2.SetXp(playerID, totalXp-maxXp)
           var itemType = 'crate'
           var itemName = 'rank crate'
           var itemInv = await inv.addItem(message.author.id, itemType, itemName)
           var profileBal = await eco.AddToBalance(message.author.id, money)
           await dailyStats.updateStat(message.author.id, 'blankcount', money)
-          message.reply(`You just ranked up!! You are now rank ${profile.level + 1} and you have earned ${money} blanks and a rank crate!`)
+          message.reply(`You just ranked up!! You are now rank ${profile2.level + 1} and you have earned ${money} blanks and a rank crate!`)
         } else {
-          await leveling.AddXp(playerID, xpReward)
+          await leveling2.AddXp(playerID, xpReward)
+        }
+        message.reply(`You have earned ${xpReward} xp!`);
+      break;
+      case 'easy':
+        var xpReward = 15
+        var totalXp = curXp+xpReward
+        if (totalXp > maxXp) {
+          await leveling2.AddLevel(playerID, 1)
+          await leveling2.SetXp(playerID, totalXp-maxXp)
+          var itemType = 'crate'
+          var itemName = 'rank crate'
+          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
+          var profileBal = await eco.AddToBalance(message.author.id, money)
+          await dailyStats.updateStat(message.author.id, 'blankcount', money)
+          message.reply(`You just ranked up!! You are now rank ${profile2.level + 1} and you have earned ${money} blanks and a rank crate!`)
+        } else {
+          await leveling2.AddXp(playerID, xpReward)
+        }
+        message.reply(`You have earned ${xpReward} xp!`);
+      break;
+      case 'medium':
+        var xpReward = 30
+        var totalXp = curXp+xpReward
+        if (totalXp > maxXp) {
+          await leveling2.AddLevel(playerID, 1)
+          await leveling2.SetXp(playerID, totalXp-maxXp)
+          var itemType = 'crate'
+          var itemName = 'rank crate'
+          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
+          var profileBal = await eco.AddToBalance(message.author.id, money)
+          await dailyStats.updateStat(message.author.id, 'blankcount', money)
+          message.reply(`You just ranked up!! You are now rank ${profile2.level + 1} and you have earned ${money} blanks and a rank crate!`)
+        } else {
+          await leveling2.AddXp(playerID, xpReward)
+        }
+        message.reply(`You have earned ${xpReward} xp!`);
+      break;
+      case 'hard':
+        var xpReward = 45
+        var totalXp = curXp+xpReward
+        if (totalXp > maxXp) {
+          await leveling2.AddLevel(playerID, 1)
+          await leveling2.SetXp(playerID, totalXp-maxXp)
+          var itemType = 'crate'
+          var itemName = 'rank crate'
+          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
+          var profileBal = await eco.AddToBalance(message.author.id, money)
+          await dailyStats.updateStat(message.author.id, 'blankcount', money)
+          message.reply(`You just ranked up!! You are now rank ${profile2.level + 1} and you have earned ${money} blanks and a rank crate!`)
+        } else {
+          await leveling2.AddXp(playerID, xpReward)
+        }
+        message.reply(`You have earned ${xpReward} xp!`);
+      break;
+      case 'very hard':
+        var xpReward = 60
+        var totalXp = curXp+xpReward
+        if (totalXp > maxXp) {
+          await leveling2.AddLevel(playerID, 1)
+          await leveling2.SetXp(playerID, totalXp-maxXp)
+          var itemType = 'crate'
+          var itemName = 'rank crate'
+          var itemInv = await inv.addItem(message.author.id, itemType, itemName)
+          var profileBal = await eco.AddToBalance(message.author.id, money)
+          await dailyStats.updateStat(message.author.id, 'blankcount', money)
+          message.reply(`You just ranked up!! You are now rank ${profile2.level + 1} and you have earned ${money} blanks and a rank crate!`)
+        } else {
+          await leveling2.AddXp(playerID, xpReward)
         }
         message.reply(`You have earned ${xpReward} xp!`);
       break;

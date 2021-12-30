@@ -11,7 +11,7 @@ module.exports = {
   maxArgs: 1,
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' meme');
-    const subReddits = ['dankmeme', 'meme', 'me_irl', 'memes', 'dankmemes'];
+    const subReddits = ['dankmeme', 'meme', 'me_irl', 'memes', 'dankmemes', 'funny', 'comedyheaven', 'facepalm', 'starterpacks', 'therewasanattempt', 'unexpected'];
     const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
     var img = await randomPuppy(random);

@@ -12,19 +12,22 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' responsive');
 
-    /*message.channel.send('Respond to this message!')
-    const filter = m => m.author.id === message.author.id
+    message.channel.send({
+      "content": 'hello',
+      "components": [
+        {
+          "type": 1,
+          "components": [
+            {
+              "type": 2,
+              "label": "Click me!",
+              "style": 1,
+              "custom_id": "click_one"
+            }
+          ]
 
-    const respond = message.channel.createMessageCollector(filter, { time: 60000 });
-
-    respond.on('collect', m => {
-      message.reply(m.content)
-      respond.stop()
-    })*/
-    boost[0].status = "1"
-    fs.writeFile("./paperbot/getJSON/boosts.json", JSON.stringify(boost), err => {
-      if (err) throw err;
-      console.log('done')
+        }
+      ]
     })
 
   },

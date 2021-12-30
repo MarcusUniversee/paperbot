@@ -117,7 +117,7 @@
     "id": "1.5x server xp boost",
 		"type": "serverboost",
     "description": "When activated, xp earnings from messages is multiplied by 1.5x for 1 hours",
-    "price": 40,
+    "price": 35,
     "reqRank": 10,
     "isItem": true
 	},
@@ -126,7 +126,7 @@
     "id": "2x server xp boost",
 		"type": "serverboost",
     "description": "When activated, xp earnings from messages is multiplied by 2x for 1 hours",
-    "price": 60,
+    "price": 50,
     "reqRank": 10,
     "isItem": true
 	},
@@ -135,7 +135,7 @@
     "id": "1.5x server crate boost",
 		"type": "serverboost",
     "description": "When activated, crate finding from messages is multiplied by 1.5x for 1 hours",
-    "price": 55,
+    "price": 50,
     "reqRank": 10,
     "isItem": true
 	},
@@ -171,7 +171,7 @@
     "id": "authorName",
 		"type": "profile",
     "description": "Change the header of your profile (requires embed)",
-    "price": 200,
+    "price": 100,
     "reqRank": 1,
     "isItem": false
 	},
@@ -193,6 +193,15 @@
     "reqRank": 60,
     "isItem": true
 	},
+  {
+    "name": "auto challenge activation",
+    "id": "auto challenge",
+		"type": "miscItem",
+    "description": "Automatically activates challenges for you!",
+    "price": 100,
+    "reqRank": 60,
+    "isItem": true
+  },
   {
 		"name": "black border",
     "id": "black",

@@ -28,12 +28,12 @@
   },
   {
     "title": "Crate Finder IV",
-    "description": "Find nine crates from messaging",
+    "description": "Find eight crates from messaging",
     "id": 4,
     "type": "daily",
     "category": "findcrate",
     "difficulty": "hard",
-    "value": 9
+    "value": 8
   },
   {
     "title": "Treasure Chest I",
@@ -91,39 +91,39 @@
   },
   {
     "title": "Active Chatter II",
-    "description": "Send 130 messages in any xp gaining channel",
+    "description": "Send 120 messages in any xp gaining channel",
     "id": 11,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "easy",
-    "value": 130
+    "value": 120
   },
   {
     "title": "Active Chatter III",
-    "description": "Send 210 messages in any xp gaining channel",
+    "description": "Send 200 messages in any xp gaining channel",
     "id": 12,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "medium",
-    "value": 210
+    "value": 200
   },
   {
     "title": "Active Chatter IV",
-    "description": "Send 300 messages in any xp gaining channel",
+    "description": "Send 280 messages in any xp gaining channel",
     "id": 13,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "hard",
-    "value": 300
+    "value": 280
   },
   {
     "title": "Active Chatter V",
-    "description": "Send 380 messages in any xp gaining channel",
+    "description": "Send 350 messages in any xp gaining channel",
     "id": 14,
     "type": "daily",
     "category": "messagecount",
     "difficulty": "very hard",
-    "value": 380
+    "value": 350
   },
   {
     "title": "Blank Miner I",

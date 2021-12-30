@@ -74,7 +74,7 @@
   {
 		"name": "paper lord crate",
 		"type": "crate",
-    "contents": [["blanks", 1000, 1500, 1], ["item", 1, 1, 0.95], ["bonus", 1, 1, 0.5]],
+    "contents": [["blanks", 1000, 1500, 1], ["item", 1, 1, 1], ["bonus", 1, 1, 0.5]],
     "tier": 3,
     "series": "normal",
     "tradable": false
@@ -123,7 +123,7 @@
   {
 		"name": "challenge crate 2",
 		"type": "crate",
-    "contents": [["blanks", 50, 70, 1], ["item", 1, 1, 0.004], ["bonus", 1, 1, 0.2]],
+    "contents": [["blanks", 50, 70, 1], ["item", 1, 1, 0.005], ["bonus", 1, 1, 0.2]],
     "tier": 2,
     "series": "accolade",
     "tradable": true,
@@ -132,7 +132,7 @@
   {
 		"name": "challenge crate 3",
 		"type": "crate",
-    "contents": [["blanks", 240, 260, 1], ["item", 1, 1, 0.016], ["bonus", 1, 1, 0.3]],
+    "contents": [["blanks", 300, 320, 1], ["item", 1, 1, 0.025], ["bonus", 1, 1, 0.3]],
     "tier": 2,
     "series": "accolade",
     "tradable": true,
@@ -141,7 +141,7 @@
   {
 		"name": "challenge crate 4",
 		"type": "crate",
-    "contents": [["blanks", 450, 470, 1], ["item", 1, 1, 0.064], ["bonus", 1, 1, 0.2]],
+    "contents": [["blanks", 750, 770, 1], ["item", 1, 1, 0.125], ["bonus", 1, 1, 0.2]],
     "tier": 3,
     "series": "accolade",
     "tradable": true,
@@ -150,7 +150,7 @@
   {
 		"name": "challenge crate 5",
 		"type": "crate",
-    "contents": [["blanks", 1200, 1220, 1], ["item", 1, 1, 0.256], ["bonus", 1, 1, 0.3]],
+    "contents": [["blanks", 3000, 3020, 1], ["item", 1, 1, 0.625], ["bonus", 1, 1, 0.3]],
     "tier": 3,
     "series": "accolade",
     "tradable": false

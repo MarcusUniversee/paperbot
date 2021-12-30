@@ -11,6 +11,11 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' pong')
     message.reply('pong!!')
+
+    if (parseInt(paramsCom[0])) {
+      message.reply(Math.floor(Math.random()*parseInt(paramsCom[0]))+1)
+
+    }
   },
   permissions: [],
   requiredRoles: [],

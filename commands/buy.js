@@ -55,6 +55,7 @@ module.exports = {
       switch (item.id) {
         case 'badgeLimit':
           var profile = await prof.fetchProfile(message.author.id)
+          if (profile.badgeLimit >= 6) return message.reply('You are only allowed a limit of 6 badges');
           var limit = profile.badgeLimit + 1
           var balProfile = await eco.SubtractFromBalance(message.author.id, price)
           var profUpdate = await prof.updateField(message.author.id, item.id, limit)

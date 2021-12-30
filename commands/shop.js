@@ -14,7 +14,7 @@ module.exports = {
     console.log(message.author.tag + ' shop')
     if (!paramsCom[0]) {
       var categories = []
-      for (var i=0;i<(Math.floor(list.length/10)+1);i++) {
+      for (var i=0;i<(Math.floor(list.length/10.1)+1);i++) {
         categories.push("")
       }
       var reply = [] //id. name

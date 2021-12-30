@@ -6,6 +6,7 @@ const inv = require('inventory')
 const prof = require('profile')
 const eco = require('discord-economy');
 const leveling = require('discord-leveling');
+const leveling2 = require('discord-leveling2');
 const challenge = require('challenges')
 const dailyStats = require('dailystats')
 
@@ -23,7 +24,7 @@ client.commands = new Discord.Collection();
 //prefix
 let prefix = 'p.';
 
-client.setMaxListeners(46);
+client.setMaxListeners(50);
 
 client.on('ready', async () => {
   console.log('The client is ready!')
@@ -40,29 +41,19 @@ client.on('message', async message => {
   var botchannel = message.guild.channels.cache.get('801558022823477339')
   botchannel.setRateLimitPerUser(2);
   var profile = await leveling.Fetch(message.author.id)
+  var profile2 = await leveling2.Fetch(message.author.id)
+  if (message.content.startsWith('p.')) return;
   //if (message.author.id == '381910494493278208') return message.reply('Imposter! you get no xp')
   if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236' || message.channel.id === '801939862303014912' || message.channel.id == '801558022823477339') {//chat school and trivia
     stats.chalCheck(message.author.id)
-    if (message.content == 'hi') return;
-    if (message.content.includes('hello')) return;
-    if (message.content.startsWith('http')) return;
-    if (message.embeds[0]) return;
-    if (message.content.startsWith('p.')) return;
-
     stats.msgCheck(message.author.id, message, profile)
+    stats.msgCheck2(message.author.id, message, profile2)
 
   }
 
 
   stats.statCheck(message.author.id, message)
   stats.boostCheck(message.author.id, message)
-
-  if (message.channel.id === '789215234376073236') {
-    return;
-  }
-  if (message.channel.id === '704489252125409314') {
-    return;
-  }
   if(!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
   let params = message.content.split(' ').slice(1); //array containing each param

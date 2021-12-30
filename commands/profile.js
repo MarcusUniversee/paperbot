@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const eco = require('discord-economy')
-const leveling = require('discord-leveling')
+const leveling = require('discord-leveling2')
 const inv = require('inventory')
 const prof = require('profile')
 const Canvas = require('canvas')
@@ -20,7 +20,11 @@ module.exports = {
     var balOutput = await eco.FetchBalance(user.id)
     var rankOutput = await leveling.Fetch(user.id)
     var xp = rankOutput.xp
-    var maxXp = Math.floor((40*(Math.log(rankOutput.level + 1))) + (3*rankOutput.level)) + 1;
+    if (rankOutput.level >= 120) {
+      var maxXp = 550
+    } else {
+      var maxXp = Math.floor((40*(Math.log(rankOutput.level + 1))) + (3*rankOutput.level)) + 1; //y=40ln(x+1)+3x+1
+    }
     var showXp = xp + '/' + maxXp
     var pInv = await inv.fetchInv(user.id)
     var invList = [];
