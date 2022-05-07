@@ -1,7 +1,6 @@
 const Discord = require('discord.js')
-const inv = require('inventory')
-const eco = require('discord-economy');
-const prof = require('profile');
+const inv = require('../functions/inventory')
+const prof = require('../functions/profile');
 
 module.exports = {
   name: 'destroyitem',
@@ -12,10 +11,10 @@ module.exports = {
   minArgs: 2,
   maxArgs: 2,
   callback: async (message, paramsCom) => {
-    console.log(message.author.tag + ' removeItem');
+    console.log(message.author.tag + ' destroyItem');
     if (!message.mentions.users.first()) return message.reply('Error: No player specified')
     var output = await inv.fetchItem(message.mentions.users.first().id, paramsCom[1])
-    if (!output.pID) {
+    if (!output.userid) {
       return message.reply('Item does not exist')
     }
     if (output.equip === 1) {
@@ -25,7 +24,7 @@ module.exports = {
         message.member.roles.remove(role);
       }
       if (eItem.type === 'profile') var profUpdate = await prof.updateField(message.author.id, eItem.name, false)
-      if (eItem.type === 'pfpborder') var profUpdate = await prof.updateField(message.author.id, 'hasBorder', false)
+      if (eItem.type === 'pfpborder') var profUpdate = await prof.updateField(message.author.id, 'border', false)
     }
 
     message.channel.send({embed: {

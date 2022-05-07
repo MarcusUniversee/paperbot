@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy');
+const eco = require("../functions/economy")
 //Provides the description for p.addblanks
 module.exports = {
   name: 'addblanks',
@@ -13,7 +13,7 @@ module.exports = {
     console.log(message.author.tag + ' addblanks')
     if (!message.mentions.users.first()) return message.reply('User not mentioned')
     if (!parseInt(paramsCom[1])) return message.reply('Amount needs to be a number!')
-    var profile = await eco.AddToBalance(message.mentions.users.first().id, paramsCom[1])
+    var profile = await eco.addToBalance(message.mentions.users.first().id, paramsCom[1])
     message.reply(`${message.mentions.users.first().tag} now owns ${profile.newbalance} blanks.`);
     return;
   },

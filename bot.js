@@ -1,14 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const bet = require('betting')
-const inv = require('inventory')
-const prof = require('profile')
-const eco = require('discord-economy');
-const leveling = require('discord-leveling');
-const leveling2 = require('discord-leveling2');
-const challenge = require('challenges')
-const dailyStats = require('dailystats')
+const leveling = require("./functions/leveling")
+const leveling2 = require("./functions/leveling2")
 
 const list = require('./getJSON/crates.json')
 const prizeList = require('./getJSON/prizes.json')
@@ -39,9 +33,9 @@ client.on('message', async message => {
   if (message.author.bot) return;
   if (message.channel.type === 'dm') return;
   var botchannel = message.guild.channels.cache.get('801558022823477339')
-  botchannel.setRateLimitPerUser(2);
-  var profile = await leveling.Fetch(message.author.id)
-  var profile2 = await leveling2.Fetch(message.author.id)
+  botchannel.setRateLimitPerUser(0.5);
+  var profile = await leveling.fetch(message.author.id)
+  var profile2 = await leveling2.fetch(message.author.id)
   if (message.content.startsWith('p.')) return;
   //if (message.author.id == '381910494493278208') return message.reply('Imposter! you get no xp')
   if (message.channel.id === '704489252125409314' || message.channel.id === '789215234376073236' || message.channel.id === '801939862303014912' || message.channel.id == '801558022823477339') {//chat school and trivia

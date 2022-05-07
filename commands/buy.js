@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy');
-const inv = require('inventory');
-const leveling = require('discord-leveling');
-const prof = require('profile')
+const eco = require('../functions/economy');
+const inv = require('../functions/inventory');
+const leveling = require('../functions/leveling');
+const prof = require('../functions/profile')
 const list = require("../getJSON/shop.json")
 module.exports = {
   name: 'buy',
@@ -39,30 +39,30 @@ module.exports = {
     var itemRank = item.reqRank
 
     //CHECKS
-    var output = await eco.FetchBalance(message.author.id)
+    var output = await eco.fetchBalance(message.author.id)
     if (!(output.balance >= price)) return message.reply('You do not own enough blanks')
-    var lvlProfile = await leveling.Fetch(message.author.id)
+    var lvlProfile = await leveling.fetch(message.author.id)
     if (itemRank > lvlProfile.level) return message.reply('Your rank is too low')
 
     //EXECUTE
     if (item.isItem) {
       var hasItem = await inv.fetchItem(message.author.id, itemName)
-      if (hasItem.pID) return message.reply('You already own this item')
-      var profile = await eco.SubtractFromBalance(message.author.id, price)
+      if (hasItem.userid) return message.reply('You already own this item')
+      var profile = await eco.subtractFromBalance(message.author.id, price)
       var itemInv = await inv.addItem(message.author.id, itemType, itemName)
       message.reply(`Successfully purchased ${itemInv.name}! You now own ${profile.newbalance} blanks.`);
     } else {
       switch (item.id) {
-        case 'badgeLimit':
+        case 'badges':
           var profile = await prof.fetchProfile(message.author.id)
           if (profile.badgeLimit >= 6) return message.reply('You are only allowed a limit of 6 badges');
           var limit = profile.badgeLimit + 1
-          var balProfile = await eco.SubtractFromBalance(message.author.id, price)
+          var balProfile = await eco.subtractFromBalance(message.author.id, price)
           var profUpdate = await prof.updateField(message.author.id, item.id, limit)
           message.reply(`Successfully purchased ${item.name}! You now own ${balProfile.newbalance} blanks.`);
         break;
-        case 'authorName':
-          var balProfile = await eco.SubtractFromBalance(message.author.id, price)
+        case 'subheader':
+          var balProfile = await eco.subtractFromBalance(message.author.id, price)
           message.reply(`Successfully purchased ${item.name}! You now own ${balProfile.newbalance} blanks\nPlease enter your new author name within the next five minutes`);
           const filter = m => m.author.id === message.author.id
 
@@ -70,7 +70,7 @@ module.exports = {
 
           respond.on('collect', async m => {
             var profUpdate = await prof.updateField(message.author.id, item.id, m.content)
-            message.reply(`Successfully set ${message.author.tag}\'s author name to ${m.content}`)
+            message.reply(`Successfully set ${message.author.tag}\'s subheader to ${m.content}`)
             respond.stop()
           })
         break;

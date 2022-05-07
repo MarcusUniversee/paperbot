@@ -1,14 +1,6 @@
-const challenge = require('challenges')
-const dailyStats = require('dailystats')
-const challengeList = require('../getJSON/challenges.json')
-const leveling = require('discord-leveling');
-const eco = require('discord-economy');
-const leveling2 = require('discord-leveling2');
-const inv = require('inventory')
-const prof = require('profile')
-const boost = require('../getJSON/boosts.json')
 const fs = require('fs')
 const Stopwatch = require('statman-stopwatch');
+const dailyStats = require('../functions/stats')
 
 const board = require('../getJSON/minigameBoard.json')
 
@@ -49,23 +41,27 @@ module.exports = {
             for (var i=0;i<board.length;i++) {
               if (board[i].name == message.author.tag && board[i].game == 'timer') {
                 hasStat = true;
+                board[i].total += score
+                board[i].plays += 1
                 if (score < board[i].score) {
                   board[i].score = score;
-                  fs.writeFile("./paperbot/getJSON/minigameBoard.json", JSON.stringify(board), err => {
-                    if (err) throw err;
-                    console.log('done')
-                  })
+
                 }
+                fs.writeFile("./paperbot/getJSON/minigameBoard.json", JSON.stringify(board), err => {
+                  if (err) throw err;
+                  console.log('done')
+                })
                 break;
               }
             }
             if (!hasStat) {
-              board.push({"name": message.author.tag, "game": "timer", "score": score})
+              board.push({"name": message.author.tag, "game": "timer", "score": score, "total": score, "plays": 1})
               fs.writeFile("./paperbot/getJSON/minigameBoard.json", JSON.stringify(board), err => {
                 if (err) throw err;
                 console.log('done')
               })
             }
+            await dailyStats.updateStat(message.author.id, 'timerPlayed', 1)
             message.channel.send({embed: {
             color: 0x7a19a8,
             title: `You were off by ${score} milliseconds`,

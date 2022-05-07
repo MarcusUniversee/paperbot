@@ -1,9 +1,7 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy');
-const inv = require('inventory');
-const leveling = require('discord-leveling');
+const inv = require('../functions/inventory');
 const list = require('../getJSON/crates.json');
-const dailyStats = require('dailystats')
+const dailyStats = require('../functions/stats')
 
 module.exports = {
   name: 'tradeup',
@@ -15,11 +13,12 @@ module.exports = {
   maxArgs: 1,
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' tradeup')
-    var pInv = await inv.fetchInv(message.author.id)
+    var pProfile = await inv.fetchInv(message.author.id)
+    var pInv = pProfile.inv
 
     if (paramsCom[0]) {
       var item = await inv.fetchItem(message.author.id, paramsCom[0])
-      if (!item.pID) {
+      if (!item.userid) {
         message.reply('You do not own an item with this name')
         return;
       }
@@ -52,13 +51,13 @@ module.exports = {
     }
     var invList = [];
     for (var i=0; i<pInv.length; i++) {
-      if (pInv[i].dataValues.type === 'crate') {
+      if (pInv[i].type === 'crate') {
         for (var j=0;j<list.length;j++) {
-          if (list[j].name === pInv[i].dataValues.name && list[j].tradable) {
-            invList.push(pInv[i].dataValues.name)
+          if (list[j].name === pInv[i].name && list[j].tradable) {
+            invList.push(pInv[i].name)
             invList.push(`(Tier ${list[j].tier})`)
             invList.push('| Quantity: ')
-            invList.push(pInv[i].dataValues.quantity)
+            invList.push(pInv[i].quantity)
             invList.push('\n\n')
           }
         }
@@ -78,7 +77,7 @@ module.exports = {
 
     respond.on('collect', async m => {
       var item = await inv.fetchItem(message.author.id, m.content)
-      if (!item.pID) {
+      if (!item.userid) {
         message.reply('You do not own an item with this name')
         respond.stop()
         return;

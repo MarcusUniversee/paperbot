@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy');
+const eco = require('../functions/economy');
 
 module.exports = {
   name: 'takeblanks',
@@ -14,7 +14,7 @@ module.exports = {
     if (!message.mentions.users.first()) return message.reply('Error: No user mentioned')
     if (!parseInt(paramsCom[1])) return message.reply('Amount needs to be a number!')
     if (paramsCom[1] < '1') return message.reply('Amount specified is too low')
-    var profile = await eco.SubtractFromBalance(message.mentions.users.first().id, paramsCom[1])
+    var profile = await eco.subtractFromBalance(message.mentions.users.first().id, paramsCom[1])
     message.reply(`${message.mentions.users.first().tag} now owns ${profile.newbalance} blanks.`);
     return;
   },

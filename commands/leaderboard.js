@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy');
+const eco = require('../functions/economy');
 
 module.exports = {
   name: 'leaderboard',
@@ -11,34 +11,61 @@ module.exports = {
   maxArgs: 1,
   callback: async (message, paramsCom, client) => {
     console.log(message.author.tag + ' leaderboard');
-    var output = await eco.Leaderboard({
-        filter: x => x.balance > 20,
-        search: message.author.id
-      })
-    var authorBal = await eco.FetchBalance(message.author.id)
-    eco.Leaderboard({
-      limit: 5,
-      filter: x => x.balance > 20
-    }).then(async users => {
-
-      if (users[0]) var firstplace = await client.users.fetch(users[0].userid)
-      if (users[1]) var secondplace = await client.users.fetch(users[1].userid)
-      if (users[2]) var thirdplace = await client.users.fetch(users[2].userid)
-      if (users[3]) var fourthplace = await client.users.fetch(users[3].userid)
-      if (users[4]) var fifthplace = await client.users.fetch(users[4].userid)
+    var output = await eco.leaderboard(true, message.author.id)
+    var authorBal = await eco.fetchBalance(message.author.id)
+    var leaderboard = await eco.leaderboard(false, message.author.id)
+    if (leaderboard.users[0]) {
+      var first = await client.users.fetch(leaderboard.users[0].id)
+      var firstplace = first.tag
+      var firstbalance = leaderboard.users[0].balance
+    } else {
+      var firstplace = 'Nobody Yet'
+      var firstbalance = 'None'
+    }
+    if (leaderboard.users[1]) {
+      var second = await client.users.fetch(leaderboard.users[1].id)
+      var secondplace = second.tag
+      var secondbalance = leaderboard.users[1].balance
+    } else {
+      var secondplace = 'Nobody Yet'
+      var secondbalance = 'None'
+    }
+    if (leaderboard.users[2]) {
+      var third = await client.users.fetch(leaderboard.users[2].id)
+      var thirdplace = third.tag
+      var thirdbalance = leaderboard.users[2].balance
+    } else {
+      var thirdplace = 'Nobody Yet'
+      var thirdbalance = 'None'
+    }
+    if (leaderboard.users[3]) {
+      var fourth = await client.users.fetch(leaderboard.users[3].id)
+      var fourthplace = fourth.tag
+      var fourthbalance = leaderboard.users[3].balance
+    } else {
+      var fourthplace = 'Nobody Yet'
+      var fourthbalance = 'None'
+    }
+    if (leaderboard.users[4]) {
+      var fifth = await client.users.fetch(leaderboard.users[4].id)
+      var fifthplace = fifth.tag
+      var fifthbalance = leaderboard.users[4].balance
+    } else {
+      var fifthplace = 'Nobody Yet'
+      var fifthbalance = 'None'
+    }
 
       message.channel.send({embed: {
       color: 0x7a19a8,
       title: 'Blanks Leaderboard',
-      description: `1. ${firstplace.tag || 'Nobody Yet'} - ${users[0].balance || 'None'} Blanks
-                    2. ${secondplace.tag || 'Nobody Yet'} - ${users[1].balance || 'None'} Blanks
-                    3. ${thirdplace.tag || 'Nobody Yet'} - ${users[2].balance || 'None'} Blanks
-                    4. ${fourthplace.tag || 'Nobody Yet'} - ${users[3].balance || 'None'} Blanks
-                    5. ${fifthplace.tag || 'Nobody Yet'} - ${users[4].balance || 'None'} Blanks
+      description: `1. ${firstplace} - ${firstbalance} Blanks
+                    2. ${secondplace} - ${secondbalance} Blanks
+                    3. ${thirdplace} - ${thirdbalance} Blanks
+                    4. ${fourthplace} - ${fourthbalance} Blanks
+                    5. ${fifthplace} - ${fifthbalance} Blanks
 
-                    ${output}. ${message.author.tag} - ${authorBal.balance} Blanks`,
+                    ${output.place}. ${message.author.tag} - ${authorBal.balance} Blanks`,
       }})
-    })
   },
   permissions: [],
   requiredRoles: [],

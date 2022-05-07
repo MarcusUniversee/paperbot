@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy');
-const inv = require('inventory');
-const leveling = require('discord-leveling');
+const eco = require('../functions/economy');
+const inv = require('../functions/inventory');
+const leveling = require('../functions/leveling');
 const list = require('../getJSON/crates.json');
 const prizeList = require('../getJSON/prizes.json');
-const dailyStats = require('dailystats')
+const dailyStats = require('../functions/stats')
 module.exports = {
   name: 'opencrate',
   description: 'Opens an owned crate',
@@ -16,7 +16,7 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' opencrate')
     var item = await inv.fetchItem(message.author.id, paramsCom[0])
-    if (!item.pID) return message.reply('You do not own an item with this name')
+    if (!item.userid) return message.reply('You do not own an item with this name')
     if (item.type != 'crate') return message.reply('This item is not a crate')
 
     for (var i=0;i<list.length;i++) {
@@ -40,7 +40,7 @@ module.exports = {
         console.log("amount: " + amount)
         switch (crate.contents[j][0]) {
           case "blanks":
-            var profile = await eco.AddToBalance(message.author.id, amount)
+            var profile = await eco.addToBalance(message.author.id, amount)
             await dailyStats.updateStat(message.author.id, 'blankcount', amount)
             message.reply(`You have earned ${amount} blanks and now own ${profile.newbalance} blanks.`);
           break;
@@ -60,8 +60,8 @@ module.exports = {
             var prize = prizes[prizeInt]
             console.log(prize)
             var hasItem = await inv.fetchItem(message.author.id, prize.name)
-            if (hasItem.pID) {
-              var profile3 = await eco.AddToBalance(message.author.id, 500)
+            if (hasItem.userid) {
+              var profile3 = await eco.addToBalance(message.author.id, 500)
               message.reply(`You already own ${prize.name} so you have recieved 500 blanks. You now own ${profile3.newbalance} blanks.`);
               await dailyStats.updateStat(message.author.id, 'blankcount', 500)
             } else {
@@ -110,7 +110,7 @@ module.exports = {
               message.reply(`You found a bonus ${bonuscrate1}`)
               await dailyStats.updateStat(message.author.id, 'findcrate', 1)
             } else {
-              var profile = await eco.AddToBalance(message.author.id, bonusblanks)
+              var profile = await eco.addToBalance(message.author.id, bonusblanks)
               message.reply(`You found a bonus ${bonusblanks} blanks`)
               await dailyStats.updateStat(message.author.id, 'blankcount', bonusblanks)
             }

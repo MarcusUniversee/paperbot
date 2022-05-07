@@ -1,5 +1,5 @@
-const Discord = require('discord.js')
-const inv = require('inventory');
+    const Discord = require('discord.js')
+const inv = require('../functions/inventory');
 const list = require('../getJSON/crates.json')
 const vlist = require('../getJSON/validItems.json')
 module.exports = {
@@ -18,8 +18,8 @@ module.exports = {
       var user = message.mentions.users.first()
     }
 
-    var pInv = await inv.fetchInv(user.id)
-
+    var pProfile = await inv.fetchInv(user.id)
+    var pInv = pProfile.inv
     var categories = []
     for (var i=0;i<(Math.floor(pInv.length/10.1)+1);i++) {
       categories.push("")
@@ -36,17 +36,17 @@ module.exports = {
       for (var j=0;j<10;j++) {
         var num = j + i*10
         if (!pInv[num]) break;
-        if (pInv[num].dataValues.type == "crate") {
-          desc1.push(`:orange_square: ${pInv[num].dataValues.name}\n`)
+        if (pInv[num].type == "crate") {
+          desc1.push(`:orange_square: ${pInv[num].name}\n`)
         } else {
-          if (pInv[num].dataValues.equip === 1) {
-            desc1.push(`:green_square: ${pInv[num].dataValues.name}\n`)
+          if (pInv[num].equip === 1) {
+            desc1.push(`:green_square: ${pInv[num].name}\n`)
           } else {
-            desc1.push(`:red_square: ${pInv[num].dataValues.name}\n`)
+            desc1.push(`:red_square: ${pInv[num].name}\n`)
           }
         }
-        desc2.push(`${pInv[num].dataValues.type}\n`)
-        desc3.push(`${pInv[num].dataValues.quantity}\n`)
+        desc2.push(`${pInv[num].type}\n`)
+        desc3.push(`${pInv[num].quantity}\n`)
       }
       reply1.push({type: `(Equip) Items`, value: desc1.join(" ")})
       reply2.push({type: `Type`, value: desc2.join(" ")})
@@ -111,22 +111,22 @@ module.exports = {
     var pInv = await inv.fetchInv(user.id)
     var invList = [];
     for (var i=0; i<pInv.length; i++) {
-      if (pInv[i].dataValues.equip === 1) {
+      if (pInv[i].equip === 1) {
         invList.push('[EQUIPPED]')
       }
       invList.push('Item:')
-      invList.push(pInv[i].dataValues.name)
-      if (pInv[i].dataValues.type === 'crate') {
+      invList.push(pInv[i].name)
+      if (pInv[i].type === 'crate') {
         for (var j=0;j<list.length;j++) {
-          if (list[j].name === pInv[i].dataValues.name) {
+          if (list[j].name === pInv[i].name) {
             invList.push(`(Tier ${list[j].tier})`)
           }
         }
       }
       invList.push('| Type: ')
-      invList.push(pInv[i].dataValues.type)
+      invList.push(pInv[i].type)
       invList.push('| Quantity: ')
-      invList.push(pInv[i].dataValues.quantity)
+      invList.push(pInv[i].quantity)
       invList.push('\n\n')
     }
     var inventory = invList.join(" ");

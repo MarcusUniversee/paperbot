@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
-const inv = require('inventory');
-const prof = require('profile')
+const inv = require('../functions/inventory');
+const prof = require('../functions/profile')
 const boost = require('../getJSON/boosts.json')
 const fs = require('fs')
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' equip')
     var item = await inv.fetchItem(message.author.id, paramsCom[0])
-    if (!item.pID) return message.reply('You do not own an item with this name')
+    if (!item.userid) return message.reply('You do not own an item with this name')
     if (item.equip === 1) return message.reply('This item is already equipped')
     var profile = await prof.fetchProfile(message.author.id)
     switch (item.type) {
@@ -49,17 +49,6 @@ module.exports = {
         var eItem = await inv.equipItem(message.author.id, paramsCom[0])
       break;
       case 'profile':
-        if (item.name.endsWith('pfp')) {
-          if (profile.smallpfp === 1) {
-            var ueItem = await inv.unequipItem(message.author.id, 'smallpfp')
-          }
-          if (profile.medpfp === 1) {
-            var ueItem = await inv.unequipItem(message.author.id, 'medpfp')
-          }
-          if (profile.largepfp === 1) {
-            var ueItem = await inv.unequipItem(message.author.id, 'largepfp')
-          }
-        }
         message.channel.send({embed: {
           color: 0x7a19a8,
           title: 'Item Equipped',
@@ -90,7 +79,7 @@ module.exports = {
           ],
         }})
         var eItem = await inv.equipItem(message.author.id, paramsCom[0])
-        var profUpdate = await prof.updateField(message.author.id, 'hasBorder', true)
+        var profUpdate = await prof.updateField(message.author.id, 'border', true)
       break;
       case 'serverboost':
         //check if server boost already exists in json

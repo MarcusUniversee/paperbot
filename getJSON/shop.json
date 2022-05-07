@@ -159,7 +159,7 @@
 	},
   {
 		"name": "increase badge limit",
-    "id": "badgeLimit",
+    "id": "badges",
 		"type": "profile",
     "description": "Increases the amount of badges shown on your profile",
     "price": 150,
@@ -168,19 +168,19 @@
 	},
   {
 		"name": "change header",
-    "id": "authorName",
+    "id": "subheader",
 		"type": "profile",
     "description": "Change the header of your profile (requires embed)",
-    "price": 100,
+    "price": 50,
     "reqRank": 1,
     "isItem": false
 	},
   {
-		"name": "defaultpfp",
-    "id": "defaultpfp",
+		"name": "pfp",
+    "id": "pfp",
 		"type": "profile",
     "description": "Adds a profile picture to your profile in the thumbnail location",
-    "price": 100,
+    "price": 150,
     "reqRank": 30,
     "isItem": true
 	},
@@ -189,7 +189,7 @@
     "id": "progress bar",
 		"type": "profile",
     "description": "Adds progress bars to challenges and your profile",
-    "price": 200,
+    "price": 150,
     "reqRank": 60,
     "isItem": true
 	},
@@ -208,8 +208,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "Black border around your profile picture",
-    "price": 3500,
-    "reqRank": 70,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -218,8 +218,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "cobalt border around your profile picture",
-    "price": 3400,
-    "reqRank": 68,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -228,8 +228,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "grey border around your profile picture",
-    "price": 3300,
-    "reqRank": 66,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -238,8 +238,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "crimson border around your profile picture",
-    "price": 3200,
-    "reqRank": 65,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -248,8 +248,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "purple border around your profile picture",
-    "price": 3100,
-    "reqRank": 64,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -258,8 +258,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "forest green border around your profile picture",
-    "price": 3000,
-    "reqRank": 63,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -268,8 +268,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "lime border around your profile picture",
-    "price": 2900,
-    "reqRank": 60,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -278,8 +278,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "orange border around your profile picture",
-    "price": 2800,
-    "reqRank": 58,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -288,8 +288,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "titanium white border around your profile picture",
-    "price": 2700,
-    "reqRank": 56,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -298,8 +298,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "burnt sienna border around your profile picture",
-    "price": 2600,
-    "reqRank": 54,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -308,8 +308,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "sky blue border around your profile picture",
-    "price": 2500,
-    "reqRank": 53,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -318,8 +318,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "saffron border around your profile picture",
-    "price": 2400,
-    "reqRank": 52,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	},
   {
@@ -328,8 +328,8 @@
 		"type": "profile",
     "subtype": "pfpborder",
     "description": "pink border around your profile picture",
-    "price": 2300,
-    "reqRank": 51,
+    "price": 2000,
+    "reqRank": 50,
     "isItem": true
 	}
 ]

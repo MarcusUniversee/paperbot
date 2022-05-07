@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
-const challenge = require('challenges')
-const dailyStats = require('dailystats')
+const challenge = require('../functions/challenge')
+const dailyStats = require('../functions/stats')
 const challengeList = require('../getJSON/challenges.json')
 const stats = require('../commands/stat-check.js')
-const eco = require('discord-economy');
-const inv = require('inventory')
+const eco = require('../functions/economy');
+const inv = require('../functions/inventory')
 
 module.exports = {
   name: ['challenges', 'c'],
@@ -20,19 +20,19 @@ module.exports = {
     var pChallenges = await challenge.fetchAllChallenges(message.author.id)
     //only daily challenges for now
     if (!paramsCom[0]) {
-      if(pChallenges[0]) {
+      if(pChallenges[0].id) {
         return fetchChallenges(message, message.author, pChallenges)
       } else {
         return message.reply('You have no active challenges. do [p.challenges start] to start')
 
       }
     } else if (paramsCom[0] === 'start') {
-      if (pChallenges[0]) {
+      if (pChallenges[0].id) {
         return message.reply('You already have challenges')
       }
-      var reset = dailyStats.resetAllStat(message.author.id)
+      var reset = dailyStats.resetAllDailyStat(message.author.id)
       var auto = await inv.fetchItem(message.author.id, 'auto challenge activation')
-      if (auto.pID) {
+      if (auto.userid) {
         if (auto.equip != 0) {
           message.reply('challenges activated!')
         }
@@ -80,10 +80,10 @@ module.exports = {
         var confirmation = m.content.toLowerCase()
         if (confirmation === 'yes') {
           await challenge.resetAllChallenges(message.author.id)
-          await eco.SubtractFromBalance(message.author.id, 20)
-          var reset = dailyStats.resetAllStat(message.author.id)
+          await eco.subtractFromBalance(message.author.id, 20)
+          var reset = dailyStats.resetAllActiveStat(message.author.id)
           var auto = await inv.fetchItem(message.author.id, 'auto challenge activation')
-          if (auto.pID) {
+          if (auto.userid) {
             if (auto.equip != 0) {
               message.reply('challenges rerolled!')
             }
@@ -140,12 +140,13 @@ async function fetchChallenges(message, user, pChallenges) {
   var opencrate = await dailyStats.fetchStat(user.id, 'opencrate')
   var tradecrate = await dailyStats.fetchStat(user.id, 'tradecrate')
 
-  var pInv = await inv.fetchInv(user.id)
+  var pProfile = await inv.fetchInv(user.id)
+  var pInv = pProfile.inv
   var pBar = false;
   for (var h=0; h<pInv.length; h++) {
     if (!pInv[h]) break;
-    if (pInv[h].dataValues.equip === 1) {
-      if (pInv[h].dataValues.name == 'progress bar') {
+    if (pInv[h].equip === 1) {
+      if (pInv[h].name == 'progress bar') {
         pBar = true
       }
     }
@@ -154,8 +155,8 @@ async function fetchChallenges(message, user, pChallenges) {
   var chalList = [];
   for (var i=0; i<pChallenges.length; i++) {
     for (var j=0; j<challengeList.length;j++) {
-      if (pChallenges[i].dataValues.cID === challengeList[j].id) {
-        if (pChallenges[i].dataValues.status === 'inactive') {
+      if (pChallenges[i].cid === challengeList[j].id) {
+        if (pChallenges[i].status === 'inactive') {
           chalList.push('**[COMPLETED] **')
         }
         chalList.push('**' + challengeList[j].title)
@@ -164,18 +165,18 @@ async function fetchChallenges(message, user, pChallenges) {
         chalList.push(challengeList[j].description)
         chalList.push('\n')
         var value;
-        if (pChallenges[i].dataValues.status === 'inactive') {
+        if (pChallenges[i].status === 'inactive') {
           value = challengeList[j].value
-        } else if (pChallenges[i].dataValues.category === 'messagecount') {
-          value = messagecount.value
-        } else if (pChallenges[i].dataValues.category === 'blankcount') {
-          value = blankcount.value
-        } else if (pChallenges[i].dataValues.category === 'findcrate') {
-          value = findcrate.value
-        } else if (pChallenges[i].dataValues.category === 'opencrate') {
-          value = opencrate.value
-        } else if (pChallenges[i].dataValues.category === 'tradecrate') {
-          value = tradecrate.value
+        } else if (pChallenges[i].category === 'messagecount') {
+          value = messagecount.dvalue
+        } else if (pChallenges[i].category === 'blankcount') {
+          value = blankcount.dvalue
+        } else if (pChallenges[i].category === 'findcrate') {
+          value = findcrate.dvalue
+        } else if (pChallenges[i].category === 'opencrate') {
+          value = opencrate.dvalue
+        } else if (pChallenges[i].category === 'tradecrate') {
+          value = tradecrate.dvalue
         }
         var count = Math.floor((value/challengeList[j].value)*10)
         var antiCount = 10-count

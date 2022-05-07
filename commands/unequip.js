@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
-const inv = require('inventory');
-const prof = require('profile')
+const inv = require('../functions/inventory');
+const prof = require('../functions/profile')
 module.exports = {
   name: 'unequip',
   description: 'Equips an item',
@@ -12,7 +12,7 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' unequip')
     var item = await inv.fetchItem(message.author.id, paramsCom[0])
-    if (!item.pID) return message.reply('You do not own an item with this name')
+    if (!item.userid) return message.reply('You do not own an item with this name')
     if (item.equip === 0) return message.reply('This item is already unequipped')
     var profile = await prof.fetchProfile(message.author.id)
     switch (item.type) {

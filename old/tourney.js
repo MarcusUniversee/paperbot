@@ -1,12 +1,4 @@
-const challenge = require('challenges')
-const dailyStats = require('dailystats')
-const challengeList = require('../getJSON/challenges.json')
-const leveling = require('discord-leveling');
-const eco = require('discord-economy');
-const leveling2 = require('discord-leveling2');
-const inv = require('inventory')
-const prof = require('profile')
-const boost = require('../getJSON/boosts.json')
+
 const fs = require('fs')
 
 const tRank = require('../getJSON/tourneyRankings.json')

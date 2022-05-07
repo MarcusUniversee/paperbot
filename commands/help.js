@@ -8,7 +8,7 @@ module.exports = {
   category: '',
   callback: (message, arguments, text) => {
     console.log(message.author.tag + ' help')
-    const categories = ['', 'Economy', 'Betting', 'Inventory', 'Facts', 'Minigames']
+    const categories = ['', 'Economy', 'Inventory', 'Facts', 'Minigames']
     var reply = [{
                   type: `About`,
                   value: `Paper bot is multi-purpose bot made for the paper server

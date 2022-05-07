@@ -132,19 +132,7 @@
     "type": "color"
 	},
   {
-		"name": "smallpfp",
-    "type": "profile"
-	},
-  {
-		"name": "medpfp",
-    "type": "profile"
-	},
-  {
-		"name": "largepfp",
-    "type": "profile"
-	},
-  {
-		"name": "defaultpfp",
+		"name": "pfp",
     "type": "profile"
 	},
   {

@@ -12,23 +12,11 @@ module.exports = {
   callback: async (message, paramsCom) => {
     console.log(message.author.tag + ' responsive');
 
-    message.channel.send({
-      "content": 'hello',
-      "components": [
-        {
-          "type": 1,
-          "components": [
-            {
-              "type": 2,
-              "label": "Click me!",
-              "style": 1,
-              "custom_id": "click_one"
-            }
-          ]
+    message.reply("hi")
+    setTimeout(() => {
+      message.channel.messages.cache.find(msg => msg.author.id == 801554509548879923 && msg.mentions.users.first() == message.author).delete()
 
-        }
-      ]
-    })
+    }, "2000")
 
   },
   permissions: [],

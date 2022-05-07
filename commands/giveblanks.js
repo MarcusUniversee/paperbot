@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy');
+const eco = require('../functions/economy');
 
 module.exports = {
   name: 'giveblanks',
@@ -15,11 +15,12 @@ module.exports = {
     if (!parseInt(paramsCom[1])) return message.reply('Amount is not a number')
     if (parseInt(paramsCom[1]) < '1') return message.reply('Amount specified is too low')
     if (message.mentions.users.first().id === message.author.id) return message.reply('You cannot give blanks to yourself')
-    var output = await eco.FetchBalance(message.author.id)
+    var output = await eco.fetchBalance(message.author.id)
     if (output.balance < paramsCom[1]) return message.reply('You do not have enough blanks!')
 
-    var transfer = await eco.Transfer(message.author.id, message.mentions.users.first().id, paramsCom[1])
-    message.reply(`Sent successfully!\n${message.author.tag} now owns ${transfer.FromUser} blanks\n${message.mentions.users.first().tag} now owns ${transfer.ToUser} blanks`);
+    var receive = await eco.addToBalance(message.mentions.users.first().id, paramsCom[1])
+    var give = await eco.subtractFromBalance(message.author.id, paramsCom[1])
+    message.reply(`Sent successfully!\n${message.author.tag} now owns ${give.newbalance} blanks\n${message.mentions.users.first().tag} now owns ${receive.newbalance} blanks`);
     return;
   },
   permissions: [],

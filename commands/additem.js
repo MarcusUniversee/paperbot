@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const inv = require('inventory')
+const inv = require('../functions/inventory')
 const validItems = require('../getJSON/validItems.json')
 module.exports = {
   name: 'additem',
@@ -23,7 +23,7 @@ module.exports = {
     }
     if (!isItem) return message.reply('Item is not valid')
     var hasItem = await inv.fetchItem(message.mentions.users.first().id, itemName)
-    if (hasItem.pID) message.reply('This player already owns this item. Adding another one to their inventory')
+    if (hasItem.userid) message.reply('This player already owns this item. Adding another one to their inventory')
     if (!paramsCom[2]) {
       var quantity = 1
     } else {

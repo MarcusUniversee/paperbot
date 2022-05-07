@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
-const eco = require('discord-economy')
-const leveling = require('discord-leveling2')
-const inv = require('inventory')
-const prof = require('profile')
+const eco = require('../functions/economy')
+const leveling = require('../functions/leveling2')
+const inv = require('../functions/inventory')
+const prof = require('../functions/profile')
 const Canvas = require('canvas')
 const colorID = require('../getJSON/colorId.json');
 module.exports = {
@@ -17,34 +17,36 @@ module.exports = {
     console.log(message.author.tag + ' profile')
 
     var user = message.mentions.users.first() || message.author
-    var balOutput = await eco.FetchBalance(user.id)
-    var rankOutput = await leveling.Fetch(user.id)
+    var balOutput = await eco.fetchBalance(user.id)
+    var rankOutput = await leveling.fetch(user.id)
     var xp = rankOutput.xp
-    if (rankOutput.level >= 120) {
+    if (rankOutput.lvl >= 120) {
       var maxXp = 550
     } else {
-      var maxXp = Math.floor((40*(Math.log(rankOutput.level + 1))) + (3*rankOutput.level)) + 1; //y=40ln(x+1)+3x+1
+      var maxXp = Math.floor((40*(Math.log(rankOutput.lvl + 1))) + (3*rankOutput.lvl)) + 1; //y=40ln(x+1)+3x+1
     }
     var showXp = xp + '/' + maxXp
-    var pInv = await inv.fetchInv(user.id)
+    var pProfile = await inv.fetchInv(user.id)
+    var pInv = pProfile.inv
     var invList = [];
     var profile = await prof.fetchProfile(user.id)
     var border;
     var borderColor;
+
     for (var i=0; i<pInv.length; i++) {
       if (!pInv[i]) break;
-      if (pInv[i].dataValues.equip === 1) {
-        if (pInv[i].dataValues.type == 'badge') {
-          if (!invList[(profile.badgeLimit-1)*2]) {
-            invList.push(pInv[i].dataValues.name)
+      if (pInv[i].equip === 1) {
+        if (pInv[i].type == 'badge') {
+          if (!invList[(profile.badges-1)*2]) {
+            invList.push(pInv[i].name)
             invList.push('\n')
           }
         }
-        if (pInv[i].dataValues.type == 'pfpborder') {
-          border = pInv[i].dataValues.name.slice(0, -7)
+        if (pInv[i].type == 'pfpborder') {
+          border = pInv[i].name.slice(0, -7)
           borderColor = colorID.find( ({ name }) => name === border ).id;
         }
-        if (pInv[i].dataValues.name == 'progress bar') {
+        if (pInv[i].name == 'progress bar') {
           var progressBar = [];
           var count = Math.floor((xp/maxXp)*10)
           var antiCount = 10-count
@@ -70,35 +72,19 @@ module.exports = {
     ctx.closePath();
     ctx.clip();
 
-    const pfp = await Canvas.loadImage(user.displayAvatarURL({ format: 'jpg' }));
-    ctx.drawImage(pfp, 4, 4, canvas.width-8, canvas.height-8);
+    const ipfp = await Canvas.loadImage(user.displayAvatarURL({ format: 'jpg' }));
+    ctx.drawImage(ipfp, 4, 4, canvas.width-8, canvas.height-8);
     var attachment = new Discord.MessageAttachment(user.displayAvatarURL(), 'dimage.png');
     var badges = invList.join(" ") //this will later be invlist[0] OR multiple badges if they bought the customization
-    var smallpfp = ''
-    var medpfp = ''
-    var largepfp = ''
-    var defaultpfp = '';
-    if (profile.smallpfp) {
-      smallpfp = 'attachment://dimage.png';
-    }
-    if (profile.medpfp) {
-      medpfp = 'attachment://dimage.png';
-    }
-    if (profile.largepfp) {
-      largepfp = 'attachment://dimage.png';
-    }
-    if (profile.defaultpfp) {
-      defaultpfp = 'attachment://dimage.png';
+    var pfp = '';
+    if (profile.pfp) {
+      pfp = 'attachment://dimage.png';
     }
 
-    if (profile.hasBorder) {
+    if (profile.border) {
       attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'image.png');
-      if (profile.smallpfp) smallpfp = 'attachment://image.png';
-      if (profile.medpfp) medpfp = 'attachment://image.png';
-      if (profile.largepfp) largepfp = 'attachment://image.png';
-      if (defaultpfp === 'attachment://dimage.png') defaultpfp = 'attachment://image.png';
+      if (pfp === 'attachment://dimage.png') pfp = 'attachment://image.png';
     }
-
     var tag = user.tag.slice(0, -5)
     if (!profile.embed) {
 
@@ -106,11 +92,11 @@ module.exports = {
         `
         **${user.tag}\'s profile**
         Badges: ${badges}
-        Rank: ${rankOutput.level}
+        Rank: ${rankOutput.lvl}
         Balance: ${balOutput.balance}`
       )
     }
-    if (!profile.smallpfp && !profile.medpfp && !profile.largepfp & !profile.defaultpfp) {
+    if (!profile.pfp) {
       message.channel.send({embed: {
         color: 0x7a19a8,
         title: `${tag}\'s profile`,
@@ -124,7 +110,7 @@ module.exports = {
           },
           {
             name: 'Rank',
-            value: `${rankOutput.level}`,
+            value: `${rankOutput.lvl}`,
             inline: true
           },
           {
@@ -137,9 +123,6 @@ module.exports = {
             value: `${showXp}`
           },
         ],
-        image: {
-      		url: largepfp,
-      	},
         footer: {
           text: user.tag,
       	},
@@ -150,11 +133,10 @@ module.exports = {
         title: `${tag}\'s profile`,
         author: {
           name: profile.authorName,
-          icon_url: medpfp,
           url: '',
         },
         thumbnail: {
-          url: defaultpfp,
+          url: pfp,
         },
         fields: [
           {
@@ -163,7 +145,7 @@ module.exports = {
           },
           {
             name: 'Rank',
-            value: `${rankOutput.level}`,
+            value: `${rankOutput.lvl}`,
             inline: true
           },
           {
@@ -176,12 +158,8 @@ module.exports = {
             value: `${showXp}`
           },
         ],
-        image: {
-      		url: largepfp,
-      	},
         footer: {
-          text: user.tag,
-      		icon_url: smallpfp,
+          text: user.tag
       	},
       }});
     }
