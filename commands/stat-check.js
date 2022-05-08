@@ -425,7 +425,7 @@ module.exports = {
     } else {
       var maxXp = Math.floor((40*(Math.log(profile.lvl + 1))) + (3*profile.lvl)) + 1; //y=40ln(x+1)+3x+1
     }
-    await dailyStats.updateStat(playerID, 'challengesDone', 1)
+    await dailyStats.updateStat(playerID, 'challengesDone', 1, true)
     var curXp = profile.xp
     switch (difficulty) {
       case 'very easy':

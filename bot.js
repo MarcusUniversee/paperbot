@@ -14,6 +14,8 @@ const loadCommands = require('./commands/load-commands')
 
 const stats = require('./commands/stat-check.js')
 
+const token = require('../token.json')
+
 client.commands = new Discord.Collection();
 //prefix
 let prefix = 'p.';
@@ -119,4 +121,4 @@ client.on('ready', () => {
     })
 });
 
-client.login('ODAxNTU0NTA5NTQ4ODc5OTIz.YAiXzw.G3orrrOPtlXCZ8G_d4GO-N5j9f0');
+client.login(token);

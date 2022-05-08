@@ -20,6 +20,7 @@ module.exports = {
           break;
         }
       }
+      var dailyValue = 0;
 
       if (!notDaily) {
         var dhasId = false
@@ -31,7 +32,7 @@ module.exports = {
             break;
           }
         }
-        var dailyValue = 0;
+        dailyValue = 0;
         if (dhasId) {
           dailyValue = ds[dindex].value + value;
           ds[dindex].value += value;
